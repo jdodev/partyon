@@ -10,12 +10,24 @@ function inicio()
 		$("header").css(miCSS);
 	});
 
-	$("#btnRank").click(function(e){
+	$("#btnTrends").click(function(e){
 			var miCSSRank ={
 			"background": "rgba(127,0,249,0.9)",
 			
 		};
 		$("header").css(miCSSRank);
+		setNoActivo();
+		$("#btnTrends").attr('class', 'activo');
+	});
+
+	$("#btnHome").click(function(e){
+			var miCSSRank ={
+			"background": "rgba(15,101,239,0.9)",
+			
+		};
+		$("header").css(miCSSRank);
+		setNoActivo();
+		$("#btnHome").attr('class', 'activo');
 	});
 
 	$("#btnActividad").click(function(e){
@@ -24,6 +36,8 @@ function inicio()
 			
 		};
 		$("header").css(miCSSActividad);
+		setNoActivo();
+		$("#btnActividad").attr('class', 'activo');
 	});
 
 	$("#btnDj").click(function(e){
@@ -32,6 +46,8 @@ function inicio()
 			
 		};
 		$("header").css(miCSSDj);
+		setNoActivo();
+		$("#btnDj").attr('class', 'activo');
 	});
 
 	$("#btnPerfil").click(function(e){
@@ -40,6 +56,18 @@ function inicio()
 			
 		};
 		$("header").css(miCSSPerfil);
+		setNoActivo();
+		$("#btnPerfil").attr('class', 'activo');
 	});
 	
 }
+
+var setNoActivo = function eliminarActivo(){
+	$("#menu li").each(function(){
+		$("#menu>li>a").removeClass("activo");
+	});
+}
+
+
+
+

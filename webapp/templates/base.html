@@ -15,12 +15,12 @@
     <body>
         <header>
             <nav>
-                <ul>
-                    <li><a href="index.html" class="activo" >Home</a></li>
-                    <li><a id ="btnRank" href="rank.html">#</a></li>
-                    <li><a href="actividad.html">Actividad</a></li>
-                    <li><a href="dj.html">HeyDj</a></li>
-                    <li><a href="perfil.html">Perfil</a></li>
+                <ul id="menu">
+                    <li><a id="btnHome" href="#" class="activo">Home</a></li>
+                    <li><a id="btnTrends" href="#">#</a></li>
+                    <li><a id="btnActividad" href="#">Actividad</a></li>
+                    <li><a id="btnDj" href="#">HeyDj</a></li>
+                    <li><a id="btnPerfil" href="#">Perfil</a></li>
                 </ul>
             </nav>
         </header>
@@ -33,9 +33,10 @@
         </section>
 
         <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-        <script src="{{STATIC_URL}}static/js/main.js"></script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
