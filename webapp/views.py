@@ -19,4 +19,4 @@ def index(request):
 
 @login_required(login_url='/')
 def home(request):
-	return HttpResponse("Home.")
+	return render(request, 'home.html')
