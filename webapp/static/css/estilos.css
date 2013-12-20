@@ -1,0 +1,63 @@
+a{color:#606060;text-decoration:none}
+body{background:#000;color:#a3a2a3;font-family:arial;font-size:17px;text-align:left}
+header{background:rgba(15,101,239,0.9);border-bottom:1px solid #515151;height:50px;margin-bottom:700px;position:fixed;width:100%;z-index:1}
+header nav{margin-left:-30px;vertical-align:top}
+header nav ul li{display:inline-block;padding:0 15px 0 0}
+header nav ul li a{color:rgba(255,255,255,0.5)}
+header nav ul li .activo{color:#fff;font-size:18px}
+.hr{padding-bottom:10px;border-bottom:1px solid #222}
+#contenido{padding-top:55px}
+#contenido #configure{text-align:right}
+#contenido #info{color:#fff;text-align:center}
+#contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
+#contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
+#contenido #dj{color:#fff}
+#contenido #dj ul{background:#212121;padding:20px 0 20px 0}
+#contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
+#contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
+#contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
+#contenido #nombre,#votos{font-size:14px}
+#contenido #dj #nombre{width:80%}
+#contenido #dj #votos{width:10%}
+#contenido h1{margin:20px 0 0 0}
+#contenido .nombrelugar{text-align:center}
+#contenido #perfil{margin-top:10px;padding:20px 0 20px 0;background:#ddd;width:100%}
+#contenido #perfil #user{text-align:center}
+#contenido #perfil .imagen{padding-left:140px}
+#contenido #perfil .imagen .avatar2{border-radius:80%;border:2px solid #000;height:50px;overflow:hidden;width:50px;position:relative;vertical-align:center}
+.formato{color:#aaa;font-size:12px}
+.formato2{color:#ddd}
+#contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%}
+#contenido #rank ul{background:#212121;padding:20px 0 20px 10px;margin:5px 5px 10px 5px;text-align:center}
+#contenido #rank ul li{display:inline-block;padding:0 10px 0 10px;text-align:center}
+#contenido #rank h1{text-align:center;padding-bottom:10px}
+#contenido .post .imagen{margin-bottom:10px}
+#contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
+#contenido .texto{padding-top:2px}
+#contenido .texto .lugar,.tiempo{display:inline-block}
+#contenido .texto .nombre{padding-top:3px;padding-bottom:5px}
+#contenido .texto .nombre a{color:#6d6d6d}
+#contenido .texto .lugar a{color:#6d6d6d}
+#contenido .texto .describeme{padding-bottom:5px}
+#contenido .texto .tiempo{margin-top:10px;padding-left:210px}
+@media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
+#contenido #perfil{width:350px}
+#contenido #configure{width:350px}
+#contenido .post .imagen{margin-bottom:10px;margin-left:480px}
+#contenido .post .texto .nombre,.describeme,.lugar,.tiempo{margin-left:400px;width:100%}
+#contenido .post .texto .lugar,.tiempo{padding-top:10px}
+#contenido .post .texto .nombre{margin-top:-100px}
+#contenido .post{margin-bottom:10px;margin-left:30px}
+}@media screen and (min-width:1024px){#contenido #rank,#dj{width:30%;margin-left:20px}
+#contenido .post{display:block}
+#contenido .post .imagen{margin-bottom:10px;margin-left:600px}
+#contenido .post .texto .nombre,.describeme,.lugar,.tiempo{margin-left:500px;width:100%}
+#contenido .post .texto .lugar,.tiempo{padding-top:10px}
+#contenido .post .texto .nombre{margin-top:-100px}
+#contenido .post{margin-bottom:10px;margin-left:120px}
+#contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
+#contendio .post .texto .lugar{width:60%}
+}@media screen and (min-width:1280px){#contenido .post,#rank,#dj{width:30%;margin-left:20px}
+#contenido .nombre{margin-top:-100px}
+#contenido .post{margin-bottom:10px;margin-left:200px}
+}

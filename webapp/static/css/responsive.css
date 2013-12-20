@@ -1,0 +1,4 @@
+@media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
+}@media screen and (min-width:1024px){#contenido .post,#rank,#dj{width:30%;margin-left:20px}
+}@media screen and (min-width:1280px){#contenido .post,#rank,#dj{width:30%;margin-left:20px}
+}
