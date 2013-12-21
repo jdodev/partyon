@@ -5,4 +5,5 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', views.index, name='index'),
     url(r'^home/$', views.home, name='home'),
+    url(r'^datahome/$', views.datahome, name='datahome'),
 )
