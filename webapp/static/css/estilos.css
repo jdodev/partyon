@@ -28,8 +28,9 @@ header nav ul li .activo{color:#fff;font-size:18px}
 .formato{color:#aaa;font-size:12px}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%}
-#contenido #rank ul{background:#212121;padding:20px 0 20px 10px;margin:5px 5px 10px 5px;text-align:center}
-#contenido #rank ul li{display:inline-block;padding:0 10px 0 10px;text-align:center}
+#contenido #rank{border-bottom:1px solid rgba(15,101,239,0.9);margin:10px 15px 10px 15px}
+#contenido #rank ul{padding:20px 0 0 10px;text-align:center}
+#contenido #rank ul li{display:inline-block;padding:0 10px 20px 10px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
 #contenido .post .imagen{margin-bottom:10px}
 #contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
