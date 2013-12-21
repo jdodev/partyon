@@ -1,0 +1,21 @@
+<div id="asyncContainer">
+{% for place in TPlaces %}
+    <article id="rank">
+        <ul>
+            <h1>{{place.PlaceName}}</h1>
+            <li class="formato2">22
+                <br/><div class="formato">Bolos</div>
+            </li>
+            <li class="formato2">Four Loco
+                <br/><div class="formato">Bebida Favorita</div>
+            </li>
+            
+            <li class="formato2">2:35 A.M
+                <br/><div class="formato">Ultimo Registro</div>
+            </li>
+        </ul>
+    </article>
+{% empty %}
+<h2>No hay nada.</h2>
+{% endfor %}
+</div>

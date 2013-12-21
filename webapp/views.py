@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from datetime import datetime
 from django.core import serializers
 from django.db.models import Count, Max, Sum, Avg
@@ -20,4 +21,11 @@ def index(request):
 
 @login_required(login_url='/')
 def home(request):
-	return render(request, 'home.html')
+	resPlaces = Place.objects.all()
+	return render(request, 'home.html', {'TPlaces' : resPlaces})
+
+@login_required(login_url='/')
+def datahome(request):
+	if request.is_ajax():
+		resPlaces = Place.objects.all()
+		return render(request, 'datahome.html', {'TPlaces' : resPlaces})
