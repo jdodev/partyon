@@ -5,6 +5,11 @@ header nav{margin-left:-30px;vertical-align:top}
 header nav ul li{display:inline-block;padding:0 15px 0 0}
 header nav ul li a{color:rgba(255,255,255,0.5)}
 header nav ul li .activo{color:#fff;font-size:18px}
+footer{background:#000;border-top:1px solid #191919;bottom:0;position:fixed;width:100%;z-index:1;font-size:15px;padding:5px 0 5px 0}
+footer ul{margin-left:-30px}
+footer ul li{display:inline-block;padding:0 5px 0 5px}
+footer ul li a{color:rgba(255,255,255,0.5)}
+footer ul li .activo{color:#fff;font-size:18px}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
 #contenido{padding-top:55px}
 #contenido #configure{text-align:right}
