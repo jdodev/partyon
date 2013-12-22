@@ -1,5 +1,4 @@
-@import "iconos.styl"
-
+@import "style.styl"
 a{
 	color: #606060;
 	text-decoration: none;
@@ -44,28 +43,34 @@ footer{
 	background: #000;
 	border-top: 1px solid #191919;
 	bottom: 0;
-	font-size: 15px;
-	padding: 5px 0 5px 0;
+	height: 25px;
+	padding: 0 0 30px 0;
 	position: fixed;
+	text-align: center;
+	vertical-align: bottom;
 	width: 100%;
 	z-index: 1;
 }
 footer ul{
-	margin-left: -30px;
+	margin-left: -40px;
 }
 footer ul li{
 	display: inline-block;
-	padding: 0 5px 0 5px;
-
-	
+	padding: 0 15px 0 20px;
 }
 footer ul li a{
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,0.6);
 
 }
-footer ul li .activo{
-	color: #fff;
-	font-size: 18px;
+
+.icono{
+	font-size:20px;
+	text-align: center;
+
+}
+.letraicono{
+	font-size:10px !important;
+	
 }
 .hr{
 	padding-bottom: 10px;
@@ -73,7 +78,7 @@ footer ul li .activo{
 }
 #contenido{
 	padding-top: 55px;
-	padding-bottom: 45px;
+	padding-bottom: 40px;
 }
 #contenido #configure{
 	text-align: right;
