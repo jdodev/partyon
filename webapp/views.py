@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.utils import simplejson
 from models import *
 
 def index(request):
