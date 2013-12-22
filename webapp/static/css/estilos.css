@@ -17,13 +17,13 @@ header nav{margin-left:-30px;vertical-align:top}
 header nav ul li{display:inline-block;padding:0 15px 0 0}
 header nav ul li a{color:rgba(255,255,255,0.5)}
 header nav ul li .activo{color:#fff;font-size:18px}
-footer{background:#000;border-top:1px solid #191919;bottom:0;position:fixed;width:100%;z-index:1;font-size:15px;padding:5px 0 5px 0}
+footer{background:#000;border-top:1px solid #191919;bottom:0;font-size:15px;padding:5px 0 5px 0;position:fixed;width:100%;z-index:1}
 footer ul{margin-left:-30px}
 footer ul li{display:inline-block;padding:0 5px 0 5px}
 footer ul li a{color:rgba(255,255,255,0.5)}
 footer ul li .activo{color:#fff;font-size:18px}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
-#contenido{padding-top:55px}
+#contenido{padding-top:55px;padding-bottom:45px}
 #contenido #configure{text-align:right}
 #contenido #info{color:#fff;text-align:center}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
@@ -45,7 +45,7 @@ footer ul li .activo{color:#fff;font-size:18px}
 .formato{color:#aaa;font-size:12px}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%}
-#contenido #rank{border-bottom:1px solid rgba(15,101,239,0.9);margin:10px 15px 10px 15px}
+#contenido #rank{border-bottom:1px solid #141414;margin:10px 15px 10px 15px}
 #contenido #rank ul{padding:20px 0 0 10px;text-align:center}
 #contenido #rank ul li{display:inline-block;padding:0 10px 20px 10px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
