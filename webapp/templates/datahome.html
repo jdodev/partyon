@@ -19,3 +19,40 @@
 <h2>No hay nada.</h2>
 {% endfor %}
 </div>
+
+<script id="cosasLocas" type="text/javascript">
+    $(function(){
+        var contaLo = 0;
+        var DataHome2 = function(){
+            if (contaLo == 1) {
+                $.ajax({
+                    url: '/datahome/',
+                    type: 'GET',
+                    data: {
+                        
+                    },
+                    traditional: true,
+                    dataType: 'html',
+                    success: function(result) {
+                        //alert("datahome");
+                        timer.stop();
+                        $('#cosasLocas').remove();
+                        $('#asyncContainer').remove();
+                        $('#contenido').append(result);
+                    },
+                      //   error: function (xhr, ajaxOptions, thrownError) {
+                      //   alert(xhr.status);
+                      //   alert(thrownError);
+                      // }
+                });
+
+            };
+            contaLo = 2;
+        };
+
+        timer = $.timer(10000, function(){
+            contaLo = 1;
+            DataHome2();
+        });
+    });
+</script>

@@ -18,6 +18,25 @@ function inicio()
 		$("header").css(miCSSRank);
 		setNoActivo();
 		$("#btnTrends").attr('class', 'activo');
+		$.ajax({
+                url: '/datatrends/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
 	});
 
 	$("#btnHome").click(function(e){
@@ -28,6 +47,25 @@ function inicio()
 		$("header").css(miCSSRank);
 		setNoActivo();
 		$("#btnHome").attr('class', 'activo');
+		$.ajax({
+                url: '/datahome/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
 	});
 
 	$("#btnActividad").click(function(e){

@@ -29,3 +29,9 @@ def datahome(request):
 	if request.is_ajax():
 		resPlaces = Place.objects.all()
 		return render(request, 'datahome.html', {'TPlaces' : resPlaces})
+
+@login_required(login_url='/')
+def datatrends(request):
+	if request.is_ajax():
+		resPlaces = Place.objects.all()
+		return render(request, 'datatrends.html', {'TPlaces' : resPlaces})
