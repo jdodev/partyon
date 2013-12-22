@@ -20,8 +20,7 @@ def index(request):
 
 @login_required(login_url='/')
 def home(request):
-	resPlaces = Place.objects.all()
-	return render(request, 'home.html', {'TPlaces' : resPlaces})
+	return render(request, 'home.html')
 
 @login_required(login_url='/')
 def datahome(request):
