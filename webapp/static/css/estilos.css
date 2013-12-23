@@ -64,7 +64,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-bottom:5px}
 #contenido .texto .tiempo{margin-top:10px;padding-left:210px}
-.transparencia{position:absolute;background:rgba(0,0,0,0.5);height:160px;width:290px}
+.transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
 .transparencia a{color:#fff}
 @media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
 #contenido #perfil{width:350px}
