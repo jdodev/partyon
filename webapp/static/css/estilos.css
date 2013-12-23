@@ -51,7 +51,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .formato{color:#aaa;font-size:12px}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%}
-#contenido #rank{border-bottom:1px solid #141414;margin:10px 15px 10px 15px}
+#contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
 #contenido #rank ul{padding:20px 0 0 10px;text-align:center}
 #contenido #rank ul li{display:inline-block;padding:0 10px 20px 10px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
@@ -64,6 +64,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-bottom:5px}
 #contenido .texto .tiempo{margin-top:10px;padding-left:210px}
+.transparencia{position:absolute;background:rgba(0,0,0,0.7);height:160px}
 @media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
 #contenido #perfil{width:350px}
 #contenido #configure{width:350px}

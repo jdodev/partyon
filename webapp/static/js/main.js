@@ -90,7 +90,7 @@ function inicio()
 
 	$("#btnPerfil").click(function(e){
 			var miCSSPerfil={
-			"background": "rgba(247,213,13,1)",
+			"background": "#D8B900",
 			
 		};
 		$("header").css(miCSSPerfil);

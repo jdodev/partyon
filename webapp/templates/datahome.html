@@ -1,7 +1,9 @@
 <div id="asyncContainer">
 {% for place in TPlaces %}
     <article id="rank">
-        <ul>
+        <div class="transparencia">
+
+            <ul>
             <h1>{{place.PlaceName}}</h1>
             <li class="formato2">22
                 <br/><div class="formato">Bolos</div>
@@ -14,6 +16,9 @@
                 <br/><div class="formato">Ultimo Registro</div>
             </li>
         </ul>
+        </div>
+         <img src="{{STATIC_URL}}/img/pequena2.jpg" alt="">
+        
     </article>
 {% empty %}
 <h2>No hay nada.</h2>
