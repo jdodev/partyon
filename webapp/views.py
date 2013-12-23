@@ -33,3 +33,9 @@ def datatrends(request):
 	if request.is_ajax():
 		resPlaces = Place.objects.all()
 		return render(request, 'datatrends.html', {'TPlaces' : resPlaces})
+
+@login_required(login_url='/')
+def dataactivity(request):
+	if request.is_ajax():
+		resUserActivity = PhotoPost.objects.all()
+		return render(request, 'dataactivity.html', {'TUserActivity' : resUserActivity})

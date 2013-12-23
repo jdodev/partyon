@@ -1,0 +1,58 @@
+<div id="asyncContainer">
+{% for userActivity in TUserActivity %}
+<article class="post">
+    <div class="imagen">
+        <figure class="avatar"><img src="{{STATIC_URL}}img/dbrio.png" alt=""></figure>
+    </div>
+    <img src="{{STATIC_URL}}img/pequena2.jpg" alt="">
+    <div class="texto">
+        <div class="nombre">
+            {{ userActivity.PhotoPost_User.first_name }} {{ userActivity.PhotoPost_User.last_name }} <a href="">@{{ userActivity.PhotoPost_User }}</a>
+        </div>
+        <div class="describeme">
+            {{ userActivity.PhotoPostDescription }}
+        </div>
+        <div class="lugar">
+            <a id="btnLugar" href="/place/{{ userActivity.PhotoPost_PlaceID.PlaceID }}/">{{ userActivity.PhotoPost_PlaceID }}</a>
+        </div>
+        <div class="tiempo">
+            {{ userActivity.PhotoPostDateTime|timesince }}
+        </div>
+    </div>                        
+</article>
+<div class="hr"></div>
+{% empty %}
+<h2>No hay nada.</h2>
+{% endfor %}
+</div>
+
+<script id="cosasLocas" type="text/javascript">
+    $(function(){
+        var DataActivity = function(){
+            $.ajax({
+                url: '/dataactivity/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    //alert(result);
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
+        };
+
+        timer = $.timer(10000, function(){
+            DataActivity();
+        });
+    });
+</script>

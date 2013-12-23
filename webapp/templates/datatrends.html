@@ -22,7 +22,7 @@
 
 <script id="cosasLocas" type="text/javascript">
     $(function(){
-        var DataHome = function(){
+        var DataTrends = function(){
             $.ajax({
                 url: '/datatrends/',
                 type: 'GET',
@@ -45,8 +45,8 @@
             });
         };
 
-        timer = $.timer(1000, function(){
-            DataHome();
+        timer = $.timer(10000, function(){
+            DataTrends();
         });
     });
 </script>

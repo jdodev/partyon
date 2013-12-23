@@ -76,6 +76,25 @@ function inicio()
 		$("header").css(miCSSActividad);
 		setNoActivo();
 		$("#btnActividad").attr('class', 'icon-users activo');
+		$.ajax({
+                url: '/dataactivity/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
 	});
 
 	$("#btnDj").click(function(e){
