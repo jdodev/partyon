@@ -50,7 +50,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #contenido #perfil .imagen .avatar2{border-radius:80%;border:2px solid #000;height:50px;overflow:hidden;width:50px;position:relative;vertical-align:center}
 .formato{color:#aaa;font-size:12px}
 .formato2{color:#ddd}
-#contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%;padding:10px 0 0 10px}
+#contenido .post{font-size:.8em;margin:15px 0 15px 7px;width:100%;padding:0 0 0 10px}
 #contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
 #contenido #rank ul{padding:20px 0 0 10px;text-align:center}
 #contenido #rank ul li{display:inline-block;padding:0 10px 20px 10px;text-align:center}
