@@ -39,3 +39,9 @@ def dataactivity(request):
 	if request.is_ajax():
 		resUserActivity = PhotoPost.objects.all().order_by('-PhotoPostID')
 		return render(request, 'dataactivity.html', {'TUserActivity' : resUserActivity})
+
+@login_required(login_url='/')
+def dataheydj(request):
+	if request.is_ajax():
+		resHeyDj = SongPost.objects.all().order_by('-SongPostID')
+		return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj})

@@ -105,6 +105,25 @@ function inicio()
 		$("header").css(miCSSDj);
 		setNoActivo();
 		$("#btnDj").attr('class', 'icon-headphones activo');
+		$.ajax({
+                url: '/dataheydj/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
 	});
 
 	$("#btnPerfil").click(function(e){

@@ -34,7 +34,7 @@ class SongPost(models.Model):
 	SongPost_User = models.ForeignKey(User)
 	SongPostLat = models.CharField(max_length=25, help_text='Song Latitude', verbose_name=u'Latitude')
 	SongPostLong = models.CharField(max_length=25, help_text='Song Longitude', verbose_name=u'Longitude')
-	SongPostQuote = models.CharField(max_length=140, help_text='Song Quote', verbose_name=u'Quote')
+	SongPostQuote = models.CharField(max_length=140, help_text='Song Quote', verbose_name=u'Quote', blank=True, null=True)
 
 	def __unicode__(self):
 		return self.SongPostName

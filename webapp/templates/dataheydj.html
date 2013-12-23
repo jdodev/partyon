@@ -1,0 +1,46 @@
+<div id="asyncContainer">
+{% for song in THeyDj %}
+<article id="dj">
+    <ul>
+        <li id="cancion">{{ song.SongPostName }}</li>
+        <li id="taradiar">{{ song.SongPostQuote }}</li>
+        <li id="nombre">{{ song.SongPost_User.first_name }} {{ song.SongPost_User.last_name }} <a href="#">@{{ song.SongPost_User }}</a></li>
+        <li id="votos">20</li>
+    </ul>
+</article>
+<div class="hr"></div>
+{% empty %}
+<h2>No hay nada.</h2>
+{% endfor %}
+</div>
+
+<script id="cosasLocas" type="text/javascript">
+    $(function(){
+        var DataHeyDj = function(){
+            $.ajax({
+                url: '/dataheydj/',
+                type: 'GET',
+                data: {
+                    
+                },
+                traditional: true,
+                dataType: 'html',
+                success: function(result) {
+                    //alert(result);
+                    timer.stop();
+                    $('#cosasLocas').remove();
+                    $('#asyncContainer').remove();
+                    $('#contenido').append(result);
+                },
+                  //   error: function (xhr, ajaxOptions, thrownError) {
+                  //   alert(xhr.status);
+                  //   alert(thrownError);
+                  // }
+            });
+        };
+
+        timer = $.timer(10000, function(){
+            DataHeyDj();
+        });
+    });
+</script>

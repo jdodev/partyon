@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^datahome/$', views.datahome, name='datahome'),
     url(r'^datatrends/$', views.datatrends, name='datatrends'),
     url(r'^dataactivity/$', views.dataactivity, name='dataactivity'),
+    url(r'^dataheydj/$', views.dataheydj, name='dataheydj'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )
