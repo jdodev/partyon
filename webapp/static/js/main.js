@@ -17,7 +17,7 @@ function inicio()
 		};
 		$("header").css(miCSSRank);
 		setNoActivo();
-		$("#btnTrends").attr('class', 'activo');
+		$("#btnTrends").attr('class', 'icon-stats activo');
 		$.ajax({
                 url: '/datatrends/',
                 type: 'GET',
@@ -46,7 +46,7 @@ function inicio()
 		};
 		$("header").css(miCSSRank);
 		setNoActivo();
-		$("#btnHome").attr('class', 'activo');
+		$("#btnHome").attr('class', 'icon-home activo');
 		$.ajax({
                 url: '/datahome/',
                 type: 'GET',
@@ -75,7 +75,7 @@ function inicio()
 		};
 		$("header").css(miCSSActividad);
 		setNoActivo();
-		$("#btnActividad").attr('class', 'activo');
+		$("#btnActividad").attr('class', 'icon-users activo');
 	});
 
 	$("#btnDj").click(function(e){
@@ -85,7 +85,7 @@ function inicio()
 		};
 		$("header").css(miCSSDj);
 		setNoActivo();
-		$("#btnDj").attr('class', 'activo');
+		$("#btnDj").attr('class', 'icon-headphones activo');
 	});
 
 	$("#btnPerfil").click(function(e){
@@ -95,7 +95,7 @@ function inicio()
 		};
 		$("header").css(miCSSPerfil);
 		setNoActivo();
-		$("#btnPerfil").attr('class', 'activo');
+		$("#btnPerfil").attr('class', 'icon-user activo');
 	});
 	
 }

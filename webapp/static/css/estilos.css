@@ -21,6 +21,7 @@ footer{background:#070707;border-top:1px solid #191919;bottom:0;height:25px;padd
 footer ul{margin-left:-40px}
 footer ul li{display:inline-block;padding:0 15px 0 20px}
 footer ul li a{color:rgba(255,255,255,0.6)}
+.activo{color:#fff}
 .icon-quill:hover{color:#ff69b4;content:"\e601"}
 .icon-music:hover{color:#ff69b4;content:"\e607"}
 .icon-spinner:hover{color:#ff69b4;content:"\e608"}
