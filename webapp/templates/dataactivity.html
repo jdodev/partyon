@@ -4,7 +4,7 @@
     <div class="imagen">
         <figure class="avatar"><img src="{{STATIC_URL}}img/dbrio.png" alt=""></figure>
     </div>
-    <img src="{{STATIC_URL}}img/pequena2.jpg" alt="">
+    <img src="{{MEDIA_URL}}{{userActivity.PhotoPostPhoto}}" alt="{{ userActivity.PhotoPostDescription }} partyon {{ userActivity.PhotoPost_PlaceID }}" width="380">
     <div class="texto">
         <div class="nombre">
             {{ userActivity.PhotoPost_User.first_name }} {{ userActivity.PhotoPost_User.last_name }} <a href="">@{{ userActivity.PhotoPost_User }}</a>

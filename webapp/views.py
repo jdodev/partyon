@@ -37,5 +37,5 @@ def datatrends(request):
 @login_required(login_url='/')
 def dataactivity(request):
 	if request.is_ajax():
-		resUserActivity = PhotoPost.objects.all()
+		resUserActivity = PhotoPost.objects.all().order_by('-PhotoPostID')
 		return render(request, 'dataactivity.html', {'TUserActivity' : resUserActivity})
