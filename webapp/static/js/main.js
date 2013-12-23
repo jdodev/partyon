@@ -4,7 +4,7 @@ function inicio()
 {
 	$("#btnLugar").click(function(e){
 			var miCSS ={
-			"background": "rgba(0,177,255,0.9)",
+			"background": "rgba(0,177,255,1)",
 			
 		};
 		$("header").css(miCSS);
@@ -12,7 +12,7 @@ function inicio()
 
 	$("#btnTrends").click(function(e){
 			var miCSSRank ={
-			"background": "rgba(127,0,249,0.9)",
+			"background": "rgba(127,0,249,1)",
 			
 		};
 		$("header").css(miCSSRank);
@@ -41,7 +41,7 @@ function inicio()
 
 	$("#btnHome").click(function(e){
 			var miCSSRank ={
-			"background": "rgba(15,101,239,0.9)",
+			"background": "rgba(15,101,239,1)",
 			
 		};
 		$("header").css(miCSSRank);
@@ -70,7 +70,7 @@ function inicio()
 
 	$("#btnActividad").click(function(e){
 			var miCSSActividad={
-			"background": "rgba(247,104,6,0.9)",
+			"background": "rgba(247,104,6,1)",
 			
 		};
 		$("header").css(miCSSActividad);
@@ -80,7 +80,7 @@ function inicio()
 
 	$("#btnDj").click(function(e){
 			var miCSSDj={
-			"background": "rgba(217,35,249,0.9)",
+			"background": "rgba(217,35,249,1)",
 			
 		};
 		$("header").css(miCSSDj);
@@ -90,7 +90,7 @@ function inicio()
 
 	$("#btnPerfil").click(function(e){
 			var miCSSPerfil={
-			"background": "rgba(247,213,13,0.9)",
+			"background": "rgba(247,213,13,1)",
 			
 		};
 		$("header").css(miCSSPerfil);
