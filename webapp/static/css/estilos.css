@@ -14,13 +14,17 @@ a{color:#606060;text-decoration:none}
 body{background:#000;color:#a3a2a3;font-family:arial;font-size:17px;text-align:left}
 header{background:rgba(15,101,239,0.9);height:50px;margin-bottom:700px;position:fixed;width:100%;z-index:1}
 header nav{margin-left:-30px;vertical-align:top}
-header nav ul li{display:inline-block;padding:0 15px 0 0}
+header nav ul li{display:inline-block;padding:0 15px 0 20px;font-size:20px}
 header nav ul li a{color:rgba(255,255,255,0.5)}
 header nav ul li .activo{color:#fff;font-size:18px}
-footer{background:#000;border-top:1px solid #191919;bottom:0;height:25px;padding:0 0 30px 0;position:fixed;text-align:center;vertical-align:bottom;width:100%;z-index:1}
+footer{background:#070707;border-top:1px solid #191919;bottom:0;height:25px;padding:0 0 30px 0;position:fixed;text-align:center;vertical-align:bottom;width:100%;z-index:1}
 footer ul{margin-left:-40px}
 footer ul li{display:inline-block;padding:0 15px 0 20px}
 footer ul li a{color:rgba(255,255,255,0.6)}
+.icon-quill:hover{color:#ff69b4;content:"\e601"}
+.icon-music:hover{color:#ff69b4;content:"\e607"}
+.icon-spinner:hover{color:#ff69b4;content:"\e608"}
+.icon-cog:hover{color:#ff69b4;content:"\e609"}
 .icono{font-size:20px;text-align:center}
 .letraicono{font-size:10px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
