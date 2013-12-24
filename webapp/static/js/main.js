@@ -10,6 +10,7 @@ function inicio()
 		$("header").css(miCSS);
 	});
 
+
 	$("#btnTrends").click(function(e){
 			var miCSSRank ={
 			"background": "rgba(127,0,249,1)",
@@ -118,6 +119,7 @@ function inicio()
                     $('#cosasLocas').remove();
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
+                    $('#formulario').remove();
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
                   //   alert(xhr.status);
@@ -150,6 +152,7 @@ function inicio()
                 timer.stop();
                 $('#cosasLocas').remove();
                 $('#asyncContainer').remove();
+                $('footer').remove();
                 $('#contenido').append(result);
             },
               //   error: function (xhr, ajaxOptions, thrownError) {

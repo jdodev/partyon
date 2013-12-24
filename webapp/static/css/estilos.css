@@ -10,6 +10,9 @@
 .icon-music:before{content:"\e607"}
 .icon-spinner:before{content:"\e608"}
 .icon-cog:before{content:"\e609"}
+.icon-location:before{content:"\e60a"}
+.icon-camera:before{content:"\e60b"}
+.icon-image:before{content:"\e60c"}
 a{color:#606060;text-decoration:none}
 body{background:#000;color:#a3a2a3;font-family:arial;font-size:17px;text-align:left}
 header{background:#0f65ef;height:60px;margin-bottom:700px;position:fixed;width:100%;z-index:1;text-align:center}
@@ -19,9 +22,12 @@ header nav ul li a{color:rgba(255,255,255,0.5)}
 header nav ul li .activo{color:#fff;font-size:18px}
 footer{background:#070707;border-top:1px solid #191919;bottom:0;height:25px;padding:0 0 30px 0;position:fixed;text-align:center;vertical-align:bottom;width:100%;z-index:1}
 footer ul{margin-left:-40px}
-footer ul li{display:inline-block;padding:0 15px 0 15px}
+footer ul li{display:inline-block;padding:0 20px 0 20px;vertical-align:top}
 footer ul li a{color:rgba(255,255,255,0.6)}
 .activo{color:#fff}
+.selectphoto{background:#070707;border-top:1px solid #191919;height:80px;position:fixed;text-align:center;vertical-align:bottom;width:100%}
+.selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
+.input{background:#000;color:#ff69b4;font-size:16px;width:100%;padding:1em;padding-top:30px;border:0;border-top:1px solid #191919}
 .icon-quill:hover{color:#ff69b4;content:"\e601"}
 .icon-music:hover{color:#ff69b4;content:"\e607"}
 .icon-spinner:hover{color:#ff69b4;content:"\e608"}
@@ -30,6 +36,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .letraicono{font-size:11px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
 #contenido{padding-top:55px;padding-bottom:45px}
+.login{padding-top:990px}
 #contenido #configure{text-align:right}
 #contenido #info{color:#fff;text-align:center}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
@@ -63,7 +70,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #contenido .texto .nombre a{color:#6d6d6d}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-bottom:5px}
-#contenido .texto .tiempo{margin-top:10px;padding-left:180px}
+#contenido .texto .tiempo{margin-top:10px;padding-left:160px}
 .transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
 .transparencia a{color:#fff}
 @media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
