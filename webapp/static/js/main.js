@@ -135,6 +135,29 @@ function inicio()
 		setNoActivo();
 		$("#btnPerfil").attr('class', 'icon-user activo');
 	});
+
+	$("#btnPost").click(function(e){
+		setNoActivo();
+		$.ajax({
+            url: '/postphoto/',
+            type: 'GET',
+            data: {
+                
+            },
+            traditional: true,
+            dataType: 'html',
+            success: function(result) {
+                timer.stop();
+                $('#cosasLocas').remove();
+                $('#asyncContainer').remove();
+                $('#contenido').append(result);
+            },
+              //   error: function (xhr, ajaxOptions, thrownError) {
+              //   alert(xhr.status);
+              //   alert(thrownError);
+              // }
+        });
+	});
 	
 }
 

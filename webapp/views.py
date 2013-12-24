@@ -47,8 +47,8 @@ def dataheydj(request):
 		return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj})
 
 @login_required(login_url='/')
-def writein(request):
-	return render(request, 'writein.html')
+def postphoto(request):
+	return render(request, 'postphoto.html')
 
 @login_required(login_url='/')
 def login(request):
