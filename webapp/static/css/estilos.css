@@ -31,10 +31,6 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formulario{padding-top:30px}
 #formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 .icon-location{padding-left:20px}
-.icon-quill:hover{color:#ff69b4;content:"\e601"}
-.icon-music:hover{color:#ff69b4;content:"\e607"}
-.icon-spinner:hover{color:#ff69b4;content:"\e608"}
-.icon-cog:hover{color:#ff69b4;content:"\e609"}
 .icono{font-size:20px;text-align:center}
 .letraicono{font-size:11px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
@@ -76,6 +72,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #contenido .texto .tiempo{margin-top:10px;padding-left:160px}
 .transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
 .transparencia a{color:#fff}
+input placeholder{color:#f00}
 @media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
 #contenido #perfil{width:350px}
 #contenido #configure{width:350px}
