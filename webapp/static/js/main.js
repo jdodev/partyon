@@ -61,6 +61,8 @@ function inicio()
                     $('#cosasLocas').remove();
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
+                    $('footer').append(result);
+
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
                   //   alert(xhr.status);
@@ -152,6 +154,7 @@ function inicio()
                 timer.stop();
                 $('#cosasLocas').remove();
                 $('#asyncContainer').remove();
+                //$('header').remove();
                 $('footer').remove();
                 $('#contenido').append(result);
             },
