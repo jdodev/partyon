@@ -32,6 +32,12 @@ function inicio()
                     $('#cosasLocas').remove();
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
+                    if ($('footer').length){
+                    	//alert('Si hay!');
+                    } else {
+                    	//alert('No hay!');
+                    	recrearFooter();
+                    }
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
                   //   alert(xhr.status);
@@ -61,7 +67,12 @@ function inicio()
                     $('#cosasLocas').remove();
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
-                    $('footer').append(result);
+                    if ($('footer').length){
+                    	//alert('Si hay!');
+                    } else {
+                    	//alert('No hay!');
+                    	recrearFooter();
+                    }
 
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
@@ -92,6 +103,12 @@ function inicio()
                     $('#cosasLocas').remove();
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
+                    if ($('footer').length){
+                    	//alert('Si hay!');
+                    } else {
+                    	//alert('No hay!');
+                    	recrearFooter();
+                    }
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
                   //   alert(xhr.status);
@@ -122,6 +139,12 @@ function inicio()
                     $('#asyncContainer').remove();
                     $('#contenido').append(result);
                     $('#formulario').remove();
+                    if ($('footer').length){
+                    	//alert('Si hay!');
+                    } else {
+                    	//alert('No hay!');
+                    	recrearFooter();
+                    }
                 },
                   //   error: function (xhr, ajaxOptions, thrownError) {
                   //   alert(xhr.status);
@@ -173,6 +196,18 @@ var setNoActivo = function eliminarActivo(){
 	});
 }
 
+var recrearFooter = function noFooter(){
+	var footerHtml = '<footer>';
+        footerHtml += '<ul>';
+        footerHtml += '<li><a id="btnPost" class="icon-quill icono" href="#"><br><div class="letraicono">Post</div></a></li>';
+        footerHtml += '<li><a class="icon-music icono" href=""><br><div class="letraicono">Music</div></a></li>';
+        footerHtml += '<li><a class="icon-spinner icono" href=""><br><div class="letraicono">Refresh</div></a></li>';
+        footerHtml += '<li><a class="icon-cog icono" href=""><br><div class="letraicono">Settings</div></a></li>';
+        footerHtml += '</ul>';
+        footerHtml += '</footer>';
+        footerHtml += "<script type='text/javascript'>$('#btnPost').click(function(e){setNoActivo();$.ajax({url: '/postphoto/',type: 'GET',data: {},traditional: true,dataType: 'html',success: function(result) {timer.stop();$('#cosasLocas').remove();$('#asyncContainer').remove();$('footer').remove();$('#contenido').append(result);},});});</script>";
+    $("body").append(footerHtml);
+}
 
 
 
