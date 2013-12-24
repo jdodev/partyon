@@ -29,8 +29,8 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
 .input{background:#000;border-top:1px solid #191919;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
 #formulario{padding-top:30px}
-#formulario .combobox{font-size:14px;padding:10px 10px 10px 10px;width:auto;border-radius:0;border:0;color:#fff;line-height:1;-webkit-appearance:none}
-#formulario label{font-size:14px;padding-left:10px}
+#formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
+.icon-location{padding-left:20px}
 .icon-quill:hover{color:#ff69b4;content:"\e601"}
 .icon-music:hover{color:#ff69b4;content:"\e607"}
 .icon-spinner:hover{color:#ff69b4;content:"\e608"}
