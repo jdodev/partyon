@@ -45,3 +45,11 @@ def dataheydj(request):
 	if request.is_ajax():
 		resHeyDj = SongPost.objects.all().order_by('-SongPostID')
 		return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj})
+
+@login_required(login_url='/')
+def writein(request):
+	return render(request, 'writein.html')
+
+@login_required(login_url='/')
+def login(request):
+	return render(request, 'login.html')
