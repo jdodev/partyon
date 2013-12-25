@@ -33,6 +33,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formulario{padding-top:30px}
 #formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 #formLogin .icon-lock{padding:5px}
+#camara{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 input{background:#000}
 #contenido #formLogin input{color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
@@ -44,7 +45,6 @@ input{background:#000}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
 #contenido{padding-top:55px;padding-bottom:45px}
 #contenido #formLogin{text-align:center}
-#contenido #formLogin #user,#pass{font-size:14px;padding:10px 10px 10px 10px;border-radius:1;border:0;color:#bbb;line-height:1;margin-left:0 10px 0 10px;-webkit-appearance:none}
 #contenido #formLogin .titulo{color:#3b3b3b;padding-bottom:10px}
 .login{padding-top:990px}
 #contenido #configure{text-align:right}
