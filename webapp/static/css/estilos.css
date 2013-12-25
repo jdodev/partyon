@@ -13,6 +13,8 @@
 .icon-location:before{content:"\e60a"}
 .icon-camera:before{content:"\e60b"}
 .icon-image:before{content:"\e60c"}
+.icon-lock:before{content:"\e60d"}
+.icon-plus:before{content:"\e60e"}
 a{color:#606060;text-decoration:none}
 body{background:#000;color:#a3a2a3;font-family:arial;font-size:17px;text-align:left}
 header{background:#0f65ef;height:60px;margin-bottom:700px;position:fixed;width:100%;z-index:1;text-align:center}
@@ -35,6 +37,9 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .letraicono{font-size:11px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
 #contenido{padding-top:55px;padding-bottom:45px}
+#contenido #formLogin{text-align:center}
+#contenido #formLogin #user,#pass{font-size:14px;padding:10px 10px 10px 10px;border-radius:1;border:0;color:#bbb;line-height:1;margin-left:0 10px 0 10px;-webkit-appearance:none}
+#contenido #formLogin .titulo{padding-bottom:10px}
 .login{padding-top:990px}
 #contenido #configure{text-align:right}
 #contenido #info{color:#fff;text-align:center}

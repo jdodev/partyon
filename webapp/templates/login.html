@@ -1,12 +1,44 @@
-<div id="login">
-		<h2>PartyON</h2>
-		<div id="formulario">
-			<form action="#" method="POST" name="frmLogin">
-			<label class="label2" for="">Nombre:</label></br>
-			<input class="input2" type="text" name="txtUsuario" required></br>
-			<label class="label2" for="">Contraseña:</label></br>
-			<input class="input2" type="Password" name="txtContrasena" required></br></br>
-			<input id="boton" type="submit" value="ENTRAR">
-		</form>
-		</div>
-	</div>
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>PartyOn</title>
+        <meta name="description" content="comidad de los fiesteros, parranderos, gente divertida">
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/estilos.css">
+
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        
+        <section id="contenido">
+            <form id="formLogin" action="#">
+            	<div class="titulo">Únete a la PartyOn</div>
+            	<span class="icon-user icono"></span><input id="user" type="text"> <br>
+                <br>
+            	<span class="icon-lock icono"></span><input id="pass" type="password"><br><br>
+            	<input id="boton" type="submit" value="Entrar">
+
+            </form>
+
+        </section>
+
+         <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="{{STATIC_URL}}js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
+
