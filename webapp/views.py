@@ -64,3 +64,7 @@ def dataheydj(request):
 @login_required(login_url='/')
 def postphoto(request):
 	return render(request, 'postphoto.html')
+
+@login_required(login_url='/')
+def settings(request):
+	return render(request, 'settings.html')
