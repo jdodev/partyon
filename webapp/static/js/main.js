@@ -206,10 +206,7 @@ function inicio()
                 $('footer').remove();
                 $('#contenido').append(result);
             },
-              //   error: function (xhr, ajaxOptions, thrownError) {
-              //   alert(xhr.status);
-              //   alert(thrownError);
-              // }
+              
         });
     });
 	

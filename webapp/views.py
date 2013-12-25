@@ -68,3 +68,7 @@ def postphoto(request):
 @login_required(login_url='/')
 def settings(request):
 	return render(request, 'settings.html')
+
+@login_required(login_url='/')
+def help(request):
+	return render(request, 'help.html')
