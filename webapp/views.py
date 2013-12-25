@@ -14,9 +14,24 @@ def index(request):
 	if not request.user.is_anonymous():
 		return HttpResponseRedirect('/home/')
 	else:
-		#loginForm = AuthenticationForm()
-		#return render(request, 'login.html', {'loginForm' : loginForm})
-		return (HttpResponseRedirect('/admin/'))
+		loginForm = AuthenticationForm()
+		return render(request, 'login.html', {'loginForm' : loginForm})
+		#return (HttpResponseRedirect('/admin/'))
+
+def loginpartyon(request):
+	loginForm = AuthenticationForm()
+	if request.method == 'POST':
+		usuario = request.POST['username']
+		clave = request.POST['password']
+		acceso = authenticate(username=usuario, password=clave)
+		if acceso is not None:
+			login(request, acceso)
+			return HttpResponseRedirect('/')
+		else:
+			return render(request, 'login.html', {'loginForm' : loginForm})
+	else:
+		return render(request, 'login.html', {'loginForm' : loginForm})
+
 
 @login_required(login_url='/')
 def home(request):
@@ -49,7 +64,3 @@ def dataheydj(request):
 @login_required(login_url='/')
 def postphoto(request):
 	return render(request, 'postphoto.html')
-
-@login_required(login_url='/')
-def login(request):
-	return render(request, 'login.html')

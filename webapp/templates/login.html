@@ -13,14 +13,14 @@
     </head>
     <body>
         <section id="contenido">
-            <form id="formLogin" action="#">
-            	PARTY<span class="icon-switch icono"></span><div class="titulo">Únete a la fiesta</div>
-            	<span class="icon-user icono"></span><input type="text" autofocus> <br>
+            <form id="formLogin" action="/login/" method="post">{% csrf_token %}
+            	PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
+            	<span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username"> <br>
                 <br>
-            	<span class="icon-lock icono"></span><input type="password"><br><br>
-            	<input id="boton" type="submit" value="Entrar"><br><br>
-                <a href="#">¿Has olvidado tu contraseña?</a><br>
-                <a href="#">Registrarse</a>
+            	<span class="icon-lock icono"></span><input name="password" type="password" placeholder="password"><br><br>
+            	<input id="boton" type="submit" value="Login"><br><br>
+                <a href="#">Forgot your password?</a><br>
+                <a href="#">Sign up</a>
             </form>
 
         </section>

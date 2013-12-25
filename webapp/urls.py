@@ -12,6 +12,6 @@ urlpatterns = patterns('',
     url(r'^dataactivity/$', views.dataactivity, name='dataactivity'),
     url(r'^dataheydj/$', views.dataheydj, name='dataheydj'),
     url(r'^postphoto/$', views.postphoto, name='postphoto'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', views.loginpartyon, name='loginpartyon'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )
