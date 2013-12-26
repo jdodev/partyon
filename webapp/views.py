@@ -10,6 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import *
 from webapp.forms import *
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 def index(request):
 	if not request.user.is_anonymous():
@@ -36,7 +37,7 @@ def loginpartyon(request):
 @login_required(login_url='/')
 def savephotopost(request):
 	if request.method == 'POST':
-		formPhotoPost = PhotoPostForm(data=request.POST)
+		formPhotoPost = PhotoPostForm(request.POST, request.FILES)
 		if formPhotoPost.is_valid():
 			u = formPhotoPost.save(commit=False)
 			u.PhotoPostDateTime = datetime.now()
@@ -44,6 +45,14 @@ def savephotopost(request):
 			return HttpResponseRedirect('/')
 		else:
 			return HttpResponseRedirect('/novalido/')
+
+		# placeid = Place.objects.get(PlaceID=request.POST['PhotoPost_PlaceID'])
+
+		# file_data = 
+
+		# pp = PhotoPost(PhotoPostDateTime=datetime.now(), PhotoPost_PlaceID=placeid, PhotoPostPhoto=request.POST['PhotoPostPhoto'], PhotoPost_User=request.user, PhotoPost_Lat=request.POST['PhotoPost_Lat'], PhotoPostLong=request.POST['PhotoPostLong'], PhotoPostDescription=request.POST['PhotoPostDescription'])
+		# pp.save()
+		# return HttpResponseRedirect('/')
 	else:
 		return HttpResponseRedirect('/nopost/')
 
