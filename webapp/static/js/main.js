@@ -210,7 +210,7 @@ function inicio()
         });
     });
 
-    var formLogin = $("#formLodasdasdsgin");
+    var formLogin = $("#frmPhotoPost");
     $(formLogin).on('submit',function(){
         $.ajax({
                 data: $(formLogin).serialize(),
@@ -219,10 +219,40 @@ function inicio()
                 url: $(formLogin).attr('action'),
                 success: function(data) {
                     if (data.codigo == 2) {
-                        //mostrarMensaje(formLogin, "<span class='alertContenido'><strong>Alto!</strong> El usuario o contraseña ingresado no es valido.</span>", "alert-danger");
-                        alert("You have entered an incorrect email or password.");
+                        alert("We can not add this picture, change picture or try again later.");
                     } else if (data.codigo == 1) {
-                        window.location = '/home/';
+                        var miCSSActividad={
+                            "background": "rgba(247,104,6,1)",
+                            
+                        };
+                        $("header").css(miCSSActividad);
+                        setNoActivo();
+                        $("#btnActividad").attr('class', 'icon-users activo');
+                        $.ajax({
+                                url: '/dataactivity/',
+                                type: 'GET',
+                                data: {
+                                    
+                                },
+                                traditional: true,
+                                dataType: 'html',
+                                success: function(result) {
+                                    timer.stop();
+                                    $('#cosasLocas').remove();
+                                    $('#asyncContainer').remove();
+                                    $('#contenido').append(result);
+                                    if ($('footer').length){
+                                        //alert('Si hay!');
+                                    } else {
+                                        //alert('No hay!');
+                                        recrearFooter();
+                                    }
+                                },
+                                  //   error: function (xhr, ajaxOptions, thrownError) {
+                                  //   alert(xhr.status);
+                                  //   alert(thrownError);
+                                  // }
+                            });
                     }
                 }
             });
