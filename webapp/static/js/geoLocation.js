@@ -7,6 +7,7 @@ $(function(){
 		navigator.geolocation.getCurrentPosition(getPosition, getError);
 	} else {
 		alert(":'(  Your browser does not support geolocation.");
+		$("#Localizado").val(092212);
 	}
 
 	function getPosition(position)
@@ -14,14 +15,16 @@ $(function(){
 		var lat = position.coords.latitude;
 		var lng = position.coords.longitude;
 
-		alert(lat + " " + lng)
-
+		$("#Localizado").val(123821);
 		$("#Latitud").val(lat);
 		$("#Longitud").val(lng);
+
+		alert($("#Latitud").val() + ' ' + $("#Longitud").val());
 	}
 
 	function getError(err)
 	{
 		alert(":'(  We were unable to locate you, try again later. ERROR.");
+		$("#Localizado").val(092212);
 	}
 });

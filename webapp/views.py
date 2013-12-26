@@ -9,6 +9,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import *
+from webapp.forms import *
 
 def index(request):
 	if not request.user.is_anonymous():
@@ -32,6 +33,23 @@ def loginpartyon(request):
 	else:
 		return render(request, 'login.html', {'loginForm' : loginForm})
 
+@login_required(login_url='/')
+def savephotopost(request):
+	if request.method == 'POST':
+		formPhotoPost = PhotoPostForm(data=request.POST)
+		if formPhotoPost.is_valid():
+			u = formPhotoPost.save(commit=False)
+			u.PhotoPostDateTime = datetime.now()
+			u.save()
+			return HttpResponseRedirect('/')
+		else:
+			return HttpResponseRedirect('/novalido/')
+	else:
+		return HttpResponseRedirect('/nopost/')
+
+def novalido(request):
+	formPhotoPost = PhotoPostForm()
+	return render(request, 'novalidod.html', {'form' : formPhotoPost})
 
 @login_required(login_url='/')
 def home(request):
@@ -63,7 +81,8 @@ def dataheydj(request):
 
 @login_required(login_url='/')
 def postphoto(request):
-	return render(request, 'postphoto.html')
+	resNearPlaces = Place.objects.all()
+	return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
 def settings(request):

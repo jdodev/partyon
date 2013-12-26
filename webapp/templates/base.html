@@ -30,6 +30,11 @@
         <section id="contenido">
            {% block AsynchronousDiv %}{% endblock %}
         </section>
+        <form name="frmLocation">
+            <input type="hidden" name="Localizado" id="Localizado" readonly="readonly">
+            <input type="hidden" name="Latitud" id="Latitud" readonly="readonly">
+            <input type="hidden" name="Logitud" id="Longitud" readonly="readonly">
+        </form>
 
         <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
