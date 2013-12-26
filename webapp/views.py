@@ -44,15 +44,7 @@ def savephotopost(request):
 			u.save()
 			return HttpResponseRedirect('/')
 		else:
-			return HttpResponseRedirect('/novalido/')
-
-		# placeid = Place.objects.get(PlaceID=request.POST['PhotoPost_PlaceID'])
-
-		# file_data = 
-
-		# pp = PhotoPost(PhotoPostDateTime=datetime.now(), PhotoPost_PlaceID=placeid, PhotoPostPhoto=request.POST['PhotoPostPhoto'], PhotoPost_User=request.user, PhotoPost_Lat=request.POST['PhotoPost_Lat'], PhotoPostLong=request.POST['PhotoPostLong'], PhotoPostDescription=request.POST['PhotoPostDescription'])
-		# pp.save()
-		# return HttpResponseRedirect('/')
+			return HttpResponseRedirect('/novalid/')
 	else:
 		return HttpResponseRedirect('/nopost/')
 
