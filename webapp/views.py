@@ -49,24 +49,17 @@ def logoutpatyon(request):
 
 @login_required(login_url='/')
 def savephotopost(request):
-	if request.is_ajax():
-		if request.method == 'POST':
-			formPhotoPost = PhotoPostForm(request.POST, request.FILES)
-			if formPhotoPost.is_valid():
-				u = formPhotoPost.save(commit=False)
-				u.PhotoPostDateTime = datetime.now()
-				u.save()
-				respuesta = {'codigo': 1, 'msg': 'Successful'}
-				return HttpResponse(json.dumps(respuesta))
-				#return HttpResponseRedirect('/')
-			else:
-				respuesta = {'codigo': 2, 'msg': 'No Valid'}
-				return HttpResponse(json.dumps(respuesta))
-				#return HttpResponseRedirect('/novalid/')
+	if request.method == 'POST':
+		formPhotoPost = PhotoPostForm(request.POST, request.FILES)
+		if formPhotoPost.is_valid():
+			u = formPhotoPost.save(commit=False)
+			u.PhotoPostDateTime = datetime.now()
+			u.save()
+			return HttpResponseRedirect('/')
 		else:
-			return HttpResponseRedirect('/nopost/')
+			return HttpResponseRedirect('/novalid/')
 	else:
-		return HttpResponseRedirect('/')
+		return HttpResponseRedirect('/nopost/')
 
 def novalido(request):
 	formPhotoPost = PhotoPostForm()

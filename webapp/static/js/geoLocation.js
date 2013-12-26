@@ -26,5 +26,7 @@ $(function(){
 	{
 		alert(":'(  We were unable to locate you, try again later. ERROR.");
 		$("#Localizado").val(092212);
+		$("#Latitud").val(786677);
+		$("#Longitud").val(231231);
 	}
 });

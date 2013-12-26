@@ -209,56 +209,6 @@ function inicio()
               
         });
     });
-
-    var formLogin = $("#frmPhotoPost");
-    $(formLogin).on('submit',function(){
-        $.ajax({
-                data: $(formLogin).serialize(),
-                type: $(formLogin).attr('method'),
-                dataType: "json",
-                url: $(formLogin).attr('action'),
-                success: function(data) {
-                    if (data.codigo == 2) {
-                        alert("We can not add this picture, change picture or try again later.");
-                    } else if (data.codigo == 1) {
-                        var miCSSActividad={
-                            "background": "rgba(247,104,6,1)",
-                            
-                        };
-                        $("header").css(miCSSActividad);
-                        setNoActivo();
-                        $("#btnActividad").attr('class', 'icon-users activo');
-                        $.ajax({
-                                url: '/dataactivity/',
-                                type: 'GET',
-                                data: {
-                                    
-                                },
-                                traditional: true,
-                                dataType: 'html',
-                                success: function(result) {
-                                    timer.stop();
-                                    $('#cosasLocas').remove();
-                                    $('#asyncContainer').remove();
-                                    $('#contenido').append(result);
-                                    if ($('footer').length){
-                                        //alert('Si hay!');
-                                    } else {
-                                        //alert('No hay!');
-                                        recrearFooter();
-                                    }
-                                },
-                                  //   error: function (xhr, ajaxOptions, thrownError) {
-                                  //   alert(xhr.status);
-                                  //   alert(thrownError);
-                                  // }
-                            });
-                    }
-                }
-            });
-            return false;
-    });
-	
 }
 
 var setNoActivo = function eliminarActivo(){

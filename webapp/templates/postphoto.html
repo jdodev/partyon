@@ -1,7 +1,7 @@
 <div id="asyncContainer">
 	<div id="postphoto">
 		<div id="formulario">
-			<form action="/savephotopost/" method="POST" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
+			<form action="/savephotopost/" method="post" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
 				<a class="icon-location icono" href=""></a>
 				<select class="combobox" name="PhotoPost_PlaceID">
 				{% for place in NearPlaces %}
