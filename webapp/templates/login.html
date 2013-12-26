@@ -13,11 +13,11 @@
     </head>
     <body>
         <section id="contenido">
-            <form id="formLogin" action="/login/" method="post">{% csrf_token %}
+            <form id="formLogin" name="formLogin" action="/login/" method="post">{% csrf_token %}
             	PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
-            	<span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username"> <br>
+            	<span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username" required> <br>
                 <br>
-            	<span class="icon-lock icono"></span><input name="password" type="password" placeholder="password"><br><br>
+            	<span class="icon-lock icono"></span><input name="password" type="password" placeholder="password" required><br><br>
             	<input id="boton" type="submit" value="Login"><br><br>
                 <a href="#">Forgot your password?</a><br>
                 <a href="#">Sign up</a>
@@ -31,6 +31,32 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
         <script src="{{STATIC_URL}}js/main.js"></script>
+
+        <script>
+        $(document).on("ready", inicio);
+
+        function inicio()
+        {
+            var formLogin = $("#formLogin");
+            $(formLogin).on('submit',function(){
+                $.ajax({
+                        data: $(formLogin).serialize(),
+                        type: $(formLogin).attr('method'),
+                        dataType: "json",
+                        url: $(formLogin).attr('action'),
+                        success: function(data) {
+                            if (data.codigo == 2) {
+                                //mostrarMensaje(formLogin, "<span class='alertContenido'><strong>Alto!</strong> El usuario o contraseña ingresado no es valido.</span>", "alert-danger");
+                                alert("You have entered an incorrect email or password.");
+                            } else if (data.codigo == 1) {
+                                window.location = '/home/';
+                            }
+                        }
+                    });
+                    return false;
+            });   
+        }
+        </script>
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

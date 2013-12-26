@@ -16,5 +16,6 @@ urlpatterns = patterns('',
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^help/$', views.help, name='help'),
     url(r'^savephotopost/$', views.savephotopost, name='savephotopost'),
+    url(r'^logout/$', views.logoutpatyon, name='logoutpatyon'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )

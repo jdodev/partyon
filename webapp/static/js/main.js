@@ -209,6 +209,25 @@ function inicio()
               
         });
     });
+
+    var formLogin = $("#formLodasdasdsgin");
+    $(formLogin).on('submit',function(){
+        $.ajax({
+                data: $(formLogin).serialize(),
+                type: $(formLogin).attr('method'),
+                dataType: "json",
+                url: $(formLogin).attr('action'),
+                success: function(data) {
+                    if (data.codigo == 2) {
+                        //mostrarMensaje(formLogin, "<span class='alertContenido'><strong>Alto!</strong> El usuario o contraseña ingresado no es valido.</span>", "alert-danger");
+                        alert("You have entered an incorrect email or password.");
+                    } else if (data.codigo == 1) {
+                        window.location = '/home/';
+                    }
+                }
+            });
+            return false;
+    });
 	
 }
 

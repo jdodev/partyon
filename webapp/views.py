@@ -11,6 +11,7 @@ from django.shortcuts import render
 from models import *
 from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
+import json
 
 def index(request):
 	if not request.user.is_anonymous():
@@ -22,17 +23,29 @@ def index(request):
 
 def loginpartyon(request):
 	loginForm = AuthenticationForm()
-	if request.method == 'POST':
-		usuario = request.POST['username']
-		clave = request.POST['password']
-		acceso = authenticate(username=usuario, password=clave)
-		if acceso is not None:
-			login(request, acceso)
-			return HttpResponseRedirect('/')
+	if request.is_ajax():
+		if request.method == 'POST':
+			usuario = request.POST['username']
+			clave = request.POST['password']
+			acceso = authenticate(username=usuario, password=clave)
+			if acceso is not None:
+				login(request, acceso)
+				respuesta = {'codigo': 1, 'msg': 'Welcome to partyon'}
+				return HttpResponse(json.dumps(respuesta))
+				#return HttpResponseRedirect('/')
+			else:
+				respuesta = {'codigo': 2, 'msg': 'You have entered an incorrect email or password.'}
+				return HttpResponse(json.dumps(respuesta))
+				#return render(request, 'login.html', {'loginForm' : loginForm})
 		else:
 			return render(request, 'login.html', {'loginForm' : loginForm})
 	else:
 		return render(request, 'login.html', {'loginForm' : loginForm})
+
+@login_required(login_url='/')
+def logoutpatyon(request):
+	logout(request)
+	return HttpResponseRedirect('/')
 
 @login_required(login_url='/')
 def savephotopost(request):
