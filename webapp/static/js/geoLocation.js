@@ -2,6 +2,8 @@ $(function(){
 	var LAT = 13.30272;
 	var LNG = -87.174107;
 
+	$("#cargandoModal").attr('class', 'siCargaModal');
+
 	if (navigator.geolocation)
 	{
 		navigator.geolocation.getCurrentPosition(getPosition, getError);
@@ -19,11 +21,13 @@ $(function(){
 		$("#Latitud").val(lat);
 		$("#Longitud").val(lng);
 
-		alert($("#Latitud").val() + ' ' + $("#Longitud").val());
+		$("#cargandoModal").attr('class', 'noCargaModal');
+		//alert($("#Latitud").val() + ' ' + $("#Longitud").val());
 	}
 
 	function getError(err)
 	{
+		$("#cargandoModal").attr('class', 'noCargaModal');
 		alert(":'(  We were unable to locate you, try again later. ERROR.");
 		$("#Localizado").val(092212);
 		$("#Latitud").val(786677);

@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block PageTitle %}Home{% endblock %}
 {% block AsynchronousDiv %}
+    <div id="cargandoModal" class="noCargaModal">
+        <img class="imgCargando" src="{{STATIC_URL}}img/488_2.GIF" alt="PartyOn Loading...">
+        <p>Loading your data.</p>
+    </div>
         <div id="asyncContainer">
         
         </div>
