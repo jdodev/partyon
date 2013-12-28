@@ -13,14 +13,19 @@
     </head>
     <body>
         <section id="contenido">
+
             <form id="formLogin" name="formLogin" action="/login/" method="post">{% csrf_token %}
-            	PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
-            	<span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username" required> <br>
+            PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
+            <div class="imagenlogin">
+                <span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username" required> <br>
                 <br>
-            	<span class="icon-lock icono"></span><input name="password" type="password" placeholder="password" required><br><br>
-            	<input id="boton" type="submit" value="Login"><br><br>
+                <span class="icon-lock icono"></span><input name="password" type="password" placeholder="password" required><br><br>
+                <input id="boton" type="submit" value="Login"><br><br>
                 <a href="#">Forgot your password?</a><br>
                 <a href="#">Sign up</a>
+            </div>
+            	
+            	
             </form>
 
         </section>

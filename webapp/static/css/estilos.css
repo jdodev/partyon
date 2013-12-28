@@ -28,6 +28,7 @@ footer ul{margin-left:-40px}
 footer ul li{display:inline-block;padding:0 20px 0 20px;vertical-align:top}
 footer ul li a{color:rgba(255,255,255,0.6)}
 .activo{color:#fff}
+.imagenlogin{background-repeat:no-repeat}
 .selectphoto{background:#070707;border-top:1px solid #191919;height:80px;position:fixed;text-align:center;vertical-align:bottom;width:100%}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
 .input{background:#000;border-top:1px solid #191919;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
@@ -38,13 +39,13 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formLogin .icon-lock{padding:5px}
 #camara{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 input{background:#000}
-#contenido #formLogin input{color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
+#contenido #formLogin input{background-image:url("../img/login.jpg");background-repeat:no-repeat;color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
 #contenido #formLogin #boton{background:0;border:1;color:#b3b3b3;padding:5px 15px 5px 15px}
 .icon-switch:before{color:#f00;content:"\e605"}
 .icon-location{padding-left:20px}
 .icono{font-size:20px;text-align:center}
-.letraicono{font-size:11px !important}
+.letraicono{font-size:12px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222}
 #contenido{padding-top:55px;padding-bottom:45px}
 #contenido #formLogin{text-align:center}
@@ -109,27 +110,4 @@ input placeholder{color:#f00}
 }@media screen and (min-width:1280px){#contenido .post,#rank,#dj{width:30%;margin-left:20px}
 #contenido .nombre{margin-top:-100px}
 #contenido .post{margin-bottom:10px;margin-left:200px}
-}
-.noCargaModal{
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 99999999999999;
-}
-
-.imgCargando{
-	margin: 30% 40% 20px 40%;
-}
-
-.siCargaModal{
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 99999999999999;
-  margin: auto;
-  background-color: rgba(255,255,255,.4);
-  top: 0;
-  left: 0;
 }
