@@ -109,3 +109,7 @@ def help(request):
 @login_required(login_url='/')
 def music(request):
 	return render(request, 'music.html')
+
+@login_required(login_url='/')
+def plus(request):
+	return render(request, 'plus.html')

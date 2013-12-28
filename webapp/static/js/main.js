@@ -224,7 +224,27 @@ function inicio()
                 timer.stop();
                 $('#cosasLocas').remove();
                 $('#asyncContainer').remove();
-                //$('header').remove();
+                $('footer').remove();
+                $('#contenido').append(result);
+            },
+              
+        });
+    });
+
+    $("#btnPlus").click(function(e){
+        setNoActivo();
+        $.ajax({
+            url: '/plus/',
+            type: 'GET',
+            data: {
+                
+            },
+            traditional: true,
+            dataType: 'html',
+            success: function(result) {
+                timer.stop();
+                $('#cosasLocas').remove();
+                $('#asyncContainer').remove();
                 $('footer').remove();
                 $('#contenido').append(result);
             },

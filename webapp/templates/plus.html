@@ -3,13 +3,6 @@
 		<div id="formulario">
 			<form action="/savephotopost/" method="post" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
 				<span class="icon-location icono" ></span>
-				<select class="combobox" name="PhotoPost_PlaceID">
-				{% for place in NearPlaces %}
-				  <option value="{{ place.PlaceID }}">{{ place.PlaceName }}</option> 
-				{% empty %}
-				<option value="invalid">No nearby places.</option>
-				{% endfor %}
-				</select>&nbsp; &nbsp;<a id="btnPlus" class="icon-plus" href="#"></a>
 				<textarea placeholder="How's the party?" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="7" autofocus autocomplete="ON"></textarea><br><br>
 				<div class="selectphoto">
 					<input id="boton" type="submit" value="Post">
