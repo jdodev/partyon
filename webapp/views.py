@@ -105,3 +105,7 @@ def settings(request):
 @login_required(login_url='/')
 def help(request):
 	return render(request, 'help.html')
+
+@login_required(login_url='/')
+def music(request):
+	return render(request, 'music.html')

@@ -1,0 +1,30 @@
+<div id="asyncContainer">
+	<div id="postphoto">
+		<div id="formulario">
+			<form action="/savephotopost/" method="post" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
+				<a class="icon-location icono" href=""></a>
+				<select class="combobox" name="PhotoPost_PlaceID">
+				{% for place in NearPlaces %}
+				  <option value="{{ place.PlaceID }}">{{ place.PlaceName }}</option>
+				{% empty %}
+				<option value="invalid">No nearby places.</option>
+				{% endfor %}
+				</select><br><br>
+
+				<input class="input" type="text" name="nameMusic" required autofocus autocomplete="ON" Placeholder="Nombre de la canción">
+				<textarea placeholder="cantala" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="5"  autocomplete="ON"></textarea><br><br>
+				<div class="selectphoto">
+					<input id="boton" type="submit" value="Post">
+					<a id="boton" href="">Cancel</a>
+				</div>
+				<input type="hidden" name="PhotoPost_User" value="{{ user.id }}">
+				<input type="hidden" name="PhotoPost_Lat" value="" id="PhotoPost_Lat">
+				<input type="hidden" name="PhotoPostLong" value="" id="PhotoPostLong">
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$("#PhotoPost_Lat").val($("#Latitud").val());
+	$("#PhotoPostLong").val($("#Longitud").val());
+</script>
