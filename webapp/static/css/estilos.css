@@ -85,7 +85,7 @@ input{background:#000}
 #contenido .texto .nombre a{color:#6d6d6d}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-top:2px}
-#contenido .texto .tiempo{margin-top:10px;padding-left:160px}
+#contenido .texto .tiempo{margin-top:10px;padding-left:120px}
 .transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
 .transparencia a{color:#fff}
 #settings .menusettings{padding-top:20px}
