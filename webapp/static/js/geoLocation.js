@@ -21,7 +21,7 @@ $(function(){
 		$("#Latitud").val(lat);
 		$("#Longitud").val(lng);
 
-		$("#cargandoModal").attr('class', 'noCargaModal');
+		DataHome();
 		//alert($("#Latitud").val() + ' ' + $("#Longitud").val());
 	}
 
@@ -33,4 +33,28 @@ $(function(){
 		$("#Latitud").val(786677);
 		$("#Longitud").val(231231);
 	}
+
+	var DataHome = function(){
+	    $.ajax({
+	        url: '/datahome/',
+	        type: 'GET',
+	        data: {
+	            
+	        },
+	        traditional: true,
+	        dataType: 'html',
+	        success: function(result) {
+	            //alert(result);
+	            //alert("Home");
+	            $('#cosasLocas').remove();
+	            $('#asyncContainer').remove();
+	            $('#contenido').append(result);
+	            $("#cargandoModal").attr('class', 'noCargaModal');
+	        },
+	          //   error: function (xhr, ajaxOptions, thrownError) {
+	          //   alert(xhr.status);
+	          //   alert(thrownError);
+	          // }
+	    });
+	};
 });
