@@ -60,7 +60,7 @@ input{background:#000}
 #contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
 #contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
-#contenido #nombre,#votos{font-size:14px}
+#contenido #nombre,#votos{font-size:14px;text-align:center;color:#6e6e6e}
 #contenido #dj #nombre{width:80%}
 #contenido #dj #votos{width:10%}
 #contenido h1{margin:20px 0 0 0}

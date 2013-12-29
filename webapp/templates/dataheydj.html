@@ -3,9 +3,9 @@
 <article id="dj">
     <ul>
         <li id="cancion">{{ song.SongPostName }}</li>
-        <li id="taradiar">{{ song.SongPostQuote }}</li>
+        <li id="taradiar"></li>
         <li id="nombre">{{ song.SongPost_User.first_name }} {{ song.SongPost_User.last_name }} <a href="#">@{{ song.SongPost_User }}</a></li>
-        <li id="votos">20</li>
+        <li id="votos">{{ song.SongPostQuote }}<br><a class="icon-switch icono" href="#"></a></li>
     </ul>
 </article>
 <div class="hr"></div>
