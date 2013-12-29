@@ -72,6 +72,7 @@ input{background:#000}
 .formato{color:#aaa;font-size:12px}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 15px 15px 15px}
+.photo{overflow:hidden;max-width:290px;max-height:158px}
 #contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
 #contenido #rank ul{padding:20px 0 0 10px;text-align:center}
 #contenido #rank ul li{display:inline-block;padding:0 10px 20px 10px;text-align:center}
