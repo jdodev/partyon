@@ -39,7 +39,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formLogin .icon-lock{padding:5px}
 #camara{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 input{background:#000}
-#contenido #formLogin input{background-image:url("../img/login.jpg");background-repeat:no-repeat;color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
+#contenido #formLogin input{background-repeat:no-repeat;color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
 #contenido #formLogin #boton{background:0;border:1;color:#b3b3b3;padding:5px 15px 5px 15px}
 .icon-switch:before{color:#f00;content:"\e605"}
@@ -61,8 +61,8 @@ input{background:#000}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
 #contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
 #contenido #nombre,#votos{font-size:14px;text-align:center;color:#6e6e6e}
-#contenido #dj #nombre{width:80%}
-#contenido #dj #votos{width:10%}
+#contenido #dj #nombre{padding-left:10px;width:50%}
+#contenido #dj #votos{padding-left:100px}
 #contenido h1{margin:20px 0 0 0}
 #contenido .nombrelugar{text-align:center}
 #contenido #perfil{margin-top:10px;padding:20px 0 20px 0;background:#ddd;width:100%}
@@ -79,7 +79,7 @@ input{background:#000}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
 #contenido .post .imagen{margin-bottom:10px;margin-top:10px}
 #contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
-#contenido .texto{padding-top:2px}
+#contenido .texto{padding-left:10px;padding-top:2px}
 #contenido .texto .lugar,.tiempo{display:inline-block;font-size:12px}
 #contenido .texto .nombre{padding-top:3px;padding-bottom:5px}
 #contenido .texto .nombre a{color:#6d6d6d}
