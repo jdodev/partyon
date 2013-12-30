@@ -32,6 +32,8 @@ $(function(){
 		$("#Localizado").val(092212);
 		$("#Latitud").val(786677);
 		$("#Longitud").val(231231);
+
+		DataHome();
 	}
 
 	var DataHome = function(){
