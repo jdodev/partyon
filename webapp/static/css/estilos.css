@@ -31,8 +31,9 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .imagenlogin{background-repeat:no-repeat}
 .selectphoto{background:#070707;border-top:1px solid #191919;height:80px;position:fixed;text-align:center;vertical-align:bottom;width:100%}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
-.input{background:#000;border-top:1px solid #191919;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
-#formulario{padding-top:30px}
+.input{background:#000;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
+#formulario{background:#000;padding-top:30px}
+#formulario #PhotoPostDescription{background:#141414}
 #formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 .camara{display:inline-block;margin:0 40px 0 50px;width:23px;height:19px;overflow:hidden}
 .camara input{width:23px !important;height:19px !important}
@@ -85,7 +86,7 @@ input{background:#000}
 #contenido .texto .nombre a{color:#6d6d6d}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-top:2px}
-#contenido .texto .tiempo{margin-top:10px;padding-left:120px}
+#contenido .texto .tiempo{width:40%;margin-top:10px;text-align:right}
 .transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
 .transparencia a{color:#fff}
 #settings .menusettings{padding-top:20px}

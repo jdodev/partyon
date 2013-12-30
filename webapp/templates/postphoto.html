@@ -9,8 +9,8 @@
 				{% empty %}
 				<option value="invalid">No nearby places.</option>
 				{% endfor %}
-				</select>&nbsp; &nbsp;<a id="btnPlus" class="icon-plus" href="#">hey</a>
-				<textarea placeholder="How's the party?" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="7" autofocus autocomplete="ON" maxlength="140"></textarea><br><br>
+				</select>&nbsp; &nbsp;<a id="btnPlus" class="icon-plus" href="#"></a>
+				<textarea placeholder="How's the party?" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="4" autofocus autocomplete="ON" maxlength="140"></textarea><br><br>
 				<div class="selectphoto">
 					<input id="boton" type="submit" value="Post">
 					<div class="camara"><input class="icon-camera icono" type="file" name="PhotoPostPhoto" accept="image/*;capture=camera" required><span class="icon-camera icono" href=""></span></div>
@@ -23,7 +23,9 @@
 		</div>
 	</div>
 </div>
+<script src="{{STATIC_URL}}js/jquery.maxlength.js"></script>
 <script type="text/javascript">
+	$("#input-1, #input-2, #PhotoPostDescription").maxlength();
 	$("#PhotoPost_Lat").val($("#Latitud").val());
 	$("#PhotoPostLong").val($("#Longitud").val());
 </script>
