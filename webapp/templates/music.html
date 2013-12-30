@@ -10,7 +10,7 @@
 				<option value="invalid">No nearby places.</option>
 				{% endfor %}
 				</select><br>
-				<input class="input" type="text" name="nameMusic" required autofocus autocomplete="ON" Placeholder="Nombre de la canción">
+				<input class="input2" type="text" name="nameMusic" required autofocus autocomplete="ON" Placeholder="Nombre de la canción">
 				<textarea placeholder="cantala" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="3"  autocomplete="ON" maxlength="140"></textarea><br><br>
 				<div class="selectphoto">
 					<input id="boton" type="submit" value="Post">
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 </div>
-<script src="{{STATIC_URL}}js/jquery.maxlength.js"></script>
+<script src="{{STATIC_URL}}js/max.js"></script>
 <script type="text/javascript">
 $("#input-1, #input-2, #PhotoPostDescription").maxlength();
 	$("#PhotoPost_Lat").val($("#Latitud").val());

@@ -32,6 +32,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .selectphoto{background:#070707;border-top:1px solid #191919;height:80px;position:fixed;text-align:center;vertical-align:bottom;width:100%}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
 .input{background:#000;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
+.input2{border:0;color:#bbb}
 #formulario{background:#000;padding-top:30px}
 #formulario #PhotoPostDescription{background:#141414}
 #formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
