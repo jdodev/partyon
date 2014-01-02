@@ -57,7 +57,7 @@ input{background:#000}
 #contenido #info{color:#fff;text-align:center}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
 #contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
-#contenido #dj{color:#fff}
+#contenido #dj{border-bottom:1px solid #141414;color:#fff}
 #contenido #dj ul{background:#212121;padding:20px 0 20px 0;ra}
 #contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
@@ -88,7 +88,7 @@ input{background:#000}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-top:2px}
 #contenido .texto .tiempo{width:40%;margin-top:10px;text-align:right}
-.transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:290px}
+.transparencia{background:rgba(0,0,0,0.5);height:160px;position:absolute;width:295px}
 .transparencia a{color:#fff}
 #settings .menusettings{padding-top:20px}
 #settings .menusettings ul li{padding:5px;list-style:none}
@@ -100,10 +100,11 @@ input placeholder{color:#f00}
 #contenido #perfil{width:350px}
 #contenido #configure{width:350px}
 #contenido .post .imagen{margin-bottom:10px;margin-left:480px}
-#contenido .post .texto .nombre,.describeme,.lugar,.tiempo{margin-left:400px;width:100%}
+#contenido .post .texto .nombre,.describeme,.lugar,.tiempo{margin-left:380px;width:100%}
 #contenido .post .texto .lugar,.tiempo{padding-top:10px}
 #contenido .post .texto .nombre{margin-top:-100px}
 #contenido .post{margin-bottom:10px;margin-left:30px}
+#contenido #dj{margin-left:20px;text-align:center}
 }@media screen and (min-width:1024px){#contenido #rank,#dj{width:29%;margin-left:20px}
 #contenido .post{display:block}
 #contenido .post .imagen{margin-bottom:10px;margin-left:600px}
