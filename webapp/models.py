@@ -2,7 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-#from thumbs import ImageWithThumbsField
 
 class Place(models.Model):
 	PlaceID = models.AutoField(primary_key=True)
@@ -66,3 +65,20 @@ class AppInfo(models.Model):
 
 	def __unicode__(self):
 		return self.AppInfoID
+
+class UserProfile(models.Model):
+	UserProfileID = models.AutoField(primary_key=True)
+	UserProfile_User = models.ForeignKey(User)
+	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos')
+	UserProfileMailVerified = models.BooleanField(help_text='User Mail Verified', verbose_name=u'Mail Verified')
+
+	def __unicode__(self):
+		return self.UserProfile_User
+
+class Follow(models.Model):
+	FollowID = models.AutoField(primary_key=True)
+	FollowOwner_User = models.ForeignKey(User, related_name='OwnerUser')
+	Follow_User = models.ForeignKey(User, related_name='FollowUser')
+
+	def __unicode__(self):
+		return self.FollowID
