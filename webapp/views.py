@@ -61,6 +61,20 @@ def savephotopost(request):
 	else:
 		return HttpResponseRedirect('/nopost/')
 
+@login_required(login_url='/')
+def savesongpost(request):
+	if request.method == 'POST':
+		formSongPost = SongPostForm(request.POST, request.FILES)
+		if formSongPost.is_valid():
+			u = formSongPost.save(commit=False)
+			u.SongPostDateTime = datetime.now()
+			u.save()
+			return HttpResponseRedirect('/')
+		else:
+			return HttpResponseRedirect('/novalid/')
+	else:
+		return HttpResponseRedirect('/nopost/')
+
 def novalido(request):
 	formPhotoPost = PhotoPostForm()
 	return render(request, 'novalidod.html', {'form' : formPhotoPost})
@@ -108,7 +122,8 @@ def help(request):
 
 @login_required(login_url='/')
 def music(request):
-	return render(request, 'music.html')
+	resNearPlaces = Place.objects.all()
+	return render(request, 'postsong.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
 def plus(request):

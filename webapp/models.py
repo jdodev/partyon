@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-from thumbs import ImageWithThumbsField
+#from thumbs import ImageWithThumbsField
 
 class Place(models.Model):
 	PlaceID = models.AutoField(primary_key=True)
@@ -18,7 +18,7 @@ class PhotoPost(models.Model):
 	PhotoPostID = models.AutoField(primary_key=True)
 	PhotoPostDateTime = models.DateTimeField(auto_now_add=True, help_text='Date of post', verbose_name=u'Date')
 	PhotoPost_PlaceID = models.ForeignKey(Place)
-	PhotoPostPhoto = ImageWithThumbsField(upload_to='PhotoPosts', sizes=((580,580),(1000,1000)))
+	PhotoPostPhoto = models.ImageField(upload_to='PhotoPosts')
 	PhotoPost_User = models.ForeignKey(User)
 	PhotoPost_Lat = models.CharField(max_length=25, help_text='Post Latitude', verbose_name=u'Latitude')
 	PhotoPostLong = models.CharField(max_length=25, help_text='Post Longitude', verbose_name=u'Logintude')

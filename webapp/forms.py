@@ -6,3 +6,7 @@ from datetime import datetime
 class PhotoPostForm(ModelForm):
 	class Meta:
 		model = PhotoPost
+
+class SongPostForm(ModelForm):
+	class Meta:
+		model = SongPost
