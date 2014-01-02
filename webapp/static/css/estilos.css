@@ -58,7 +58,7 @@ input{background:#000}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
 #contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
 #contenido #dj{color:#fff}
-#contenido #dj ul{background:#212121;padding:20px 0 20px 0}
+#contenido #dj ul{background:#212121;padding:20px 0 20px 0;ra}
 #contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
 #contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
@@ -113,6 +113,7 @@ input placeholder{color:#f00}
 #contenido .post{margin-bottom:10px;margin-left:120px}
 #contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
 #contendio .post .texto .lugar{width:60%}
+#contenido #dj{display:inline-block;vertical-align:top;width:30%}
 }@media screen and (min-width:1280px){#contenido .post,#rank,#dj{width:30%;margin-left:20px}
 #contenido .nombre{margin-top:-100px}
 #contenido .post{margin-bottom:10px;margin-left:200px}
