@@ -30,8 +30,8 @@ $(function(){
 		$("#cargandoModal").attr('class', 'noCargaModal');
 		alert(":'(  We were unable to locate you, try again later. ERROR.");
 		$("#Localizado").val(092212);
-		$("#Latitud").val(786677);
-		$("#Longitud").val(231231);
+		$("#Latitud").val(13.3106579);
+		$("#Longitud").val(-87.1791421);
 
 		DataHome();
 	}

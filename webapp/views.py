@@ -109,8 +109,19 @@ def dataheydj(request):
 
 @login_required(login_url='/')
 def postphoto(request):
-	resNearPlaces = Place.objects.all()
-	return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
+	if request.is_ajax():
+		qLat = request.GET.get('qLat', False)
+		qLong = request.GET.get('qLong', False)
+
+		#Sumamos los valores del marge de error
+		qLatMax = float(qLat) + 0.0020000
+		qLatMin = float(qLat) - 0.0020000
+
+		qLongMax = float(qLong) + 0.0020000
+		qLongMin = float(qLong) - 0.0020000
+
+		resNearPlaces = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)])
+		return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
 def settings(request):
@@ -121,9 +132,20 @@ def help(request):
 	return render(request, 'help.html')
 
 @login_required(login_url='/')
-def music(request):
-	resNearPlaces = Place.objects.all()
-	return render(request, 'postsong.html', {'NearPlaces' : resNearPlaces})
+def postsong(request):
+	if request.is_ajax():
+		qLat = request.GET.get('qLat', False)
+		qLong = request.GET.get('qLong', False)
+
+		#Sumamos los valores del marge de error
+		qLatMax = float(qLat) + 0.0020000
+		qLatMin = float(qLat) - 0.0020000
+
+		qLongMax = float(qLong) + 0.0020000
+		qLongMin = float(qLong) - 0.0020000
+
+		resNearPlaces = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)])
+		return render(request, 'postsong.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
 def plus(request):

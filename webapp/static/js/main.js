@@ -165,11 +165,14 @@ function inicio()
 
 	$("#btnPost").click(function(e){
 		setNoActivo();
+        var qLat = $("#Latitud").val();
+        var qLong = $("#Longitud").val();
 		$.ajax({
             url: '/postphoto/',
             type: 'GET',
             data: {
-                
+                'qLat' : qLat,
+                'qLong' : qLong
             },
             traditional: true,
             dataType: 'html',
@@ -212,11 +215,14 @@ function inicio()
 
     $("#btnMusic").click(function(e){
         setNoActivo();
+        var qLat = $("#Latitud").val();
+        var qLong = $("#Longitud").val();
         $.ajax({
-            url: '/music/',
+            url: '/postsong/',
             type: 'GET',
             data: {
-                
+                'qLat' : qLat,
+                'qLong' : qLong
             },
             traditional: true,
             dataType: 'html',
@@ -248,12 +254,16 @@ var recrearFooter = function noFooter(){
 	var footerHtml = '<footer>';
         footerHtml += '<ul>';
         footerHtml += '<li><a id="btnPost" class="icon-quill icono" href="#"><br><div class="letraicono">Post</div></a></li>';
-        footerHtml += '<li><a class="icon-music icono" href=""><br><div class="letraicono">Music</div></a></li>';
+        footerHtml += '<li><a id="btnMusic"class="icon-music icono" href="#"><br><div class="letraicono">Music</div></a></li>';
         footerHtml += '<li><a class="icon-spinner icono" href=""><br><div class="letraicono">Refresh</div></a></li>';
         footerHtml += '<li><a class="icon-cog icono" href=""><br><div class="letraicono">Settings</div></a></li>';
         footerHtml += '</ul>';
         footerHtml += '</footer>';
-        footerHtml += "<script type='text/javascript'>$('#btnPost').click(function(e){setNoActivo();$.ajax({url: '/postphoto/',type: 'GET',data: {},traditional: true,dataType: 'html',success: function(result) {timer.stop();$('#cosasLocas').remove();$('#asyncContainer').remove();$('footer').remove();$('#contenido').append(result);},});});</script>";
+        footerHtml += "<script type='text/javascript'>";
+        footerHtml += "$('#btnPost').click(function(e){setNoActivo();var qLat = $('#Latitud').val();var qLong = $('#Longitud').val();$.ajax({url: '/postphoto/',type: 'GET',data: {'qLat' : qLat,'qLong' : qLong},traditional: true,dataType: 'html',success: function(result) {timer.stop();$('#cosasLocas').remove();$('#asyncContainer').remove();$('footer').remove();$('#contenido').append(result);},});});";
+        footerHtml += "$('#btnMusic').click(function(e){setNoActivo();var qLat = $('#Latitud').val();var qLong = $('#Longitud').val();$.ajax({url: '/postsong/',type: 'GET',data: {'qLat' : qLat,'qLong' : qLong},traditional: true,dataType: 'html',success: function(result) {timer.stop();$('#cosasLocas').remove();$('#asyncContainer').remove();$('footer').remove();$('#contenido').append(result);},});});";
+        footerHtml += "</script>"
+
     $("body").append(footerHtml);
 }
 
