@@ -21,7 +21,7 @@ class PhotoPost(models.Model):
 	PhotoPost_User = models.ForeignKey(User)
 	PhotoPost_Lat = models.CharField(max_length=25, help_text='Post Latitude', verbose_name=u'Latitude')
 	PhotoPostLong = models.CharField(max_length=25, help_text='Post Longitude', verbose_name=u'Logintude')
-	PhotoPostDescription = models.CharField(max_length=140, help_text='Post Description', verbose_name=u'Description')
+	PhotoPostDescription = models.CharField(max_length=140, help_text='Post Description', verbose_name=u'Description', blank=True, null=True)
 
 	def __unicode__(self):
 		return self.PhotoPostDescription
@@ -69,7 +69,7 @@ class AppInfo(models.Model):
 class UserProfile(models.Model):
 	UserProfileID = models.AutoField(primary_key=True)
 	UserProfile_User = models.ForeignKey(User)
-	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos')
+	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos', blank=True, null=True)
 	UserProfileMailVerified = models.BooleanField(help_text='User Mail Verified', verbose_name=u'Mail Verified')
 
 	def __unicode__(self):
