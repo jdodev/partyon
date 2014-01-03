@@ -150,7 +150,6 @@ def settings(request):
 def help(request):
 	return render(request, 'help.html')
 
-@login_required(login_url='/')
 def registration(request):
 	return render(request, 'registration.html')
 
