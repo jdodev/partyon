@@ -16,7 +16,7 @@
             {% for photo in TPhotosPlace %}
             {% for photo2 in photo %}
                 {% if photo2.PhotoPost_PlaceID.PlaceID == place.PlaceID and photo2.PhotoPostID >= photo2.maxiID %}
-                    <li class="formato2">{{ photo2.PhotoPostDateTime|timesince }}
+                    <li class="formato2">{{ photo2.PhotoPostDateTime|timesince|truncatewords:2 }}
                         <br/><div class="formato">Ultimo Registro</div>
                     </li>
                 {% endif %}

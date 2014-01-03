@@ -51,6 +51,8 @@ function inicio()
 			"background": "rgba(15,101,239,1)",
 			
 		};
+        var qLat = $("#Latitud").val();
+        var qLong = $("#Longitud").val();
 		$("header").css(miCSSRank);
 		setNoActivo();
 		$("#btnHome").attr('class', 'icon-home activo');
@@ -58,7 +60,8 @@ function inicio()
                 url: '/datahome/',
                 type: 'GET',
                 data: {
-                    
+                    'qLat' : qLat,
+                    'qLong' : qLong
                 },
                 traditional: true,
                 dataType: 'html',
