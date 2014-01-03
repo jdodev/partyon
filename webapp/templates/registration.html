@@ -1,36 +1,46 @@
-<div id="asyncContainer">
-	
-	<div id="postphoto">
-		<div id="formulario">
-			<form action="/savephotopost/" method="post" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
-				<span class="icon-location icono" ></span>
-				<select class="combobox" name="PhotoPost_PlaceID">
-				{% for place in NearPlaces %}
-				  <option value="{{ place.PlaceID }}">{{ place.PlaceName }}</option> 
-				{% empty %}
-				<option value="invalid">No nearby places.</option>
-				{% endfor %}
-				</select>&nbsp; &nbsp;<a id="btnPlus" class="icon-plus" href="#"></a>
-				<textarea placeholder="How's the party?" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="4" autofocus autocomplete="ON" maxlength="140"></textarea><br><br>
-				<div class="selectphoto">
-					<input id="boton" type="submit" value="Post">
-					<div class="camara"><input class="icon-camera icono" type="file" name="PhotoPostPhoto" accept="image/*;capture=camera" required><span class="icon-camera icono" href=""></span></div>
-					<a id="boton" href="">Cancel</a>
-				</div>
-				<input type="hidden" name="PhotoPost_User" value="{{ user.id }}">
-				<input type="hidden" name="PhotoPost_Lat" value="" id="PhotoPost_Lat">
-				<input type="hidden" name="PhotoPostLong" value="" id="PhotoPostLong">
-			</form>
-		</div>
-	</div>
-</div>
-<script src="{{STATIC_URL}}js/max.js"></script>
-<script type="text/javascript">
-	$("#input-1, #input-2, #PhotoPostDescription").maxlength();
-	$("#PhotoPost_Lat").val($("#Latitud").val());
-	$("#PhotoPostLong").val($("#Longitud").val());
-	$("#btnPlus").click(function(e){
-		$("#cargandoModal").attr('class', 'siCargaModal');
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>PartyOn</title>
+        <meta name="description" content="comidad de los fiesteros, parranderos, gente divertida">
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/estilos.css">
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <section id="contenido">
 
-	});
-</script>
+            <form id="formLogin" name="formLogin" action="/login/" method="post">
+            PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
+            <div class="imagenlogin">
+                <input name="name" type="text" autofocus placeholder="Name" required> <br><br>
+                <input name="lastname" type="text" autofocus placeholder="Last Name" required> <br><br>
+                <input name="username" type="text" autofocus placeholder="Username" required> <br><br>
+                <input name="passoword" type="password" autofocus placeholder="Password" required> <br><br>
+                <input name="password2" type="password" autofocus placeholder="Password" required> <br><br>
+                <input name="privacy" type="radio" autofocus placeholder="privacy" required>
+                <a href="#">Políticas de Privacidad</a></br></br>
+                
+                <input id="boton" type="submit" value="Login"><br><br>
+                
+            </div>
+            	
+            	
+            </form>
+
+        </section>
+
+         <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="{{STATIC_URL}}js/main.js"></script>
+
+
+    </body>
+</html>
+
