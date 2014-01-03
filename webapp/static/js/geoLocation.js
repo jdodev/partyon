@@ -17,6 +17,11 @@ $(function(){
 		var lat = position.coords.latitude;
 		var lng = position.coords.longitude;
 
+		if (lng > -88){
+			lng = -87.1791421;
+			lat = 13.3106579;
+		}
+
 		$("#Localizado").val(123821);
 		$("#Latitud").val(lat);
 		$("#Longitud").val(lng);
@@ -37,11 +42,17 @@ $(function(){
 	}
 
 	var DataHome = function(){
+		var qLat = $("#Latitud").val();
+    	var qLong = $("#Longitud").val();
+
+    	//alert(qLat + ' ' + qLong);
+
 	    $.ajax({
 	        url: '/datahome/',
 	        type: 'GET',
 	        data: {
-	            
+	            'qLat' : qLat,
+                'qLong' : qLong
 	        },
 	        traditional: true,
 	        dataType: 'html',

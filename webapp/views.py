@@ -13,6 +13,7 @@ from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
 import json
 
+
 def index(request):
 	if not request.user.is_anonymous():
 		return HttpResponseRedirect('/home/')
@@ -79,6 +80,7 @@ def novalido(request):
 	formPhotoPost = PhotoPostForm()
 	return render(request, 'novalidod.html', {'form' : formPhotoPost})
 
+#Este invoca a la base con las cargas asíncronas
 @login_required(login_url='/')
 def home(request):
 	return render(request, 'home.html')
@@ -86,8 +88,25 @@ def home(request):
 @login_required(login_url='/')
 def datahome(request):
 	if request.is_ajax():
-		resPlaces = Place.objects.all()
-		return render(request, 'datahome.html', {'TPlaces' : resPlaces})
+		qLat = request.GET.get('qLat', False)
+		qLong = request.GET.get('qLong', False)
+
+		#Sumamos los valores del marge de error
+		qLatMax = float(qLat) + 0.2000000
+		qLatMin = float(qLat) - 0.2000000
+
+		qLongMax = float(qLong) + 0.2000000
+		qLongMin = float(qLong) - 0.2000000
+
+		resPlaces = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)])[:10]
+
+		resPlacePhotos = []
+
+		for dPlace in resPlaces:
+			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+			resPlacePhotos.append(FotoObtenida)
+
+		return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos})
 
 @login_required(login_url='/')
 def datatrends(request):

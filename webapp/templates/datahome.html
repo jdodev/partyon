@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <div id="asyncContainer">
 {% for place in TPlaces %}
     <article id="rank">
@@ -12,13 +13,26 @@
                 <br/><div class="formato">Bebida Favorita</div>
             </li>
             
-            <li class="formato2">2:35 A.M
-                <br/><div class="formato">Ultimo Registro</div>
-            </li>
+            {% for photo in TPhotosPlace %}
+            {% for photo2 in photo %}
+                {% if photo2.PhotoPost_PlaceID.PlaceID == place.PlaceID and photo2.PhotoPostID >= photo2.maxiID %}
+                    <li class="formato2">{{ photo2.PhotoPostDateTime|timesince }}
+                        <br/><div class="formato">Ultimo Registro</div>
+                    </li>
+                {% endif %}
+             {% endfor %}
+        {% endfor %}
         </ul>
         </div>
-         <img src="{{STATIC_URL}}/img/pequena2.jpg" alt="">
-        
+        {% for photo in TPhotosPlace %}
+            {% for photo2 in photo %}
+                {% if photo2.PhotoPost_PlaceID.PlaceID == place.PlaceID and photo2.PhotoPostID >= photo2.maxiID %}
+                    {% thumbnail photo2.PhotoPostPhoto "290x158" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="{{ photo2.PhotoPostDescription }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                {% endif %}
+             {% endfor %}
+        {% endfor %}
     </article>
 {% empty %}
 <h2>No hay nada.</h2>
@@ -28,13 +42,16 @@
 <script id="cosasLocas" type="text/javascript">
     $(function(){
         var contaLo = 0;
+        var qLat = $("#Latitud").val();
+        var qLong = $("#Longitud").val();
         var DataHome2 = function(){
             if (contaLo == 1) {
                 $.ajax({
                     url: '/datahome/',
                     type: 'GET',
                     data: {
-                        
+                        'qLat' : qLat,
+                        'qLong' : qLong
                     },
                     traditional: true,
                     dataType: 'html',
