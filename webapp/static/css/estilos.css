@@ -28,7 +28,6 @@ footer ul{margin-left:-40px}
 footer ul li{display:inline-block;padding:0 20px 0 20px;vertical-align:top}
 footer ul li a{color:rgba(255,255,255,0.6)}
 .activo{color:#fff}
-.imagenlogin{background-repeat:no-repeat}
 .selectphoto{background:#070707;border-top:1px solid #191919;height:80px;position:fixed;text-align:center;vertical-align:bottom;width:100%}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
 #formulario{background:#000;padding-top:30px}
@@ -48,7 +47,7 @@ input{background:#000}
 .icon-location{padding-left:20px}
 .icono{font-size:20px;text-align:center}
 .letraicono{font-size:12px !important}
-.hr{padding-bottom:10px;border-bottom:1px solid #222}
+.hr{padding-bottom:10px;border-bottom:1px solid #222;margin:0 15px 0 15px}
 #contenido{padding-top:55px;padding-bottom:45px}
 #contenido #formLogin{text-align:center}
 #contenido #formLogin .titulo{color:#3b3b3b;padding-bottom:10px}
@@ -57,7 +56,7 @@ input{background:#000}
 #contenido #info{color:#fff;text-align:center}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
 #contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
-#contenido #dj{border-bottom:1px solid #141414;color:#fff}
+#contenido #dj{border-bottom:1px solid #141414;color:#fff;margin:0 10px 0 10px}
 #contenido #dj ul{background:#212121;padding:20px 0 20px 0;ra}
 #contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
@@ -75,13 +74,13 @@ input{background:#000}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 15px 15px 15px}
 .photo{overflow:hidden;max-width:290px;max-height:158px}
-#contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
+#contenido #rank{border-bottom:2px solid #141414;margin:20px 15px 10px 15px}
 #contenido #rank ul{padding:20px 0 0 10px;text-align:center}
 #contenido #rank ul li{display:inline-block;padding:0 5px 20px 5px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
 #contenido .post .imagen{margin-bottom:10px;margin-top:10px}
-#contenido .post .imagen .avatar{border-radius:50%;border:2px solid #000;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
-#contenido .texto{padding-left:10px;padding-top:2px}
+#contenido .post .imagen .avatar{border-radius:50%;border:3px solid #fff;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
+#contenido .texto{background:#161616;padding:2px 0 5px 10px}
 #contenido .texto .lugar,.tiempo{display:inline-block;font-size:12px}
 #contenido .texto .nombre{padding-top:3px;padding-bottom:5px}
 #contenido .texto .nombre a{color:#6d6d6d}
