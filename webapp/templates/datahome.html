@@ -7,17 +7,17 @@
             <ul>
             <h1><a href="">{{place.PlaceName}}</a></h1>
             <li class="formato2">22
-                <br/><div class="formato">Bolos</div>
+                <br/><div class="formato">People Now</div>
             </li>
             <li class="formato2">Four Loco
-                <br/><div class="formato">Bebida Favorita</div>
+                <br/><div class="formato">Favorite Drink</div>
             </li>
             
             {% for photo in TPhotosPlace %}
             {% for photo2 in photo %}
                 {% if photo2.PhotoPost_PlaceID.PlaceID == place.PlaceID and photo2.PhotoPostID >= photo2.maxiID %}
                     <li class="formato2">{{ photo2.PhotoPostDateTime|timesince|truncatewords:2 }}
-                        <br/><div class="formato">Ultimo Registro</div>
+                        <br/><div class="formato">Last Record</div>
                     </li>
                 {% endif %}
              {% endfor %}
