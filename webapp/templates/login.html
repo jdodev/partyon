@@ -22,7 +22,7 @@
                 <span class="icon-lock icono"></span><input name="password" type="password" placeholder="password" required><br><br>
                 <input id="boton" type="submit" value="Login"><br><br>
                 <a href="#">Forgot your password?</a><br>
-                <a href="#">Sign up</a>
+                <a id="btnSignup" href="#">Sign up</a>
             </div>
             	
             	
@@ -60,6 +60,10 @@
                     });
                     return false;
             });   
+
+            $('#btnSignup').click(function(e){
+               window.location = '/registration/';
+            });
         }
         </script>
 

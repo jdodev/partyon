@@ -48,7 +48,7 @@ input{background:#000}
 .icono{font-size:20px;text-align:center}
 .letraicono{font-size:12px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222;margin:0 15px 0 15px}
-#contenido{padding-top:55px;padding-bottom:45px}
+#contenido{padding-top:55px;padding-bottom:75px}
 #contenido #formLogin{text-align:center}
 #contenido #formLogin .titulo{color:#3b3b3b;padding-bottom:10px}
 .login{padding-top:990px}

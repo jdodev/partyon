@@ -216,6 +216,8 @@ function inicio()
         });
     });
 
+    
+
     $("#btnMusic").click(function(e){
         setNoActivo();
         var qLat = $("#Latitud").val();
