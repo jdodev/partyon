@@ -151,6 +151,14 @@ def help(request):
 	return render(request, 'help.html')
 
 @login_required(login_url='/')
+def registration(request):
+	return render(request, 'registration.html')
+
+@login_required(login_url='/')
+def update(request):
+	return render(request, 'update.html')
+
+@login_required(login_url='/')
 def postsong(request):
 	if request.is_ajax():
 		qLat = request.GET.get('qLat', False)
