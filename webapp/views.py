@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from django.core import serializers
 from django.db.models import Count, Max, Sum, Avg
 from django.contrib.auth.decorators import login_required
@@ -98,7 +98,13 @@ def datahome(request):
 		qLongMax = float(qLong) + 0.2000000
 		qLongMin = float(qLong) - 0.2000000
 
+		hoy = date.today()
+		ayer = hoy - timedelta(1)
+		manana = hoy + timedelta(1)
+
 		resPlaces = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)])[:10]
+
+		resPersonas = []
 
 		resPlacePhotos = []
 
@@ -106,7 +112,10 @@ def datahome(request):
 			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
 			resPlacePhotos.append(FotoObtenida)
 
-		return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos})
+			CountObtenido = PhotoPost.objects.filter(PhotoPostDateTime__range=[hoy, manana], PhotoPost_PlaceID=dPlace).values('PhotoPost_User').distinct().count()
+			resPersonas.append(CountObtenido)
+
+		return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos, 'TCount' : resPersonas})
 
 @login_required(login_url='/')
 def datatrends(request):
