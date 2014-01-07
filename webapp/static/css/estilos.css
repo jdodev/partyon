@@ -74,9 +74,9 @@ input{background:#000}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 15px 15px 15px}
 .photo{overflow:hidden;max-width:290px;max-height:158px}
-#contenido #rank{border-bottom:2px solid #141414;margin:20px 15px 10px 15px}
-#contenido #rank ul{padding:20px 0 0 10px;text-align:center}
-#contenido #rank ul li{display:inline-block;padding:0 5px 20px 5px;text-align:center}
+#contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
+#contenido #rank ul{padding:20px 0 0 0;text-align:center}
+#contenido #rank ul li{background:rgba(0,0,0,0.4);border-radius:5px;display:inline-block;padding:5px 5px 5px 8px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
 #contenido .post .imagen{margin-bottom:10px;margin-top:10px}
 #contenido .post .imagen .avatar{border-radius:50%;border:3px solid #fff;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
@@ -87,7 +87,7 @@ input{background:#000}
 #contenido .texto .lugar a{color:#6d6d6d}
 #contenido .texto .describeme{padding-top:2px}
 #contenido .texto .tiempo{width:40%;margin-top:10px;text-align:right}
-.transparencia{background:rgba(0,0,0,0.6);height:160px;position:absolute;width:295px}
+.transparencia{background:rgba(0,0,0,0.3);height:160px;position:absolute;width:295px}
 .transparencia a{color:#fff}
 #settings .menusettings{padding-top:20px}
 #settings .menusettings ul li{padding:5px;list-style:none}
