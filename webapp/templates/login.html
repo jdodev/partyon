@@ -10,19 +10,32 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css"/>
         <link rel="stylesheet" href="{{STATIC_URL}}css/estilos.css">
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <style type="text/css"> 
+            body {
+                background-image:url({{STATIC_URL}}img/fondo.png);
+                background-repeat: no-repeat;
+                width:320px;
+                height:480px;
+             }
+
+        </style>
     </head>
+
+
     <body>
+
         <section id="contenido">
 
             <form id="formLogin" name="formLogin" action="/login/" method="post">{% csrf_token %}
+
             PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
             <div class="imagenlogin">
-                <span class="icon-user icono"></span><input name="username" type="text" autofocus placeholder="username" required> <br>
+                <span class="icon-user icono"></span><input class="inpuform" name="username" type="text" autofocus placeholder="username" required> <br>
                 <br>
-                <span class="icon-lock icono"></span><input name="password" type="password" placeholder="password" required><br><br>
+                <span class="icon-lock icono"></span><input class="inpuform" name="password" type="password" placeholder="password" required><br><br>
                 <input id="boton" type="submit" value="Login"><br><br>
-                <a href="#">Forgot your password?</a><br>
-                <a id="btnSignup" href="#">Sign up</a>
+                <a class="titulo" href="#">Forgot your password?</a><br>
+                <a class="titulo" id="btnSignup" href="#">Sign up</a>
             </div>
             	
             	

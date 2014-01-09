@@ -32,6 +32,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 .selectphoto #boton{background:#070707;border:0;color:rgba(255,255,255,0.3);font-size:18px;padding:10px 20px 10px 20px;text-align:center}
 #formulario{background:#000;padding-top:30px}
 .input{background:#000;border:0;color:#ff69b4;font-size:16px;margin-top:20px;padding-top:0;padding:1em;width:90%}
+.fondo{width:320px;height:114px}
 #formulario #PhotoPostDescription{background:#141414}
 .add{display:none}
 #formulario .combobox{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
@@ -40,17 +41,18 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formLogin .icon-lock{padding:5px}
 #camara{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 input{background:#000}
-#contenido #formLogin input{background-repeat:no-repeat;color:#ff69b4;border:1px solid #1c1c1c;padding:5px}
+#contenido #formLogin{background-image:url("../img/fondo.jpg")}
+#contenido #formLogin .inpuform{background-repeat:no-repeat;color:#ff69b4;box-shadow:0 0 4px #9b5af9;border:none;border-radius:none;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
-#contenido #formLogin #boton{background:0;border:1;color:#b3b3b3;padding:5px 15px 5px 15px}
+#contenido #formLogin #boton{background:0;border:1;color:#b3b3b3;padding:5px 15px 5px 15px;border:none}
 .icon-switch:before{color:#f00;content:"\e605"}
 .icon-location{padding-left:20px}
 .icono{font-size:20px;text-align:center}
 .letraicono{font-size:12px !important}
 .hr{padding-bottom:10px;border-bottom:1px solid #222;margin:0 15px 0 15px}
 #contenido{padding-top:55px;padding-bottom:75px}
-#contenido #formLogin{text-align:center}
-#contenido #formLogin .titulo{color:#3b3b3b;padding-bottom:10px}
+#contenido #formLogin{color:#fff;text-align:center}
+#contenido #formLogin .titulo{color:#c3c3c3;padding-bottom:10px}
 .login{padding-top:990px}
 #contenido #configure{text-align:right}
 #contenido #info{color:#fff;text-align:center}
