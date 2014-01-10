@@ -48,8 +48,9 @@ input{background:#000}
 .icon-switch:before{color:#f00;content:"\e605"}
 .icon-location{padding-left:20px}
 .icono{font-size:20px;text-align:center}
+.iconocam{font-size:20px}
 .letraicono{font-size:12px !important}
-.hr{padding-bottom:10px;border-bottom:1px solid #222;margin:0 15px 0 15px}
+.hr{padding-bottom:10px;border-bottom:1px solid #000;margin:0 15px 0 15px}
 #contenido{padding-top:55px;padding-bottom:75px}
 #contenido #formLogin{color:#fff;text-align:center}
 #contenido #formLogin .titulo{color:#c3c3c3;padding-bottom:10px}
@@ -58,14 +59,14 @@ input{background:#000}
 #contenido #info{color:#fff;text-align:center}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
 #contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
-#contenido #dj{border-bottom:1px solid #141414;color:#fff;margin:0 10px 0 10px}
-#contenido #dj ul{background:#212121;padding:20px 0 20px 0;ra}
-#contenido #dj ul li{display:inline-block;padding:0 5px 0 5px}
-#contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:20px}
+#contenido #dj{color:#fff;margin:0 0 0 0}
+#contenido #dj ul{border-bottom:1px solid #1e1e1e;padding:10px 0 2px 0}
+#contenido #dj ul li{display:inline-block;padding:0 2px 0 2px}
+#contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:15px}
 #contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
 #contenido #nombre,#votos{font-size:14px;text-align:center;color:#6e6e6e}
-#contenido #dj #nombre{padding-left:10px;width:50%}
-#contenido #dj #votos{padding-left:100px}
+#contenido #dj #nombre{padding-left:10px;width:70%}
+#contenido #dj #votos{padding-left:30px}
 #contenido h1{margin:20px 0 0 0}
 #contenido .nombrelugar{text-align:center}
 #contenido #perfil{margin-top:10px;padding:20px 0 20px 0;background:#ddd;width:100%}
@@ -76,13 +77,13 @@ input{background:#000}
 .formato2{color:#ddd}
 #contenido .post{font-size:.8em;margin:15px 15px 15px 15px}
 .photo{overflow:hidden;max-width:290px;max-height:158px}
-#contenido #rank{border-bottom:1px solid #141414;margin:20px 15px 10px 15px}
+#contenido #rank{margin:20px 10px 0 10px;padding-left:5px;padding-top:5px}
 #contenido #rank ul{padding:20px 0 0 0;text-align:center}
-#contenido #rank ul li{background:rgba(0,0,0,0.4);border-radius:5px;display:inline-block;padding:5px 5px 5px 8px;text-align:center}
+#contenido #rank ul li{background:rgba(0,0,0,0.4);border-radius:5px;display:inline-block;padding:5px 5px 0 8px;text-align:center}
 #contenido #rank h1{text-align:center;padding-bottom:10px}
 #contenido .post .imagen{margin-bottom:10px;margin-top:10px}
 #contenido .post .imagen .avatar{border-radius:50%;border:3px solid #fff;height:50px;margin:5px;overflow:hidden;padding:0;width:50px;position:absolute}
-#contenido .texto{background:#161616;padding:2px 0 5px 10px}
+#contenido .texto{background:#161616;padding:2px 0 5px 10px;margin-bottom:10px}
 #contenido .texto .lugar,.tiempo{display:inline-block;font-size:12px}
 #contenido .texto .nombre{padding-top:3px;padding-bottom:5px}
 #contenido .texto .nombre a{color:#6d6d6d}
