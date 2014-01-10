@@ -11,19 +11,28 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/estilos.css">
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
+        <style type="text/css"> 
+            body {
+                background-image:url({{STATIC_URL}}img/fondo.png);
+                background-repeat: no-repeat;
+                width:320px;
+                height:480px;
+             }
+
+        </style>
     <body>
         <section id="contenido">
 
             <form id="formLogin" name="formLogin" action="/login/" method="post">
             PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
             <div class="imagenlogin">
-                <input name="name" type="text" autofocus placeholder="Name" required> <br><br>
-                <input name="lastname" type="text" autofocus placeholder="Last Name" required> <br><br>
-                <input name="username" type="text" autofocus placeholder="Username" required> <br><br>
-                <input name="passoword" type="password" autofocus placeholder="Password" required> <br><br>
-                <input name="password2" type="password" autofocus placeholder="Password" required> <br><br>
-                <input name="privacy" type="radio" autofocus placeholder="privacy" required>
-                <a href="#">Políticas de Privacidad</a></br></br>
+                <input class="inpuform" class="inpuform" name="name" type="text" autofocus placeholder="Name" required> <br><br>
+                <input class="inpuform" name="lastname" type="text" autofocus placeholder="Last Name" required> <br><br>
+                <input class="inpuform" name="username" type="text" autofocus placeholder="Username" required> <br><br>
+                <input class="inpuform" name="passoword" type="password" autofocus placeholder="Password" required> <br><br>
+                <input class="inpuform" name="password2" type="password" autofocus placeholder="Password" required> <br><br>
+                <input class="inpuform" name="privacy" type="radio" autofocus placeholder="privacy" required>
+                <a class="titulo" href="#">Políticas de Privacidad</a></br></br>
                 
                 <input id="boton" type="submit" value="Login"><br><br>
                 
