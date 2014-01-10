@@ -104,16 +104,13 @@ def datahome(request):
 
 		resPlaces = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)])[:10]
 
-		resPersonas = []
+		resPersonas = Place.objects.extra(where=["PlaceLat <= " + str(qLatMax) + " AND PlaceLat >= " + str(qLatMin) + " AND PlaceLong >= " + str(qLongMax) + " AND PlaceLong <= " + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
 		resPlacePhotos = []
 
 		for dPlace in resPlaces:
 			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
 			resPlacePhotos.append(FotoObtenida)
-
-			CountObtenido = PhotoPost.objects.filter(PhotoPostDateTime__range=[hoy, manana], PhotoPost_PlaceID=dPlace).values('PhotoPost_User').distinct().count()
-			resPersonas.append(CountObtenido)
 
 		return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos, 'TCount' : resPersonas})
 

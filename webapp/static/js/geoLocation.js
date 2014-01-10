@@ -17,7 +17,7 @@ $(function(){
 		var lat = position.coords.latitude;
 		var lng = position.coords.longitude;
 
-		if (lng > -88){
+		if (lng > -89){
 			lng = -87.1791421;
 			lat = 13.3106579;
 		}
