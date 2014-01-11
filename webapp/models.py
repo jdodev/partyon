@@ -73,7 +73,7 @@ class UserProfile(models.Model):
 	UserProfileMailVerified = models.BooleanField(help_text='User Mail Verified', verbose_name=u'Mail Verified')
 
 	def __unicode__(self):
-		return self.UserProfile_User
+		return self.UserProfile_User.username
 
 class Follow(models.Model):
 	FollowID = models.AutoField(primary_key=True)

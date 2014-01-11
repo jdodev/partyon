@@ -21,18 +21,19 @@
     <body>
         <section id="contenido">
 
-            <form id="formLogin" name="formLogin" action="/login/" method="post">
+            <form id="formLogin" name="formLogin" action="#" method="post">{% csrf_token %}
             PARTY<span class="icon-switch icono"></span>N<div class="titulo">Join to the party</div>
             <div class="imagenlogin">
-                <input class="inpuform" class="inpuform" name="name" type="text" autofocus placeholder="Name" required> <br><br>
-                <input class="inpuform" name="lastname" type="text" autofocus placeholder="Last Name" required> <br><br>
+                <input class="inpuform" name="first_name" type="text" autofocus placeholder="Name" required> <br><br>
+                <input class="inpuform" name="last_name" type="text" autofocus placeholder="Last Name" required> <br><br>
                 <input class="inpuform" name="username" type="text" autofocus placeholder="Username" required> <br><br>
-                <input class="inpuform" name="passoword" type="password" autofocus placeholder="Password" required> <br><br>
+                <input class="inpuform" name="email" type="text" autofocus placeholder="Email" required> <br><br>
+                <input class="inpuform" name="password" type="password" autofocus placeholder="Password" required> <br><br>
                 <input class="inpuform" name="password2" type="password" autofocus placeholder="Password" required> <br><br>
-                <input class="inpuform" name="privacy" type="radio" autofocus placeholder="privacy" required>
-                <a class="titulo" href="#">Políticas de Privacidad</a></br></br>
+                <input class="inpuform" name="privacy" type="checkbox" autofocus placeholder="privacy" id="chkPrivacy">
+                <a class="titulo" href="#">I agree to the terms and privacy.</a></br></br>
                 
-                <input id="boton" type="submit" value="Login"><br><br>
+                <input id="boton" type="submit" value="Sign Up" disabled><br><br>
                 
             </div>
             	
@@ -41,11 +42,20 @@
 
         </section>
 
-         <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
+        <script src="{{STATIC_URL}}js/prefixfree.dynamic-dom.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
         <script src="{{STATIC_URL}}js/main.js"></script>
+        <script>
+            $("#chkPrivacy").change(function(){
+                if (this.checked == true) {
+                    $("#boton").prop("disabled", false);
+                } else {
+                    $("#boton").prop("disabled", true);
+                };
+            });
+        </script>
 
 
     </body>

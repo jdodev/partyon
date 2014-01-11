@@ -156,8 +156,38 @@ def settings(request):
 def help(request):
 	return render(request, 'help.html')
 
-def registration(request):
-	return render(request, 'registration.html')
+def signup(request):
+	if request.method == 'POST':
+		frmNewUser = SignUpForm(request.POST)
+
+		if frmNewUser.is_valid():
+			firstname = frmNewUser.cleaned_data['first_name']
+			lastname = frmNewUser.cleaned_data['last_name']
+			email = frmNewUser.cleaned_data['email']
+			Username = frmNewUser.cleaned_data['username']
+			Password = frmNewUser.cleaned_data['password']
+
+			user = User.objects.create_user(Username, email, Password)
+			user.first_name = firstname
+			user.last_name = lastname
+
+			user.save()
+
+			ojUsuario = User.objects.get(username=Username)
+
+			PerfilUsuario = UserProfile(UserProfile_User=ojUsuario, UserProfileMailVerified=False)
+			PerfilUsuario.save()
+
+			acceso = authenticate(username=Username, password=Password)
+			if acceso is not None:
+				login(request, acceso)
+				return HttpResponseRedirect('/')
+			else:
+				return HttpResponseRedirect('/NoAcceso')
+		else:
+			return HttpResponseRedirect('/novalido')
+	else:
+		return render(request, 'signup.html')
 
 @login_required(login_url='/')
 def update(request):
@@ -169,7 +199,7 @@ def postsong(request):
 		qLat = request.GET.get('qLat', False)
 		qLong = request.GET.get('qLong', False)
 
-		#Sumamos los valores del marge de error
+		#Sumamos los valores del marge de errorsss
 		qLatMax = float(qLat) + 0.0020000
 		qLatMin = float(qLat) - 0.0020000
 

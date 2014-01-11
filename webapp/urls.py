@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', views.logoutpatyon, name='logoutpatyon'),
     url(r'^postsong/$', views.postsong, name='postsong'),
     url(r'^plus/$', views.plus, name='plus'),
-    url(r'^registration/$', views.registration, name='registration'),
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'^update/$', views.update, name='update'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )
