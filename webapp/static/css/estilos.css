@@ -60,6 +60,7 @@ input{background:#000}
 #contenido #info ul{background:#212121;padding:30px 0 30px;margin-top:40px}
 #contenido #info ul li{display:inline-block;padding:5px 15px 5px 15px;text-align:center}
 #contenido #dj{color:#fff;margin:0 0 0 0}
+.boton{outline:none}
 #contenido #dj ul{border-bottom:1px solid #1e1e1e;padding:10px 0 2px 0}
 #contenido #dj ul li{display:inline-block;padding:0 2px 0 2px}
 #contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:15px}

@@ -9,7 +9,7 @@
         <form action="/songpostpointadd/" class="classVoteSong" method="post" id="frmSongVote{{song.SongPostID}}">{% csrf_token %}
             <input type="hidden" name="SongPoint_SongPostID" value="{{ song.SongPostID }}">
             <input type="hidden" name="SongPoint_User" value="{{ user.id }}">
-            <button id="target{{song.SongPostID}}" type="submit">switch</button>
+            <button class="icon-switch boton" id="target{{song.SongPostID}}" type="submit"></button>
         </form>
     </ul>
 </article>
