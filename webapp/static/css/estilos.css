@@ -44,8 +44,8 @@ input{background:#000}
 #contenido #formLogin{background-image:url("../img/fondo.jpg")}
 #contenido #formLogin .inpuform{background-repeat:no-repeat;color:#ff69b4;box-shadow:0 0 4px #9b5af9;border:none;border-radius:none;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
-#contenido #formLogin #boton{background:0;border:1;color:#b3b3b3;padding:5px 15px 5px 15px;border:none}
-.icon-switch{content:"\e605"}
+#contenido #formLogin #boton{background:rgba(0,0,0,0.4);border:none;color:#b3b3b3;padding:5px 15px 5px 15px}
+.icon-switch{color:#f00;content:"\e605"}
 .switchcolor{background:#000;border:0;color:#f00;font-size:18px}
 .switchcolor2{background:#000;border:0;color:#05c609;font-size:18px}
 .icon-location{padding-left:20px}
