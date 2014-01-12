@@ -5,7 +5,12 @@
         <li id="cancion">{{ song.SongPostName }}</li>
         <li id="taradiar">{{ song.SongPostQuote }}</li>
         <li id="nombre">{{ song.SongPost_User.first_name }} {{ song.SongPost_User.last_name }} <a href="#">@{{ song.SongPost_User }}</a></li>
-        <li id="votos">22<br><a class="icon-switch icono" href="#"></a></li>
+        <li id="votos">{{ song.tVotosSong }}<br>
+        <form action="/songpostpointadd/" class="classVoteSong" method="post" id="frmSongVote{{song.SongPostID}}">{% csrf_token %}
+            <input type="hidden" name="SongPoint_SongPostID" value="{{ song.SongPostID }}">
+            <input type="hidden" name="SongPoint_User" value="{{ user.id }}">
+            <button id="target{{song.SongPostID}}" type="submit">switch</button>
+        </form>
     </ul>
 </article>
 
@@ -16,6 +21,26 @@
 
 <script id="cosasLocas" type="text/javascript">
     $(function(){
+        $("button[Id]").closest(".classVoteSong").on('click', function() {
+            var id = "#" + $(this).closest("form").attr('id');            
+            $(id).on('submit',function(){
+                $.ajax({
+                    data: $(id).serialize(),
+                    type: $(id).attr('method'),
+                    dataType: "json",
+                    url: $(id).attr('action'),
+                    success: function(data) {
+                        if (data.codigo == 1) {
+                            $(id).attr('action', '/songpostpointdel/');
+                        } else if (data.codigo == 2) {
+                            $(id).attr('action', '/songpostpointadd/');
+                        }
+                    }
+                });
+                    return false;
+            });   
+        });
+
         var DataHeyDj = function(){
             $.ajax({
                 url: '/dataheydj/',

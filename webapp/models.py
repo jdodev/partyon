@@ -45,7 +45,7 @@ class SongPoint(models.Model):
 	SongPoint_User = models.ForeignKey(User)
 
 	def __unicode__(self):
-		return self.SongPointID
+		return str(self.SongPointID)
 
 class PhotoPoint(models.Model):
 	PhotoPointID = models.AutoField(primary_key=True)

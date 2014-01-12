@@ -129,7 +129,7 @@ def dataactivity(request):
 @login_required(login_url='/')
 def dataheydj(request):
 	if request.is_ajax():
-		resHeyDj = SongPost.objects.all().order_by('-SongPostID')
+		resHeyDj = SongPost.objects.all().annotate(tVotosSong=Count('songpoint__SongPoint_SongPostID')).order_by('-SongPostID')[:20]
 		return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj})
 
 @login_required(login_url='/')
@@ -212,3 +212,35 @@ def postsong(request):
 @login_required(login_url='/')
 def plus(request):
 	return render(request, 'plus.html')
+
+@login_required(login_url='/')
+def songpostpointadd(request):
+	if request.is_ajax():
+		if request.method == 'POST':
+			songID = request.POST['SongPoint_SongPostID']
+			userID = request.POST['SongPoint_User']
+
+			song = SongPost.objects.get(pk=songID)
+			user = User.objects.get(pk=userID)
+
+			songPoint = SongPoint(SongPoint_SongPostID=song, SongPoint_User=user)
+			songPoint.save()
+
+			respuesta = {'codigo': 1, 'msg': 'Se ha guardado el voto.'}
+			return HttpResponse(json.dumps(respuesta))
+
+@login_required(login_url='/')
+def songpostpointdel(request):
+	if request.is_ajax():
+		if request.method == 'POST':
+			songID = request.POST['SongPoint_SongPostID']
+			userID = request.POST['SongPoint_User']
+
+			song = SongPost.objects.get(pk=songID)
+			user = User.objects.get(pk=userID)
+
+			songPoint = SongPoint.objects.get(SongPoint_SongPostID=song, SongPoint_User=user)
+			songPoint.delete()
+
+			respuesta = {'codigo': 2, 'msg': 'Se ha eliminado el voto.'}
+			return HttpResponse(json.dumps(respuesta))

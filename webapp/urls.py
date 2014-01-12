@@ -22,5 +22,7 @@ urlpatterns = patterns('',
     url(r'^plus/$', views.plus, name='plus'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^update/$', views.update, name='update'),
+    url(r'^songpostpointadd/$', views.songpostpointadd, name='songpostpointadd'),
+    url(r'^songpostpointdel/$', views.songpostpointdel, name='songpostpointdel'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )
