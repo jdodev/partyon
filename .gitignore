@@ -40,3 +40,7 @@ webapp/urls.pyc
 dbPartyOn.sqlite3
 
 dbPartyOn.sqlite3
+
+partyon/settings.py
+
+partyon/settings.py
