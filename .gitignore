@@ -44,3 +44,5 @@ dbPartyOn.sqlite3
 partyon/settings.py
 
 partyon/settings.py
+
+upload_files/
