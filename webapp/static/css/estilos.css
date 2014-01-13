@@ -18,7 +18,7 @@
 .icon-arrow-left:before{content:"\e60f"}
 a{color:#606060;text-decoration:none}
 body{background:#000;color:#a3a2a3;font-family:arial;font-size:17px;text-align:left}
-header{background:#0f65ef;height:60px;margin-bottom:700px;padding-top:10px;position:fixed;width:100%;z-index:1;text-align:center}
+header{background:#1a6cb6;height:60px;margin-bottom:700px;padding-top:10px;position:fixed;width:100%;z-index:1;text-align:center}
 header nav{margin-left:-30px;vertical-align:top}
 header nav ul li{display:inline-block;padding:0 10px 0 10px}
 header nav ul li a{color:rgba(255,255,255,0.5)}
@@ -64,7 +64,7 @@ input{background:#000}
 #contenido #dj{color:#fff;margin:0 0 0 0}
 #contenido #dj ul{border-bottom:1px solid #1e1e1e;padding:10px 0 2px 0}
 #contenido #dj ul li{display:inline-block;padding:0 2px 0 2px}
-#contenido #dj #cancion{color:#d923f9;font-size:1.5em;text-align:center;padding-left:15px}
+#contenido #dj #cancion{color:#f37b46;font-size:1.5em;text-align:center;padding-left:15px}
 #contenido #dj #taradiar{color:#a3a2a3;font-size:14px;padding-bottom:15px;padding-left:20px}
 #contenido #nombre,#votos{font-size:14px;text-align:center;color:#6e6e6e}
 #contenido #dj #nombre{padding-left:10px;width:70%}

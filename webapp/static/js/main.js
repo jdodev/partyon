@@ -13,7 +13,7 @@ function inicio()
 
 	$("#btnTrends").click(function(e){
 			var miCSSRank ={
-			"background": "rgba(127,0,249,1)",
+			"background": "#b06ead",
 			
 		};
 		$("header").css(miCSSRank);
@@ -48,7 +48,7 @@ function inicio()
 
 	$("#btnHome").click(function(e){
 			var miCSSRank ={
-			"background": "rgba(15,101,239,1)",
+			"background": "#1a6cb6",
 			
 		};
         var qLat = $("#Latitud").val();
@@ -87,7 +87,7 @@ function inicio()
 
 	$("#btnActividad").click(function(e){
 			var miCSSActividad={
-			"background": "rgba(247,104,6,1)",
+			"background": "#a0cfb6",
 			
 		};
 		$("header").css(miCSSActividad);
@@ -122,7 +122,7 @@ function inicio()
 
 	$("#btnDj").click(function(e){
 			var miCSSDj={
-			"background": "rgba(217,35,249,1)",
+			"background": "#f37b46",
 			
 		};
 		$("header").css(miCSSDj);
@@ -158,7 +158,7 @@ function inicio()
 
 	$("#btnPerfil").click(function(e){
 			var miCSSPerfil={
-			"background": "#D8B900",
+			"background": "#e66266",
 			
 		};
 		$("header").css(miCSSPerfil);
