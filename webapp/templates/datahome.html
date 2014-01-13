@@ -31,7 +31,7 @@
         {% for photo in TPhotosPlace %}
             {% for photo2 in photo %}
                 {% if photo2.PhotoPost_PlaceID.PlaceID == place.PlaceID and photo2.PhotoPostID >= photo2.maxiID %}
-                    {% thumbnail photo2.PhotoPostPhoto "290x158" crop="center" as im %}
+                    {% thumbnail photo2.PhotoPostPhoto "320x190" crop="center" as im %}
                     <div class="imagen">
                         <img src="{{ im.url }}" alt="{{ photo2.PhotoPostDescription }}" width="{{ im.width }}" height="{{ im.height }}">
                     </div>

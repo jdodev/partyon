@@ -87,7 +87,7 @@ function inicio()
 
 	$("#btnActividad").click(function(e){
 			var miCSSActividad={
-			"background": "#a0cfb6",
+			"background": "#e66266",
 			
 		};
 		$("header").css(miCSSActividad);
@@ -158,7 +158,7 @@ function inicio()
 
 	$("#btnPerfil").click(function(e){
 			var miCSSPerfil={
-			"background": "#e66266",
+			"background": "#a0cfb6",
 			
 		};
 		$("header").css(miCSSPerfil);
