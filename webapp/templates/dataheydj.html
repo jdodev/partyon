@@ -5,15 +5,31 @@
         <li id="cancion">{{ song.SongPostName }}</li>
         <li id="taradiar">{{ song.SongPostQuote }}</li>
         <li id="nombre">{{ song.SongPost_User.first_name }} {{ song.SongPost_User.last_name }} <a href="#">@{{ song.SongPost_User }}</a></li>
-        <li id="votos">{{ song.tVotosSong }}<br>
-        <form action="/songpostpointadd/" class="classVoteSong" method="post" id="frmSongVote{{song.SongPostID}}">{% csrf_token %}
-            <input type="hidden" name="SongPoint_SongPostID" value="{{ song.SongPostID }}">
-            <input type="hidden" name="SongPoint_User" value="{{ user.id }}">
-            <button class="icon-switch switchcolor" id="target{{song.SongPostID}}" type="submit"></button>
-        </form>
+        <li id="votos" heigth="40px">{{ song.tVotosSong }}<br>
+        {% for voto1 in TVotoUsuario %}
+            {% for voto2 in voto1 %}
+                {% if voto2.SongPoint_User.id == user.id %}
+                {% if voto2.SongPoint_SongPostID.SongPostID == song.SongPostID %}
+                <form action="/songpostpointdel/" class="classVoteSong" method="post" id="frmSongVote{{song.SongPostID}}" data-idBot="target{{song.SongPostID}}">{% csrf_token %}
+                    <input type="hidden" name="SongPoint_SongPostID" value="{{ song.SongPostID }}">
+                    <input type="hidden" name="SongPoint_User" value="{{ user.id }}">
+                    <button class="icon-switch switchcolor2" id="target{{song.SongPostID}}" type="submit"></button>
+                </form>
+                {% endif %}
+                {% endif %}
+            {% empty %}
+            {% if forloop.last %}
+            <form action="/songpostpointadd/" class="classVoteSong" method="post" id="frmSongVote{{song.SongPostID}}" data-idBot="target{{song.SongPostID}}">{% csrf_token %}
+                <input type="hidden" name="SongPoint_SongPostID" value="{{ song.SongPostID }}">
+                <input type="hidden" name="SongPoint_User" value="{{ user.id }}">
+                <button class="icon-switch switchcolor" id="target{{song.SongPostID}}" type="submit"></button>
+            </form>
+            {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </li>
     </ul>
 </article>
-
 {% empty %}
 <h2>No hay nada.</h2>
 {% endfor %}
@@ -22,7 +38,9 @@
 <script id="cosasLocas" type="text/javascript">
     $(function(){
         $("button[Id]").closest(".classVoteSong").on('click', function() {
-            var id = "#" + $(this).closest("form").attr('id');            
+            var id = "#" + $(this).closest("form").attr('id');
+            var idB = "#" + $(this).attr('data-idBot');
+            $(this).addClass("mocos");          
             $(id).on('submit',function(){
                 $.ajax({
                     data: $(id).serialize(),
@@ -32,8 +50,12 @@
                     success: function(data) {
                         if (data.codigo == 1) {
                             $(id).attr('action', '/songpostpointdel/');
+                            $(idB).removeClass('switchcolor');
+                            $(idB).addClass('switchcolor2');
                         } else if (data.codigo == 2) {
                             $(id).attr('action', '/songpostpointadd/');
+                            $(idB).removeClass('switchcolor2');
+                            $(idB).addClass('switchcolor');
                         }
                     }
                 });
@@ -64,7 +86,7 @@
             });
         };
 
-        timer = $.timer(10000, function(){
+        timer = $.timer(100000, function(){
             DataHeyDj();
         });
     });

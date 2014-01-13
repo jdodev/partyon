@@ -65,11 +65,15 @@ def savephotopost(request):
 @login_required(login_url='/')
 def savesongpost(request):
 	if request.method == 'POST':
-		formSongPost = SongPostForm(request.POST, request.FILES)
+		formSongPost = SongPostForm(request.POST)
 		if formSongPost.is_valid():
 			u = formSongPost.save(commit=False)
 			u.SongPostDateTime = datetime.now()
 			u.save()
+
+			VotarAuto = SongPoint(SongPoint_SongPostID=u, SongPoint_User=request.user)
+			VotarAuto.save()
+
 			return HttpResponseRedirect('/')
 		else:
 			return HttpResponseRedirect('/novalid/')
@@ -128,9 +132,16 @@ def dataactivity(request):
 
 @login_required(login_url='/')
 def dataheydj(request):
-	if request.is_ajax():
-		resHeyDj = SongPost.objects.all().annotate(tVotosSong=Count('songpoint__SongPoint_SongPostID')).order_by('-SongPostID')[:20]
-		return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj})
+	#if request.is_ajax():
+	resHeyDj = SongPost.objects.all().annotate(tVotosSong=Count('songpoint__SongPoint_SongPostID')).order_by('-SongPostID')[:20]
+
+	resTotalVotos = []
+
+	for heyCancion in resHeyDj:
+		ConteoObtenido = SongPoint.objects.filter(SongPoint_SongPostID=heyCancion, SongPoint_User=request.user)[:1]
+		resTotalVotos.append(ConteoObtenido)
+
+	return render(request, 'dataheydj.html', {'THeyDj' : resHeyDj, 'TVotoUsuario' : resTotalVotos})
 
 @login_required(login_url='/')
 def postphoto(request):
