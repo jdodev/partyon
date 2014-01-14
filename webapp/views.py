@@ -145,7 +145,7 @@ def dataheydj(request):
 
 @login_required(login_url='/')
 def postphoto(request):
-	#if request.is_ajax():
+	# if request.is_ajax():
 	qLat = request.GET.get('qLat', False)
 	qLong = request.GET.get('qLong', False)
 
