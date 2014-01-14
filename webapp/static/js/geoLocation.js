@@ -64,10 +64,10 @@ $(function(){
 	            $('#contenido').append(result);
 	            $("#cargandoModal").attr('class', 'noCargaModal');
 	        },
-	          //   error: function (xhr, ajaxOptions, thrownError) {
-	          //   alert(xhr.status);
-	          //   alert(thrownError);
-	          // }
+            error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+          	}
 	    });
 	};
 });
