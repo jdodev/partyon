@@ -91,32 +91,32 @@ def home(request):
 
 @login_required(login_url='/')
 def datahome(request):
-	#if request.is_ajax():
-	qLat = request.GET.get('qLat', False)
-	qLong = request.GET.get('qLong', False)
+	if request.is_ajax():
+		qLat = request.GET.get('qLat', False)
+		qLong = request.GET.get('qLong', False)
 
-	#Sumamos los valores del marge de error
-	qLatMax = float(qLat) + 0.2000000
-	qLatMin = float(qLat) - 0.2000000
+		#Sumamos los valores del marge de error
+		qLatMax = float(qLat) + 0.2000000
+		qLatMin = float(qLat) - 0.2000000
 
-	qLongMax = float(qLong) + 0.2000000
-	qLongMin = float(qLong) - 0.2000000
+		qLongMax = float(qLong) + 0.2000000
+		qLongMin = float(qLong) - 0.2000000
 
-	hoy = date.today()
-	ayer = hoy - timedelta(1)
-	manana = hoy + timedelta(1)
+		hoy = date.today()
+		ayer = hoy - timedelta(1)
+		manana = hoy + timedelta(1)
 
-	resPlaces = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= '  + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)])[:10]
+		resPlaces = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= '  + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)])[:10]
 
-	resPersonas = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
+		resPersonas = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
-	resPlacePhotos = []
+		resPlacePhotos = []
 
-	for dPlace in resPlaces:
-		FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
-		resPlacePhotos.append(FotoObtenida)
+		for dPlace in resPlaces:
+			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+			resPlacePhotos.append(FotoObtenida)
 
-	return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos, 'TCount' : resPersonas})
+		return render(request, 'datahome.html', {'TPlaces' : resPlaces, 'TPhotosPlace' : resPlacePhotos, 'TCount' : resPersonas})
 
 @login_required(login_url='/')
 def datatrends(request):
