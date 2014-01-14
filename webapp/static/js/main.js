@@ -166,33 +166,33 @@ function inicio()
 		$("#btnPerfil").attr('class', 'icon-user activo');
 	});
 
-	$("#btnPost").click(function(e){
-		setNoActivo();
-        var qLat = $("#Latitud").val();
-        var qLong = $("#Longitud").val();
-		$.ajax({
-            url: '/postphoto/',
-            type: 'GET',
-            data: {
-                'qLat' : qLat,
-                'qLong' : qLong
-            },
-            traditional: true,
-            dataType: 'html',
-            success: function(result) {
-                timer.stop();
-                $('#cosasLocas').remove();
-                $('#asyncContainer').remove();
-                //$('header').remove();
-                $('footer').remove();
-                $('#contenido').append(result);
-            },
-              //   error: function (xhr, ajaxOptions, thrownError) {
-              //   alert(xhr.status);
-              //   alert(thrownError);
-              // }
-        });
-	});
+	// $("#btnPost").click(function(e){
+	// 	setNoActivo();
+ //        var qLat = $("#Latitud").val();
+ //        var qLong = $("#Longitud").val();
+	// 	$.ajax({
+ //            url: '/postphoto/',
+ //            type: 'GET',
+ //            data: {
+ //                'qLat' : qLat,
+ //                'qLong' : qLong
+ //            },
+ //            traditional: true,
+ //            dataType: 'html',
+ //            success: function(result) {
+ //                timer.stop();
+ //                $('#cosasLocas').remove();
+ //                $('#asyncContainer').remove();
+ //                //$('header').remove();
+ //                $('footer').remove();
+ //                $('#contenido').append(result);
+ //            },
+ //              //   error: function (xhr, ajaxOptions, thrownError) {
+ //              //   alert(xhr.status);
+ //              //   alert(thrownError);
+ //              // }
+ //        });
+	// });
 
     $("#btnSetting").click(function(e){
         setNoActivo();
