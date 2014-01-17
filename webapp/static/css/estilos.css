@@ -41,6 +41,7 @@ footer ul li a{color:rgba(255,255,255,0.6)}
 #formLogin .icon-lock{padding:5px}
 #camara{background:0;font-size:14px;padding:10px 10px 10px 10px;border-radius:0;border:0;color:#bbb;line-height:1;-webkit-appearance:none}
 input{background:#000}
+#contenido #postphoto{background:#fff}
 #contenido #formLogin{background-image:url("../img/fondo.jpg")}
 #contenido #formLogin .inpuform{background-repeat:no-repeat;color:#ff69b4;box-shadow:0 0 4px #9b5af9;border:none;border-radius:none;padding:5px}
 #contenido #formLogin .icon-user{padding:5px}
@@ -99,7 +100,10 @@ input{background:#000}
 input placeholder{color:#f00}
 .noCargaModal{display:none;width:100%;height:100%;position:relative;z-index:99999999999999}
 .imgCargando{margin:30% 40% 20px 40%}
-.siCargaModal{display:inline-block;width:100%;height:100%;position:fixed;z-index:99999999999999;margin:auto;background-color:rgba(255,255,255,0.4);top:0;left:0}
+.siCargaModal{background-color:rgba(0,0,0,0.9);display:inline-block;height:100%;left:0;margin-top:70px;margin:auto;padding-left:15px;padding-top:70px;position:fixed;top:0;width:100%;z-index:99999999999999}
+.siCargaModal input{background:#fff;border:1px solid #fff;border:none;box-shadow:0 0 4px #fff;color:#000;padding:5px}
+.siCargaModal{color:#c3c3c3}
+.siCargaModal #cerrar{background:#fff;box-shadow:0 0 4px #fff;color:#000;padding:5px}
 @media screen and (min-width:768px){#contenido .post,#rank,#dj{display:inline-block;vertical-align:top;width:45%}
 #contenido #perfil{width:350px}
 #contenido #configure{width:350px}

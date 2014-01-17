@@ -1,6 +1,13 @@
 <div id="asyncContainer">
 	
 	<div id="postphoto">
+	<div id="song" class="noCargaModal">
+       <form action="#">
+	       	<input type="text" placeholder="Song" required><br><br>
+	       	<input id="add" type="submit" value="Add" >
+	       	<a id="cerrar" href="">Cancel</a>
+       </form>
+    </div>
 		<div id="formulario">
 			<form action="/savephotopost/" method="post" name="frmPhotoPost" id="frmPhotoPost" enctype="multipart/form-data">{% csrf_token %}
 				<span class="icon-location icono" ></span>
@@ -30,7 +37,12 @@
 	$("#PhotoPost_Lat").val($("#Latitud").val());
 	$("#PhotoPostLong").val($("#Longitud").val());
 	$("#btnPlus").click(function(e){
-		$("#cargandoModal").attr('class', 'siCargaModal');
+		$("#song").attr('class', 'siCargaModal');
+
 
 	});
+	$("#cerrar").click(function(e){
+		  $(this).close();
+	});
+
 </script>
