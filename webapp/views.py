@@ -118,9 +118,9 @@ def datahome(request):
 		ayer = hoy - timedelta(1)
 		manana = hoy + timedelta(1)
 
-		resPlaces = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= '  + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)])[:10]
+		resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
 
-		resPersonas = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
+		resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
 		resPlacePhotos = []
 
@@ -168,7 +168,7 @@ def postphoto(request):
 	qLongMax = float(qLong) + 0.0020000
 	qLongMin = float(qLong) - 0.0020000
 
-	resNearPlaces = Place.objects.extra(where=['CAST("PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("PlaceLong" AS double precision) <= ' + str(qLongMin)])
+	resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
 	#resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
 	return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
 
@@ -230,7 +230,7 @@ def postsong(request):
 		qLongMax = float(qLong) + 0.0020000
 		qLongMin = float(qLong) - 0.0020000
 
-		resNearPlaces = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)])
+		resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
 		return render(request, 'postsong.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
