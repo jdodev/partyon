@@ -169,7 +169,7 @@ def postphoto(request):
 	qLongMin = float(qLong) - 0.0020000
 
 	#resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
-	resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
+	resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])
 	return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
