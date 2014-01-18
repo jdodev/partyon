@@ -83,6 +83,18 @@ def savesongpost(request):
 def novalido(request):
 	formPhotoPost = PhotoPostForm()
 	return render(request, 'novalidod.html', {'form' : formPhotoPost})
+ 
+@login_required(login_url='/')
+def savenewplace(request):
+	if request.is_ajax():
+		NewPlace = Place(PlaceName=request.POST['PlaceName'], PlaceLat=request.POST['PlaceLat'], PlaceLong=request.POST['PlaceLong'])
+		NewPlace.save()
+
+		respuesta = {'codigo': 1, 'msg': 'Salvado'}
+		return HttpResponse(json.dumps(respuesta))
+	else:
+		respuesta = {'codigo': 1, 'msg': 'No Salvado'}
+		return HttpResponse(json.dumps(respuesta))
 
 #Este invoca a la base con las cargas asíncronas
 @login_required(login_url='/')
@@ -127,7 +139,7 @@ def datatrends(request):
 @login_required(login_url='/')
 def dataactivity(request):
 	if request.is_ajax():
-		resUserActivity = PhotoPost.objects.all().order_by('-PhotoPostID')
+		resUserActivity = PhotoPost.objects.select_related('user__userprofile').order_by('-PhotoPostID')
 		return render(request, 'dataactivity.html', {'TUserActivity' : resUserActivity})
 
 @login_required(login_url='/')
@@ -157,6 +169,7 @@ def postphoto(request):
 	qLongMin = float(qLong) - 0.0020000
 
 	resNearPlaces = Place.objects.extra(where=['CAST("webapp_place"."PlaceLat" AS double precision) <= ' + str(qLatMax) + ' AND CAST("webapp_place"."PlaceLat" AS double precision) >= ' + str(qLatMin) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) >= ' + str(qLongMax) + ' AND CAST("webapp_place"."PlaceLong" AS double precision) <= ' + str(qLongMin)])
+	#resNearPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])
 	return render(request, 'postphoto.html', {'NearPlaces' : resNearPlaces})
 
 @login_required(login_url='/')
@@ -186,7 +199,7 @@ def signup(request):
 
 			ojUsuario = User.objects.get(username=Username)
 
-			PerfilUsuario = UserProfile(UserProfile_User=ojUsuario, UserProfileMailVerified=False)
+			PerfilUsuario = UserProfile(UserProfileID=ojUsuario.id, UserProfile_User=ojUsuario, UserProfileMailVerified=False)
 			PerfilUsuario.save()
 
 			acceso = authenticate(username=Username, password=Password)

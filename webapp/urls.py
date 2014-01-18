@@ -24,5 +24,6 @@ urlpatterns = patterns('',
     url(r'^update/$', views.update, name='update'),
     url(r'^songpostpointadd/$', views.songpostpointadd, name='songpostpointadd'),
     url(r'^songpostpointdel/$', views.songpostpointdel, name='songpostpointdel'),
+    url(r'^savenewplace/$', views.savenewplace, name='savenewplace'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
 )

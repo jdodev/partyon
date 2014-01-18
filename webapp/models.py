@@ -3,12 +3,21 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 
+class UserProfile(models.Model):
+	UserProfileID = models.IntegerField(primary_key=True)
+	UserProfile_User = models.ForeignKey(User)
+	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos', default='UserProfilePhotos/partyon_img_prof_def_jpg.jpg')
+	UserProfileMailVerified = models.BooleanField(help_text='User Mail Verified', verbose_name=u'Mail Verified')
+
+	def __unicode__(self):
+		return self.UserProfile_User.username
+
 class Place(models.Model):
 	PlaceID = models.AutoField(primary_key=True)
 	PlaceName = models.CharField(max_length=50, help_text='Place Name', verbose_name=u'Name')
 	PlaceLat = models.CharField(max_length=25, help_text='Place Latitude', verbose_name=u'Latitude')
 	PlaceLong = models.CharField(max_length=25, help_text='Place Longitude', verbose_name=u'Longitude')
-	PlaceLogo = models.ImageField(upload_to='PlaceLogos', verbose_name=u'Logo')
+	PlaceLogo = models.ImageField(upload_to='PlaceLogos', verbose_name=u'Logo', blank=True, null=True, default='PlaceLogos/place_logo_def_jpg.jpg')
 
 	def __unicode__(self):
 		return self.PlaceName
@@ -18,7 +27,7 @@ class PhotoPost(models.Model):
 	PhotoPostDateTime = models.DateTimeField(auto_now_add=True, help_text='Date of post', verbose_name=u'Date')
 	PhotoPost_PlaceID = models.ForeignKey(Place)
 	PhotoPostPhoto = models.ImageField(upload_to='PhotoPosts')
-	PhotoPost_User = models.ForeignKey(User)
+	PhotoPost_User = models.ForeignKey(UserProfile)
 	PhotoPost_Lat = models.CharField(max_length=25, help_text='Post Latitude', verbose_name=u'Latitude')
 	PhotoPostLong = models.CharField(max_length=25, help_text='Post Longitude', verbose_name=u'Logintude')
 	PhotoPostDescription = models.CharField(max_length=140, help_text='Post Description', verbose_name=u'Description', blank=True, null=True)
@@ -31,7 +40,7 @@ class SongPost(models.Model):
 	SongPostDateTime = models.DateTimeField(auto_now_add=True, help_text='Date of Song', verbose_name=u'Date')
 	SongPost_PlaceID = models.ForeignKey(Place)
 	SongPostName = models.CharField(max_length=50, help_text='Song Name', verbose_name=u'Name')
-	SongPost_User = models.ForeignKey(User)
+	SongPost_User = models.ForeignKey(UserProfile)
 	SongPostLat = models.CharField(max_length=25, help_text='Song Latitude', verbose_name=u'Latitude')
 	SongPostLong = models.CharField(max_length=25, help_text='Song Longitude', verbose_name=u'Longitude')
 	SongPostQuote = models.CharField(max_length=140, help_text='Song Quote', verbose_name=u'Quote', blank=True, null=True)
@@ -65,15 +74,6 @@ class AppInfo(models.Model):
 
 	def __unicode__(self):
 		return self.AppInfoID
-
-class UserProfile(models.Model):
-	UserProfileID = models.AutoField(primary_key=True)
-	UserProfile_User = models.ForeignKey(User)
-	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos', blank=True, null=True)
-	UserProfileMailVerified = models.BooleanField(help_text='User Mail Verified', verbose_name=u'Mail Verified')
-
-	def __unicode__(self):
-		return self.UserProfile_User.username
 
 class Follow(models.Model):
 	FollowID = models.AutoField(primary_key=True)
