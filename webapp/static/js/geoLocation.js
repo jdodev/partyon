@@ -17,10 +17,10 @@ $(function(){
 		var lat = position.coords.latitude;
 		var lng = position.coords.longitude;
 
-		if (lng > -89){
-			lng = -87.1791421;
-			lat = 13.3106579;
-		}
+		// if (lng > -89){
+		// 	lng = -87.1791421;
+		// 	lat = 13.3106579;
+		// }
 
 		$("#Localizado").val(123821);
 		$("#Latitud").val(lat);
