@@ -23,7 +23,7 @@
 				<textarea placeholder="How's the party?" class="input" name="PhotoPostDescription" id="PhotoPostDescription" cols="20" rows="6" autofocus autocomplete="ON" maxlength="140"></textarea><br><br>
 				<div class="selectphoto">
 					<input id="boton" type="submit" value="Post">
-					<div class="camara"><input class="icon-camera iconocam" type="file" name="PhotoPostPhoto" accept="image/*;capture=camera" required><span class="icon-camera iconocam" href=""></span></div>
+					<div class="camara"><input class="icon-camera iconocam" type="file" accepts="image/*" capture=camera  name="PhotoPostPhoto" required><span class="icon-camera iconocam" href=""></span></div>
 					<a id="boton" href="">Cancel</a>
 				</div>
 				<input type="hidden" name="PhotoPost_User" value="{{ user.id }}">
