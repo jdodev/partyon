@@ -331,10 +331,10 @@ def APIdataactivity(request):
 		'PhotoPostDateTime':act.PhotoPostDateTime,
 		'PhotoPost_PlaceID':act.PhotoPost_PlaceID,
 		'PhotoPostPhoto':str(act.PhotoPostPhoto),
-		'PhotoPost_UserID':act.PhotoPost_User.id,
-		'PhotoPost_UserName':act.PhotoPost_User.user,
-		'PhotoPost_UserFirstName':act.PhotoPost_User.first_name,
-		'PhotoPost_UserLastName':act.PhotoPost_User.last_name,
+		#'PhotoPost_UserID':act.PhotoPost_User.id,
+		#'PhotoPost_UserName':act.PhotoPost_User.user,
+		#'PhotoPost_UserFirstName':act.PhotoPost_User.first_name,
+		#'PhotoPost_UserLastName':act.PhotoPost_User.last_name,
 		#'PhotoPost_UserAvatar':str(act.UserProfile.UserProfilePhoto),
 		'PhotoPost_Lat':act.PhotoPost_Lat,
 		'PhotoPostLong':act.PhotoPostLong,
@@ -342,5 +342,5 @@ def APIdataactivity(request):
 		}
 		lstActivity.append(dctActivity)
 
-		respuesta = {'data':lstActivity}
+	respuesta = {'data':lstActivity}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
