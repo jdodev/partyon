@@ -268,3 +268,54 @@ def songpostpointdel(request):
 
 			respuesta = {'codigo': 2, 'msg': 'Se ha eliminado el voto.'}
 			return HttpResponse(json.dumps(respuesta))
+
+def getplaces(request):
+	resPlaces = Place.objects.all()
+	lstLugares = []
+	for lugar in resPlaces:
+		dctLugares = {
+		"PlaceID":lugar.PlaceID,
+		"PlaceName":lugar.PlaceName,
+		"PlaceLat":lugar.PlaceLat,
+		"PlaceLong":lugar.PlaceLong,
+		}
+		lstLugares.append(dctLugares) 
+
+	respuesta = {"data":lstLugares}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+def APIdataHome(request):
+	qLat = request.GET.get('qLat', False)
+	qLong = request.GET.get('qLong', False)
+
+	#Sumamos los valores del marge de error
+	qLatMax = float(qLat) + 0.2000000
+	qLatMin = float(qLat) - 0.2000000
+
+	qLongMax = float(qLong) + 0.2000000
+	qLongMin = float(qLong) - 0.2000000
+
+	hoy = date.today()
+	ayer = hoy - timedelta(1)
+	manana = hoy + timedelta(1)
+
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
+
+	resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
+
+	lstPlacePhotos = []
+
+	for dPlace in resPlaces:
+		FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+		dctLugares = {
+		"PlaceID":dPlace.PlaceID,
+		"PlaceName":dPlace.PlaceName,
+		"PlaceLat":dPlace.PlaceLat,
+		"PlaceLong":dPlace.PlaceLong,
+		"PlaceLogo":str(dPlace.PlaceLogo),
+		"LastPhoto":str(FotoObtenida[0].PhotoPostPhoto),
+		}
+		lstPlacePhotos.append(dctLugares)
+
+	respuesta = {"data":lstPlacePhotos}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')

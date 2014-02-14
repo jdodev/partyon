@@ -26,4 +26,10 @@ urlpatterns = patterns('',
     url(r'^songpostpointdel/$', views.songpostpointdel, name='songpostpointdel'),
     url(r'^savenewplace/$', views.savenewplace, name='savenewplace'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}, ),
+
+
+
+    #API
+    url(r'^API/getplaces/$', views.getplaces, name='getplaces'),
+    url(r'^API/datahome/$', views.APIdataHome, name='APIdataHome'),
 )
