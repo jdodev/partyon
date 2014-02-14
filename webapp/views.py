@@ -319,3 +319,28 @@ def APIdataHome(request):
 
 	respuesta = {"data":lstPlacePhotos}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+def APIdataactivity(request):
+	resUserActivity = PhotoPost.objects.select_related('user__userprofile').order_by('-PhotoPostID')
+
+	lstActivity = []
+
+	for act in resUserActivity:
+		dctActivity = {
+		'PhotoPhostID':act.PhotoPostID,
+		'PhotoPostDateTime':act.PhotoPostDateTime,
+		'PhotoPost_PlaceID':act.PhotoPost_PlaceID,
+		'PhotoPostPhoto':str(act.PhotoPostPhoto),
+		'PhotoPost_UserID':act.PhotoPost_User.id,
+		'PhotoPost_UserName':act.PhotoPost_User.user,
+		'PhotoPost_UserFirstName':act.PhotoPost_User.first_name,
+		'PhotoPost_UserLastName':act.PhotoPost_User.last_name,
+		#'PhotoPost_UserAvatar':str(act.UserProfile.UserProfilePhoto),
+		'PhotoPost_Lat':act.PhotoPost_Lat,
+		'PhotoPostLong':act.PhotoPostLong,
+		'PhotoPostDescription':act.PhotoPostDescription,
+		}
+		lstActivity.append(dctActivity)
+
+		respuesta = {'data':lstActivity}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
