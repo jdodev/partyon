@@ -295,9 +295,9 @@ def APIdataHome(request):
 	qLongMax = float(qLong) + 0.2000000
 	qLongMin = float(qLong) - 0.2000000
 
-	hoy = date.today()
-	ayer = hoy - timedelta(1)
-	manana = hoy + timedelta(1)
+	#hoy = date.today()
+	#ayer = hoy - timedelta(1)
+	#manana = hoy + timedelta(1)
 
 	resPlaces = Place.objects.all()[:10]
 
@@ -307,7 +307,7 @@ def APIdataHome(request):
 
 	for dPlace in resPlaces:
 		FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
-		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).Count()
+		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).count()
 		dctLugares = {
 		"PlaceID":dPlace.PlaceID,
 		"PlaceName":dPlace.PlaceName,
