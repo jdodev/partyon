@@ -301,12 +301,13 @@ def APIdataHome(request):
 
 	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
 
-	resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
+	#resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
 	lstPlacePhotos = []
 
 	for dPlace in resPlaces:
 		FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).Count()
 		dctLugares = {
 		"PlaceID":dPlace.PlaceID,
 		"PlaceName":dPlace.PlaceName,
@@ -314,10 +315,11 @@ def APIdataHome(request):
 		"PlaceLong":dPlace.PlaceLong,
 		"PlaceLogo":str(dPlace.PlaceLogo),
 		"LastPhoto":str(FotoObtenida[0].PhotoPostPhoto),
+		"PeopleNow":totPersonas,
 		}
 		lstPlacePhotos.append(dctLugares)
 
-	respuesta = {"data":lstPlacePhotos}
+	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPlacePhotos}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
 def APIdataactivity(request):
