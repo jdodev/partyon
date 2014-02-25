@@ -270,6 +270,9 @@ def songpostpointdel(request):
 			return HttpResponse(json.dumps(respuesta))
 
 def getplaces(request):
+	qLat = request.GET.get('qLat', False)
+	qLong = request.GET.get('qLong', False)
+	
 	resPlaces = Place.objects.all()
 	lstLugares = []
 	for lugar in resPlaces:
@@ -303,7 +306,6 @@ def APIdataHome(request):
 
 	#resPlaces = Place.objects.all()[:10]
 
-	#resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
 	lstPlacePhotos = []
 
