@@ -1,0 +1,6 @@
+AddHandler fcgid-script .fcgi
+RewriteEngine On
+#RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ partyon.fcgi/$1 [QSA,L]
+
