@@ -295,18 +295,24 @@ def APIdataHome(request):
 	qLongMax = float(qLong) + 0.2000000
 	qLongMin = float(qLong) - 0.2000000
 
-	#hoy = date.today()
-	#ayer = hoy - timedelta(1)
-	#manana = hoy + timedelta(1)
+	hoy = date.today()
+	ayer = hoy - timedelta(1)
+	manana = hoy + timedelta(1)
 
-	resPlaces = Place.objects.all()[:10]
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
 
 	#resPersonas = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= ' + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)]).filter(photopost__PhotoPostDateTime__range=[hoy, manana]).annotate(tPersonas=Count('photopost__PhotoPostID'))[:10]
 
 	lstPlacePhotos = []
 
 	for dPlace in resPlaces:
-		FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+		hayFoto = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID').count()
+		if hayFoto > 0:
+			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
+			laFoto = str(FotoObtenida[0].PhotoPostPhoto)
+		else:
+			laFoto = 'nofoto.jpg'
+
 		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).count()
 		dctLugares = {
 		"PlaceID":dPlace.PlaceID,
@@ -314,7 +320,7 @@ def APIdataHome(request):
 		"PlaceLat":dPlace.PlaceLat,
 		"PlaceLong":dPlace.PlaceLong,
 		"PlaceLogo":str(dPlace.PlaceLogo),
-		"LastPhoto":str(FotoObtenida[0].PhotoPostPhoto),
+		"LastPhoto":laFoto,
 		"PeopleNow":totPersonas,
 		}
 		lstPlacePhotos.append(dctLugares)
