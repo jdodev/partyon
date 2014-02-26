@@ -273,7 +273,17 @@ def getplaces(request):
 	qLat = request.GET.get('qLat', False)
 	qLong = request.GET.get('qLong', False)
 	
-	resPlaces = Place.objects.all()
+
+	#Sumamos los valores del marge de error
+	qLatMax = float(qLat) + 0.0020000
+	qLatMin = float(qLat) - 0.0020000
+
+	qLongMax = float(qLong) + 0.0020000
+	qLongMin = float(qLong) - 0.0020000
+	
+	#resPlaces = Place.objects.all()
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
+
 	lstLugares = []
 	for lugar in resPlaces:
 		dctLugares = {
@@ -302,7 +312,7 @@ def APIdataHome(request):
 	ayer = hoy - timedelta(1)
 	manana = hoy + timedelta(1)
 
-	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])[:10]
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong >= ' + str(qLongMax) + ' AND PlaceLong <= ' + str(qLongMin)])[:10]
 
 	#resPlaces = Place.objects.all()[:10]
 
