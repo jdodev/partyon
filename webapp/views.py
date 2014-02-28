@@ -324,8 +324,10 @@ def APIdataHome(request):
 		if hayFoto > 0:
 			FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
 			laFoto = str(FotoObtenida[0].PhotoPostPhoto)
+			laFecha = FotoObtenida[0].PhotoPostDateTime
 		else:
 			laFoto = 'nofoto.jpg'
+			laFecha = "No Data"
 
 		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).count()
 		dctLugares = {
@@ -335,6 +337,7 @@ def APIdataHome(request):
 		"PlaceLong":dPlace.PlaceLong,
 		"PlaceLogo":str(dPlace.PlaceLogo),
 		"LastPhoto":laFoto,
+		"LastPostDate":laFecha,
 		"PeopleNow":totPersonas,
 		}
 		lstPlacePhotos.append(dctLugares)
