@@ -374,7 +374,17 @@ def APIdataactivity(request):
 	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstActivity}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
-
-
+def APIsavephotopost(request):
+	if request.method == 'POST':
+		formPhotoPost = PhotoPostForm(request.POST, request.FILES)
+		if formPhotoPost.is_valid():
+			u = formPhotoPost.save(commit=False)
+			u.PhotoPostDateTime = datetime.now()
+			u.save()
+			return HttpResponseRedirect('/')
+		else:
+			return HttpResponseRedirect('/novalid/')
+	else:
+		return HttpResponseRedirect('/nopost/')
 
 	

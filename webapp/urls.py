@@ -33,5 +33,6 @@ urlpatterns = patterns('',
     url(r'^API/getplaces/$', views.getplaces, name='getplaces'),
     url(r'^API/datahome/$', views.APIdataHome, name='APIdataHome'),
     url(r'^API/dataactivity/$', views.APIdataactivity, name='APIdataactivity'),
+    url(r'API/savephotopost/$', views.APIsavephotopost, name='APIsavephotopost'),
 
 )
