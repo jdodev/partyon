@@ -387,4 +387,10 @@ def APIsavephotopost(request):
 	else:
 		return HttpResponseRedirect('/nopost/')
 
-	
+def APIsaveplace(request):
+	if request.method == 'POST':
+		p = Place(PlaceName=request.POST['PlaceName'], PlaceLat=request.POST['PlaceLat'], PlaceLong=request.POST['PlaceLong'])
+		p.save()
+		HttpResponse("Se ha guardado correctamente el nuevo lugar.")
+	else:
+		HttpResponse("La peticion no es POST.")
