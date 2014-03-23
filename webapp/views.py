@@ -375,6 +375,7 @@ def APIdataactivity(request):
 	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstActivity}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
+@csrf_exempt
 def APIsavephotopost(request):
 	if request.method == 'POST':
 		formPhotoPost = PhotoPostForm(request.POST, request.FILES)
@@ -382,11 +383,14 @@ def APIsavephotopost(request):
 			u = formPhotoPost.save(commit=False)
 			u.PhotoPostDateTime = datetime.now()
 			u.save()
-			return HttpResponseRedirect('/')
+			#return HttpResponseRedirect('/')
+			return HttpResponse("Se ha guardado correctamente el photopost.")
 		else:
-			return HttpResponseRedirect('/novalid/')
+			#return HttpResponseRedirect('/novalid/')
+			return HttpResponse("No es valido el formulario y/o los datos.")
 	else:
-		return HttpResponseRedirect('/nopost/')
+		#return HttpResponseRedirect('/nopost/')
+		return HttpResponse("El request no es del tipo POST.")
 
 @csrf_exempt
 def APIsaveplace(request):
