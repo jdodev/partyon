@@ -381,7 +381,7 @@ def APIsavephotopost(request):
 		formPhotoPost = PhotoPostForm(request.POST, request.FILES)
 		if formPhotoPost.is_valid():
 			u = formPhotoPost.save(commit=False)
-			u.PhotoPostDateTime = datetime.now()
+			#u.PhotoPostDateTime = datetime.now()
 			u.save()
 			#return HttpResponseRedirect('/')
 			return HttpResponse("Se ha guardado correctamente el photopost.")
