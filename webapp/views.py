@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from models import *
+from webapp.models import *
 from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.views.decorators.csrf import csrf_exempt
@@ -400,3 +400,19 @@ def APIsaveplace(request):
 		return HttpResponse("Se ha guardado correctamente el nuevo lugar.")
 	else:
 		return HttpResponse("El request no es post.")
+
+@csrf_exempt
+def APIloginpartyon(request):
+	loginForm = AuthenticationForm()
+	usuario = request.GET.get('username', False)
+	clave = request.GET.get('password', False)
+	acceso = authenticate(username=usuario, password=clave)
+	if acceso is not None:
+		login(request, acceso)
+		respuesta = {'codigo': 1, 'msg': 'Welcome to partyon', 'data':[{'UIdPOChHnApi':acceso.id, 'username':acceso.username}]}
+		return HttpResponse(json.dumps(respuesta))
+		#return HttpResponseRedirect('/')
+	else:
+		respuesta = {'codigo': 2, 'msg': 'You have entered an incorrect email or password.', 'data':[{'UIdPOChHnApi':0, 'username':'error_No_Login_POChHn'}]}
+		return HttpResponse(json.dumps(respuesta))
+		#return render(request, 'login.html', {'loginForm' : loginForm})

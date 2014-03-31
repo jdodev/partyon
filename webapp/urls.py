@@ -35,4 +35,5 @@ urlpatterns = patterns('',
     url(r'^API/dataactivity/$', views.APIdataactivity, name='APIdataactivity'),
     url(r'API/savephotopost/$', views.APIsavephotopost, name='APIsavephotopost'),
     url(r'API/APIsaveplace/$', views.APIsaveplace, name='APIsaveplace'),
+    url(r'API/login/$', views.APIloginpartyon, name='APIloginpartyon'),
 )
