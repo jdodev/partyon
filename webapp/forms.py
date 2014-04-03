@@ -19,3 +19,7 @@ class SignUpForm(ModelForm):
 		widgets = {
 		'password' : forms.PasswordInput(),
 		}
+
+class UserProfileForm(forms.Form):
+	UserProfilePhoto = models.ImageField(upload_to='UserProfilePhotos', default='UserProfilePhotos/partyon_img_prof_def_jpg.jpg')
+	UserProfileID = models.IntegerField(help_text='UserProfile ID', verbose_name=u'UserProfile ID')

@@ -438,3 +438,31 @@ def APIuserprofile(request):
 
 	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPerfil}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+@csrf_exempt
+def APIupdataphotoprofile(request):
+	upf = UserProfileForm(request.POST, request.FILES)
+	if request.method == 'POST':
+		if upf.is_valid():
+			m = UserProfile.objects.get(pk=request.POST['UserProfileID'])
+			m.UserProfilePhoto = request.FILES['UserProfilePhoto']
+			m.save()
+			return HttpResponse("Se ha actualizado correctamente la foto de perfil.")
+		else:
+			return HttpResponse(str(upf))
+	else:
+		return HttpResponse(str(upf))
+
+@csrf_exempt
+def APIupdatepasswords(request):
+	try:
+		usuario = request.GET.get('unamePOusertxtChangeHN', False)
+		nuevaclave = request.GET.get('psswdPOuserpsswdChangeHNChActPO', False)
+
+		u = User.objects.get(username__exact=usuario)
+		u.set_password(nuevaclave)
+		u.save()
+
+		return HttpResponse("Se ha actualizado el password.")
+	except Exception, e:
+		return HttpResponse(e)
