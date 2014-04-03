@@ -416,3 +416,25 @@ def APIloginpartyon(request):
 		respuesta = {'codigo': 2, 'msg': 'You have entered an incorrect email or password.', 'data':[{'UIdPOChHnApi':0, 'username':'error_No_Login_POChHn'}]}
 		return HttpResponse(json.dumps(respuesta))
 		#return render(request, 'login.html', {'loginForm' : loginForm})
+
+def APIuserprofile(request):
+	UserID = request.GET.get('uid', False)
+
+	perfil = UserProfile.objects.filter(UserProfileID=UserID)
+
+	lstPerfil = []
+	dctPerfil = {
+	'UserProfileID':perfil[0].UserProfileID,
+	'first_name':perfil[0].UserProfile_User.first_name,
+	'last_name':perfil[0].UserProfile_User.last_name,
+	'email':perfil[0].UserProfile_User.email,
+	'username':perfil[0].UserProfile_User.username,
+	'userID':perfil[0].UserProfile_User.id,
+	'photo':str(perfil[0].UserProfilePhoto),
+	'email_verified':perfil[0].UserProfileMailVerified,
+	}
+
+	lstPerfil.append(dctPerfil)
+
+	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPerfil}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
