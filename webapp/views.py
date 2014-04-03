@@ -347,7 +347,7 @@ def APIdataHome(request):
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
 def APIdataactivity(request):
-	resUserActivity = PhotoPost.objects.select_related('user__userprofile').order_by('-PhotoPostID')
+	resUserActivity = PhotoPost.objects.select_related('user__userprofile').order_by('-PhotoPostID')[:25]
 
 	lstActivity = []
 
@@ -422,6 +422,41 @@ def APIuserprofile(request):
 
 	perfil = UserProfile.objects.filter(UserProfileID=UserID)
 
+	hayFoto = PhotoPost.objects.filter(PhotoPost_User=perfil).order_by('-PhotoPostID').count()
+	if hayFoto > 0:
+		FotoObtenida = PhotoPost.objects.filter(PhotoPost_User=perfil).order_by('-PhotoPostID')[:1]
+		laFoto = str(FotoObtenida[0].PhotoPostPhoto)
+		laFecha = str(FotoObtenida[0].PhotoPostDateTime)
+	else:
+		laFoto = 'nofoto.jpg'
+		laFecha = "No Data"
+
+	resUserActivity = PhotoPost.objects.filter(PhotoPost_User=perfil).select_related('user__userprofile').order_by('-PhotoPostID')[:10]
+
+	lstActivity = []
+
+	for act in resUserActivity:
+		dctActivity = {
+		'PhotoPhostID':act.PhotoPostID,
+		'PhotoPostDateTime':act.PhotoPostDateTime.strftime('%Y-%m-%d %H:%M'),
+		'PhotoPost_PlaceID':act.PhotoPost_PlaceID.PlaceID,
+		'PhotoPost_PlaceName':act.PhotoPost_PlaceID.PlaceName,
+		'PhotoPost_PlaceLat':act.PhotoPost_PlaceID.PlaceLat,
+		'PhotoPost_PlaceLong':act.PhotoPost_PlaceID.PlaceLong,
+		'PhotoPostPhoto':str(act.PhotoPostPhoto),
+		'PhotoPost_UserProfileID':act.PhotoPost_User.UserProfileID,
+		'PhotoPost_UserID':act.PhotoPost_User.UserProfile_User.pk,
+		'PhotoPost_UserName':act.PhotoPost_User.UserProfile_User.username,
+		'PhotoPost_UserFirstName':act.PhotoPost_User.UserProfile_User.first_name,
+		'PhotoPost_UserLastName':act.PhotoPost_User.UserProfile_User.last_name,
+		'PhotoPost_UserAvatar':str(act.PhotoPost_User.UserProfilePhoto),
+		'PhotoPost_Lat':act.PhotoPost_Lat,
+		'PhotoPostLong':act.PhotoPostLong,
+		'PhotoPostDescription':act.PhotoPostDescription,
+		}
+		lstActivity.append(dctActivity)
+
+
 	lstPerfil = []
 	dctPerfil = {
 	'UserProfileID':perfil[0].UserProfileID,
@@ -432,11 +467,13 @@ def APIuserprofile(request):
 	'userID':perfil[0].UserProfile_User.id,
 	'photo':str(perfil[0].UserProfilePhoto),
 	'email_verified':perfil[0].UserProfileMailVerified,
+	'ultFotoTomada': laFoto,
+	'ultFotoTomadaFecha':laFecha,
 	}
 
 	lstPerfil.append(dctPerfil)
 
-	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPerfil}
+	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPerfil, 'dataActivity':lstActivity}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
 @csrf_exempt
