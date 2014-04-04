@@ -39,4 +39,6 @@ urlpatterns = patterns('',
     url(r'API/userprofile/$', views.APIuserprofile, name='APIuserprofile'),
     url(r'API/updatephotoprofile/$', views.APIupdataphotoprofile, name='APIupdataphotoprofile'),
     url(r'API/changepassword/$', views.APIupdatepasswords, name='APIupdatepasswords'),
+    url(r'API/heydj/$', views.APIheydj, name='APIheydj'),
+    url(r'API/songpost/$', views.APIsongpost, name='APIsongpost'),
 )

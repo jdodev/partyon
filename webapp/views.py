@@ -12,6 +12,7 @@ from webapp.models import *
 from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.humanize.templatetags.humanize import naturaltime
 import json
 
 
@@ -352,9 +353,11 @@ def APIdataactivity(request):
 	lstActivity = []
 
 	for act in resUserActivity:
+		timesince_c = naturaltime(act.PhotoPostDateTime)
 		dctActivity = {
 		'PhotoPhostID':act.PhotoPostID,
 		'PhotoPostDateTime':act.PhotoPostDateTime.strftime('%Y-%m-%d %H:%M'),
+		'PhotoPostTimeSince':timesince_c,
 		'PhotoPost_PlaceID':act.PhotoPost_PlaceID.PlaceID,
 		'PhotoPost_PlaceName':act.PhotoPost_PlaceID.PlaceName,
 		'PhotoPost_PlaceLat':act.PhotoPost_PlaceID.PlaceLat,
@@ -436,9 +439,11 @@ def APIuserprofile(request):
 	lstActivity = []
 
 	for act in resUserActivity:
+		timesince_c = naturaltime(act.PhotoPostDateTime)
 		dctActivity = {
 		'PhotoPhostID':act.PhotoPostID,
 		'PhotoPostDateTime':act.PhotoPostDateTime.strftime('%Y-%m-%d %H:%M'),
+		'PhotoPostTimeSince':timesince_c,
 		'PhotoPost_PlaceID':act.PhotoPost_PlaceID.PlaceID,
 		'PhotoPost_PlaceName':act.PhotoPost_PlaceID.PlaceName,
 		'PhotoPost_PlaceLat':act.PhotoPost_PlaceID.PlaceLat,
@@ -503,3 +508,58 @@ def APIupdatepasswords(request):
 		return HttpResponse("Se ha actualizado el password.")
 	except Exception, e:
 		return HttpResponse(e)
+
+def APIheydj(request):
+	qLat = request.GET.get('qLat', False)
+	qLong = request.GET.get('qLong', False)
+
+	#Sumamos los valores del marge de error
+	qLatMax = float(qLat) + 0.0020000
+	qLatMin = float(qLat) - 0.0020000
+
+	qLongMax = float(qLong) + 0.0020000
+	qLongMin = float(qLong) - 0.0020000
+
+	resHeyDj = SongPost.objects.extra(where=['SongPostLat <= ' + str(qLatMax) + ' AND SongPostLat >= '  + str(qLatMin) + ' AND SongPostLong <= ' + str(qLongMax) + ' AND SongPostLong >= ' + str(qLongMin)])[:25]
+
+	lstHeyDj = []
+
+	for song in resHeyDj:
+		timesince_c = naturaltime(song.SongPostDateTime)
+		dctHeyDj = {
+		"SongPostID":song.SongPostID,
+		"SongPostDateTime":song.SongPostDateTime.strftime('%Y-%m-%d %H:%M'),
+		"SongPostTimeSince":timesince_c,
+		"SongPost_PlaceID":song.SongPost_PlaceID.PlaceID,
+		"PlaceName":song.SongPost_PlaceID.PlaceName,
+		"SongPostName":song.SongPostName,
+		"SongPost_User":song.SongPost_User.UserProfile_User.id,
+		"Username":song.SongPost_User.UserProfile_User.username,
+		"UserFirstName":song.SongPost_User.UserProfile_User.first_name,
+		"UserLastName":song.SongPost_User.UserProfile_User.last_name,
+		"SongPostLat":song.SongPostLat,
+		"SongPostLong":song.SongPostLong,
+		"SongPostQuote":song.SongPostQuote,
+		}
+		lstHeyDj.append(dctHeyDj)
+
+	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstHeyDj}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+@csrf_exempt
+def APIsongpost(request):
+	if request.method == 'POST':
+		formSongPost = SongPostForm(request.POST)
+		if formSongPost.is_valid():
+			u = formSongPost.save(commit=False)
+			u.SongPostDateTime = datetime.now()
+			u.save()
+
+			#VotarAuto = SongPoint(SongPoint_SongPostID=u, SongPoint_User=request.user)
+			#VotarAuto.save()
+
+			return HttpResponse("Se ha agregado correctamente la canción.")
+		else:
+			return HttpResponse("El formulario no es válido.")
+	else:
+		return HttpResponse("El método no es post.")
