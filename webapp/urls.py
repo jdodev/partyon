@@ -44,5 +44,5 @@ urlpatterns = patterns('',
     url(r'API/addnewplace/$', views.APIaddplace, name='APIaddplace'),
     url(r'API/comprobarusername/$', views.APIcomprobarusername, name='APIcomprobarusername'),
     url(r'API/comprobaremail/$', views.APIcomprobaremail, name='APIcomprobaremail'),
-    url(r'API/addnewuser/$', views.APIcomprobaremail, name='APIcomprobaremail'),
+    url(r'API/addnewuser/$', views.APIsignup, name='APIsignup'),
 )
