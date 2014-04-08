@@ -563,3 +563,16 @@ def APIsongpost(request):
 			return HttpResponse("El formulario no es válido.")
 	else:
 		return HttpResponse("El método no es post.")
+
+@csrf_exempt
+def APIaddplace(request):
+	if request.method == 'POST':
+		formAddPlace = AddPlaceForm(request.POST)
+		if formAddPlace.is_valid():
+			u = formAddPlace.save(commit=False)
+			u.save()
+			return HttpResponse("Se ha agregado correctamente el nuevo lugar.")
+		else:
+			return HttpResponse("El formulario no es válido.")
+	else:
+		return HttpResponse("El método no es post.")

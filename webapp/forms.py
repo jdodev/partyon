@@ -12,6 +12,10 @@ class SongPostForm(ModelForm):
 	class Meta:
 		model = SongPost
 
+class AddPlaceForm(ModelForm):
+	class Meta:
+		model = Place
+
 class SignUpForm(ModelForm):
 	class Meta:
 		model = User
