@@ -576,3 +576,57 @@ def APIaddplace(request):
 			return HttpResponse("El formulario no es válido.")
 	else:
 		return HttpResponse("El método no es post.")
+
+@csrf_exempt
+def APIsignup(request):
+	if request.method == 'POST':
+		frmNewUser = SignUpForm(request.POST)
+
+		if frmNewUser.is_valid():
+			firstname = frmNewUser.cleaned_data['first_name']
+			lastname = frmNewUser.cleaned_data['last_name']
+			email = frmNewUser.cleaned_data['email']
+			Username = frmNewUser.cleaned_data['username']
+			Password = frmNewUser.cleaned_data['password']
+
+			user = User.objects.create_user(Username, email, Password)
+			user.first_name = firstname
+			user.last_name = lastname
+
+			user.save()
+
+			ojUsuario = User.objects.get(username=Username)
+
+			PerfilUsuario = UserProfile(UserProfileID=ojUsuario.id, UserProfile_User=ojUsuario, UserProfileMailVerified=False)
+			PerfilUsuario.save()
+
+			return HttpResponse("Se ha agregado correctamente el nuevo usuairo.")
+		else:
+			return HttpResponse("Los datos no son validos.")
+	else:
+		return HttpResponse("")
+
+def APIcomprobarusername(request):
+	qUname = request.GET.get('uname', False)
+
+	cantUsuarios = User.objects.filter(username=qUname)
+
+	if cantUsuarios.count() > 0:
+		respuesta = {'success':True, 'message':'ErrorUsername.', 'version':'v1', 'data':[{'userAvailable':'False', 'error':'UserDuplicated'}]}
+	else:
+		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'userAvailable':'True', 'error':'UserAcepted'}]}
+	
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+
+def APIcomprobaremail(request):
+	qUemail = request.GET.get('uemail', False)
+
+	cantEmails = User.objects.filter(email=qUemail)
+
+	if cantEmails.count() > 0:
+		respuesta = {'success':True, 'message':'ErrorEmail.', 'version':'v1', 'data':[{'emailAvailable':'False', 'error':'EmailDuplicated'}]}
+	else:
+		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'emailAvailable':'True', 'error':'EmailAcepted'}]}
+	
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
