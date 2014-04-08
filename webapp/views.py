@@ -612,9 +612,9 @@ def APIcomprobarusername(request):
 	cantUsuarios = User.objects.filter(username=qUname)
 
 	if cantUsuarios.count() > 0:
-		respuesta = {'success':True, 'message':'ErrorUsername.', 'version':'v1', 'data':[{'userAvailable':'False', 'error':'UserDuplicated'}]}
+		respuesta = {'success':True, 'message':'ErrorUsername.', 'version':'v1', 'data':[{'Available':'False', 'error':'UserDuplicated'}]}
 	else:
-		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'userAvailable':'True', 'error':'UserAcepted'}]}
+		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'Available':'True', 'error':'UserAcepted'}]}
 	
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
 
@@ -625,8 +625,8 @@ def APIcomprobaremail(request):
 	cantEmails = User.objects.filter(email=qUemail)
 
 	if cantEmails.count() > 0:
-		respuesta = {'success':True, 'message':'ErrorEmail.', 'version':'v1', 'data':[{'emailAvailable':'False', 'error':'EmailDuplicated'}]}
+		respuesta = {'success':True, 'message':'ErrorEmail.', 'version':'v1', 'data':[{'Available':'False', 'error':'EmailDuplicated'}]}
 	else:
-		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'emailAvailable':'True', 'error':'EmailAcepted'}]}
+		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'Available':'True', 'error':'EmailAcepted'}]}
 	
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
