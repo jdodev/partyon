@@ -630,3 +630,18 @@ def APIcomprobaremail(request):
 		respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':[{'Available':'True', 'error':'EmailAcepted'}]}
 	
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+def APIget9photostiles(request):
+	photos = PhotoPost.objects.all().order_by('-PhotoPostID')[:9]
+
+	lstPhotos = []
+
+	for photo in photos:
+		dctPhoto = {
+		"PhotoPostID":photo.PhotoPostID,
+		"PhotoPostPhoto":str(photo.PhotoPostPhoto)
+		}
+		lstPhotos.append(dctPhoto)
+
+	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPhotos}
+	return HttpResponse(json.dumps(respuesta), content_type='application/json')
