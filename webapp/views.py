@@ -277,11 +277,11 @@ def getplaces(request):
 	
 
 	#Sumamos los valores del marge de error
-	qLatMax = float(qLat) + 0.0020000
-	qLatMin = float(qLat) - 0.0020000
+	qLatMax = float(qLat) + 0.0030000
+	qLatMin = float(qLat) - 0.0030000
 
-	qLongMax = float(qLong) + 0.0020000
-	qLongMin = float(qLong) - 0.0020000
+	qLongMax = float(qLong) + 0.0030000
+	qLongMin = float(qLong) - 0.0030000
 	
 	#resPlaces = Place.objects.all()
 	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])[:10]
