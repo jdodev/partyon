@@ -51,6 +51,6 @@ urlpatterns = patterns('',
     #Reset password.
     url(r'^user/password/reset/sendmail/$', password_reset,{'template_name': 'password_reset_form.html','post_reset_redirect': '/user/password/reset/done/'}, name='password_reset'),
     url(r'^user/password/reset/done/$', password_reset_done,{'template_name': 'password_reset_done.html'},name='password_reset_done'),
-    url(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', password_reset_confirm,{'template_name': 'password_reset_email.html', 'post_reset_redirect': '/user/password/done/'}, name='password_reset_confirm'),
+    url(r'user/password/reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', password_reset_confirm,{'template_name': 'password_reset_confirm.html', 'post_reset_redirect': '/user/password/done/'}, name='password_reset_confirm'),
     url(r'^user/password/done/$', password_reset_complete,{'template_name': 'password_reset_complete.html'},name='password_reset_complete'),
 )
