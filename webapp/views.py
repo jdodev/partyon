@@ -387,10 +387,10 @@ def APIsavephotopost(request):
 			u.PhotoPostDateTime = datetime.now()
 			u.save()
 			#return HttpResponseRedirect('/')
-			return HttpResponse("Se ha guardado correctamente el photopost.")
+			return HttpResponse("Photopost has been succesfully uploaded.")
 		else:
 			#return HttpResponseRedirect('/novalid/')
-			return HttpResponse("No es valido el formulario y/o los datos.")
+			return HttpResponse("Error during upload.")
 	else:
 		#return HttpResponseRedirect('/nopost/')
 		return HttpResponse("El request no es del tipo POST.")
