@@ -645,3 +645,10 @@ def APIget9photostiles(request):
 
 	respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPhotos}
 	return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+
+def APIterms(request):
+	return render(request, 'terms.html')
+
+def APIprivacy(request):
+	return render(request, 'privacy.html')
