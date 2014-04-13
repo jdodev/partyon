@@ -465,7 +465,7 @@ def APIuserprofile(request):
 	lstPerfil = []
 	dctPerfil = {
 	'UserProfileID':perfil[0].UserProfileID,
-	'first_name':perfil[0].UserProfile_User.first_name,
+	'first_name':perfil[0].UserProfile_User.first_name + ' ' + perfil[0].UserProfile_User.last_name,
 	'last_name':perfil[0].UserProfile_User.last_name,
 	'email':perfil[0].UserProfile_User.email,
 	'username':perfil[0].UserProfile_User.username,
