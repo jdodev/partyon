@@ -13,7 +13,7 @@ from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.humanize.templatetags.humanize import naturaltime
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 import json
 
 
@@ -672,7 +672,9 @@ def APIsendvalidarcorreo(request):
 	contenido = 'Welcome to PartyOn\n'
 	contenido += 'You need to confirm your email address in order to enjoy all the features of PartyOn, click on the link below to verify your email.\n'
 	contenido += '<a href="">http://www.partyonapp.com/API/verify/email/?userProfcodeActivationclass=23das22das22d25&requestuidverifyEmail=' + str(usuario.UserProfileID) + '&markvalid=true</a>'
-	correo = EmailMessage(titulo, contenido, from_email='no_reply@partyonapp.com', to=[str(usuario2.email)])
-	correo.send(fail_silently=False)
+	#correo = EmailMessage(titulo, contenido, from_email='no_reply@partyonapp.com', to=[str(usuario2.email)])
+	#correo.send(fail_silently=False)
+
+	send_mail(titulo, contenido, 'no_reply@partyonapp.com', str(usuario2.email), fail_silently=False)
 
 	return HttpResponse("<h1>Se ha enviado tu email | PartyOn</h1>")
