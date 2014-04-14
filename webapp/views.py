@@ -675,6 +675,6 @@ def APIsendvalidarcorreo(request):
 	#correo = EmailMessage(titulo, contenido, from_email='no_reply@partyonapp.com', to=[str(usuario2.email)])
 	#correo.send(fail_silently=False)
 
-	send_mail(titulo, contenido, 'no_reply@partyonapp.com', str(usuario2.email), fail_silently=False)
+	send_mail(titulo, contenido, 'no_reply@partyonapp.com', [str(usuario2.email)], fail_silently=False)
 
 	return HttpResponse("<h1>Se ha enviado tu email | PartyOn</h1>")
