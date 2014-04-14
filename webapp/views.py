@@ -672,7 +672,7 @@ def APIsendvalidarcorreo(request):
 	contenido = 'Welcome to PartyOn\n'
 	contenido += 'You need to confirm your email address in order to enjoy all the features of PartyOn, click on the link below to verify your email.\n'
 	contenido += '<a href="">http://www.partyonapp.com/API/verify/email/?userProfcodeActivationclass=23das22das22d25&requestuidverifyEmail=' + str(usuario.UserProfileID) + '&markvalid=true</a>'
-	correo = EmailMessage(titulo, contenido, to=[str(usuario2.email)])
-	correo.send()
+	correo = EmailMessage(titulo, contenido, from_email='no_reply@partyonapp.com', to=[str(usuario2.email)])
+	correo.send(fail_silently=False)
 
 	return HttpResponse("<h1>Se ha enviado tu email | PartyOn</h1>")
