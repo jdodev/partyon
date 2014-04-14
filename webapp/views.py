@@ -675,3 +675,4 @@ def APIsendvalidarcorreo(request):
 	correo = EmailMessage(titulo, contenido, to=[str(usuario2.email)])
 	correo.send()
 
+	return HttpResponse("<h1>Se ha enviado tu email | PartyOn</h1>")
