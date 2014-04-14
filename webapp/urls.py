@@ -48,6 +48,8 @@ urlpatterns = patterns('',
     url(r'^API/get9photostiles/$', views.APIget9photostiles, name='APIget9photostiles'),
     url(r'^API/terms/$', views.APIterms, name='APIterms'),
     url(r'^API/privacy/$', views.APIprivacy, name='APIprivacy'),
+    url(r'^API/verify/email/$', views.APIverifyemail, name='APIverifyemail'),
+    url(r'^API/verify/sendemail/$', views.APIsendvalidarcorreo, name='APIsendvalidarcorreo'),
 
     #Reset password.
     url(r'^user/password/reset/sendmail/$', password_reset,{'template_name': 'password_reset_form.html','post_reset_redirect': '/user/password/reset/done/'}, name='password_reset'),

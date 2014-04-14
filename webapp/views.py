@@ -13,6 +13,7 @@ from webapp.forms import *
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.humanize.templatetags.humanize import naturaltime
+from django.core.mail import EmailMessage
 import json
 
 
@@ -652,3 +653,25 @@ def APIterms(request):
 
 def APIprivacy(request):
 	return render(request, 'privacy.html')
+
+def APIverifyemail(request):
+	uID = request.GET.get('requestuidverifyEmail', False)
+	usuarioVerificar = UserProfile.objects.get(pk=uID)
+	usuarioVerificar.UserProfileMailVerified = True
+	usuarioVerificar.save()
+
+	return HttpResponse("<h1>Se ha verificado tu email | PartyOn</h1>")
+
+def APIsendvalidarcorreo(request):
+	uID = request.GET.get('requestuidverifyEmail', False)
+
+	usuario = UserProfile.objects.get(pk=uID)
+	usuario2 = User.objects.get(pk=usuario.pk)
+
+	titulo = 'Welcome to PartyOn'
+	contenido = 'Welcome to PartyOn\n'
+	contenido += 'You need to confirm your email address in order to enjoy all the features of PartyOn, click on the link below to verify your email.\n'
+	contenido += '<a href="">http://www.partyonapp.com/API/verify/email/?userProfcodeActivationclass=23das22das22d25&requestuidverifyEmail=' + str(usuario.UserProfileID) + '&markvalid=true</a>'
+	correo = EmailMessage(titulo, contenido, to=[str(usuario2.email)])
+	correo.send()
+
