@@ -18,12 +18,13 @@ import json
 
 
 def index(request):
-	if not request.user.is_anonymous():
-		return HttpResponseRedirect('/home/')
-	else:
-		loginForm = AuthenticationForm()
-		return render(request, 'login.html', {'loginForm' : loginForm})
-		#return (HttpResponseRedirect('/admin/'))
+	# if not request.user.is_anonymous():
+	# 	return HttpResponseRedirect('/home/')
+	# else:
+	# 	loginForm = AuthenticationForm()
+	# 	return render(request, 'login.html', {'loginForm' : loginForm})
+	# 	#return (HttpResponseRedirect('/admin/'))
+	return render(request, 'tienda.html')
 
 def loginpartyon(request):
 	loginForm = AuthenticationForm()
