@@ -706,6 +706,6 @@ def fsqGetToken(request):
 	client.set_access_token(access_token)
 
 	# Get the user's data
-	busqueda = client.venues(params={'near':'Choluteca,Honduras', 'query':'bar', 'limit':50, 'intent':'browse', 'radius':5000})
+	busqueda = client.venues.search(params={'near':'Choluteca,Honduras', 'query':'bar', 'limit':50, 'intent':'browse', 'radius':5000})
 
 	return HttpResponse(str(busqueda))
