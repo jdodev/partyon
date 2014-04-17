@@ -14,6 +14,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.core.mail import EmailMessage
+import foursquare
 import json
 
 
@@ -684,3 +685,10 @@ def APIsendvalidarcorreo(request):
 	correo.send()
 
 	return HttpResponse("<h1>Se ha enviado tu email | PartyOn</h1>")
+
+
+#Views to get data from foursquare
+client = foursquare.Foursquare(client_id='1KXWI20YZCGJZJYLAWOJWAEYKN2D0P2X3SZBPZZTTVPFZYMU', client_secret='DDSQ4G0FKZXQOACGTVYFSDSU3ROB4FTLEAYNIDTUQUTLW3JV', redirect_uri='http://127.0.0.1:8000/API')
+def fsqGetPlaces(request):
+	# Build the authorization url for your app
+	auth_uri = client.oauth.auth_url()
