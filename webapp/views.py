@@ -688,7 +688,24 @@ def APIsendvalidarcorreo(request):
 
 
 #Views to get data from foursquare
-client = foursquare.Foursquare(client_id='1KXWI20YZCGJZJYLAWOJWAEYKN2D0P2X3SZBPZZTTVPFZYMU', client_secret='DDSQ4G0FKZXQOACGTVYFSDSU3ROB4FTLEAYNIDTUQUTLW3JV', redirect_uri='http://127.0.0.1:8000/API')
+client = foursquare.Foursquare(client_id='1KXWI20YZCGJZJYLAWOJWAEYKN2D0P2X3SZBPZZTTVPFZYMU', client_secret='DDSQ4G0FKZXQOACGTVYFSDSU3ROB4FTLEAYNIDTUQUTLW3JV', redirect_uri='http://www.partyonapp.com/API/fsq/authorize/')
+
 def fsqGetPlaces(request):
 	# Build the authorization url for your app
 	auth_uri = client.oauth.auth_url()
+
+	return HttpResponseRedirect(auth_uri)
+
+def fsqGetToken(request):
+	tokenU = request.GET.get('code', False)
+
+	# Interrogate foursquare's servers to get the user's access_token
+	access_token = client.oauth.get_token(tokenU)
+
+	# Apply the returned access token to the client
+	client.set_access_token(access_token)
+
+	# Get the user's data
+	busqueda = client.venues(params={'near':'Choluteca,Honduras', 'query':'bar', 'limit':50, 'intent':'browse', 'radius':5000})
+
+	return HttpResponse(str(busqueda))
