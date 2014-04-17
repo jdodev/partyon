@@ -708,4 +708,4 @@ def fsqGetToken(request):
 	# Get the user's data
 	busqueda = client.venues.search(params={'near':'Choluteca,Honduras', 'query':'bar', 'limit':50, 'intent':'browse', 'radius':5000})
 
-	return HttpResponse(str(busqueda))
+	return HttpResponse(json.dumps(busqueda), content_type='application/json')
