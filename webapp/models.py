@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 
 class Place(models.Model):
 	PlaceID = models.AutoField(primary_key=True)
-	PlaceName = models.CharField(max_length=50, help_text='Place Name', verbose_name=u'Name')
+	PlaceName = models.CharField(max_length=100, help_text='Place Name', verbose_name=u'Name')
 	PlaceLat = models.CharField(max_length=25, help_text='Place Latitude', verbose_name=u'Latitude')
 	PlaceLong = models.CharField(max_length=25, help_text='Place Longitude', verbose_name=u'Longitude')
 	PlaceLogo = models.ImageField(upload_to='PlaceLogos', verbose_name=u'Logo', blank=True, null=True, default='PlaceLogos/place_logo_def_jpg.jpg')
