@@ -1,0 +1,51 @@
+body{
+	font-weight: 100;
+	font-family: helvetica;
+	font-size: 16px;
+}
+h1{
+	font-weight: 100;
+	font-size: 24px;
+	color: #B06EAD;
+}
+h2{
+	font-weight: 100;
+	font-size: 18px;
+	color: #333;
+}
+h3{
+	font-weight: 100;
+	font-size: 16px;
+	color: #333;
+}
+
+header{
+	background: #B06EAD;
+	height: 90px;
+}
+#logo{
+	height: 70px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+#windowphone{
+	width: 240px;
+	padding-left: 0px;
+}
+.phone{
+	display: inline-block;
+}
+.tiendas{
+	width: 320px;
+}
+.windows{
+	display: inline-block;
+	vertical-align: top;
+	width: 320px;
+	color: #333;
+	text-align: justify;
+	padding-right: 30px;
+}
+#tiendaWindows{
+	padding-top: 145px;
+}
