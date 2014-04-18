@@ -691,21 +691,64 @@ def APIsendvalidarcorreo(request):
 client = foursquare.Foursquare(client_id='1KXWI20YZCGJZJYLAWOJWAEYKN2D0P2X3SZBPZZTTVPFZYMU', client_secret='DDSQ4G0FKZXQOACGTVYFSDSU3ROB4FTLEAYNIDTUQUTLW3JV', redirect_uri='http://www.partyonapp.com/API/fsq/authorize/')
 
 def fsqGetPlaces(request):
-	# Build the authorization url for your app
 	auth_uri = client.oauth.auth_url()
 
 	return HttpResponseRedirect(auth_uri)
 
 def fsqGetToken(request):
+	if request.method == 'POST':
+		# Build the authorization url for your app
+		cityForm = fsqCityNameForm(request.POST)
+		if cityForm.is_valid():
+
+			tokenU = cityForm.cleaned_data['fsqToken']
+			cityU = cityForm.cleaned_data['CityName']
+
+			# Interrogate foursquare's servers to get the user's access_token
+			access_token = client.oauth.get_token(tokenU)
+
+			# Apply the returned access token to the client
+			client.set_access_token(access_token)
+
+			# Get the user's data
+			busqueda = client.venues.search(params={'near':cityU, 'query':'bar ', 'limit':50, 'intent':'browse', 'radius':50000})
+			busqueda2 = client.venues.search(params={'near':cityU, 'query':'club ', 'limit':50, 'intent':'browse', 'radius':50000})
+
+			for item in busqueda['venues']:
+				place_name = item['name']
+				place_lat = item['location']['lat']
+				place_lng = item['location']['lng']
+
+				existe = Place.objects.filter(PlaceName=place_name, PlaceLat=place_lat, PlaceLong=place_lng).count()
+
+				if existe < 1:
+					q = Place(PlaceName=place_name, PlaceLat=place_lat, PlaceLong=place_lng)
+					q.save()
+
+			for item in busqueda2['venues']:
+				place_name = item['name']
+				place_lat = item['location']['lat']
+				place_lng = item['location']['lng']
+
+				existe = Place.objects.filter(PlaceName=place_name, PlaceLat=place_lat, PlaceLong=place_lng).count()
+
+				if existe < 1:
+					q = Place(PlaceName=place_name, PlaceLat=place_lat, PlaceLong=place_lng)
+					q.save()
+
+			return HttpResponse('Se han agregado los nuevos lugares a la db.')
+		else:
+			return HttpResponseRedirect('/')	
+	else:
+		return HttpResponseRedirect('/')
+
+def fsqCityForm(request):
 	tokenU = request.GET.get('code', False)
+	cityForm = fsqCityNameForm()
 
-	# Interrogate foursquare's servers to get the user's access_token
-	access_token = client.oauth.get_token(tokenU)
+	diccionario={}
+	diccionario['fsqTokenD']=tokenU
 
-	# Apply the returned access token to the client
-	client.set_access_token(access_token)
+	return render(request, 'fsqCityName.html', {'cityForm' : cityForm, 'data':diccionario})
 
-	# Get the user's data
-	busqueda = client.venues.search(params={'near':'Choluteca,Honduras', 'query':'bar', 'limit':50, 'intent':'browse', 'radius':5000})
-
-	return HttpResponse(json.dumps(busqueda), content_type='application/json')
+	

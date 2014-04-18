@@ -52,8 +52,9 @@ urlpatterns = patterns('',
     url(r'^API/verify/sendemail/$', views.APIsendvalidarcorreo, name='APIsendvalidarcorreo'),    
 
     #Places of foursquare
+    url(r'^API/fsq/authorize/$', views.fsqCityForm, name='fsqCityForm'),
     url(r'^API/fsq/getplaces/$', views.fsqGetPlaces, name='fsqGetPlaces'),
-    url(r'^API/fsq/authorize/$', views.fsqGetToken, name='fsqGetToken'),
+    url(r'^API/fsq/getauthorization/$', views.fsqGetToken, name='fsqGetToken'),
 
     #Reset password.
     url(r'^user/password/reset/sendmail/$', password_reset,{'template_name': 'password_reset_form.html','post_reset_redirect': '/user/password/reset/done/'}, name='password_reset'),

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Please tipe the city name</title>
+</head>
+<body>
+	<form action="/API/fsq/getauthorization/" method="post">{% csrf_token %}
+		<p><label for="id_CityName">Cityname:</label> <input id="id_CityName" maxlength="50" name="CityName" type="text"> <span class="helptext">City Name</span></p>
+		<p><label for="id_fsqToken">Fsqtoken:</label> <input id="id_fsqToken" maxlength="250" name="fsqToken" type="text" value="{{data.fsqTokenD}}" readonly="readonly"> <span class="helptext">Foursquare Token</span></p>
+		<input type="submit">
+	</form>
+</body>
+</html>
