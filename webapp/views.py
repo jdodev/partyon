@@ -317,7 +317,7 @@ def APIdataHome(request):
 	ayer = hoy - timedelta(1)
 	manana = hoy + timedelta(1)
 
-	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])order_by('PlaceName')[:70]
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)]).order_by('PlaceName')[:70]
 
 	#resPlaces = Place.objects.all()[:10]
 
