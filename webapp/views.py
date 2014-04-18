@@ -317,7 +317,7 @@ def APIdataHome(request):
 	ayer = hoy - timedelta(1)
 	manana = hoy + timedelta(1)
 
-	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])[:10]
+	resPlaces = Place.objects.extra(where=['PlaceLat <= ' + str(qLatMax) + ' AND PlaceLat >= '  + str(qLatMin) + ' AND PlaceLong <= ' + str(qLongMax) + ' AND PlaceLong >= ' + str(qLongMin)])order_by('PlaceName')[:70]
 
 	#resPlaces = Place.objects.all()[:10]
 
@@ -523,7 +523,7 @@ def APIheydj(request):
 	qLongMax = float(qLong) + 0.0020000
 	qLongMin = float(qLong) - 0.0020000
 
-	resHeyDj = SongPost.objects.extra(where=['SongPostLat <= ' + str(qLatMax) + ' AND SongPostLat >= '  + str(qLatMin) + ' AND SongPostLong <= ' + str(qLongMax) + ' AND SongPostLong >= ' + str(qLongMin)])[:25]
+	resHeyDj = SongPost.objects.extra(where=['SongPostLat <= ' + str(qLatMax) + ' AND SongPostLat >= '  + str(qLatMin) + ' AND SongPostLong <= ' + str(qLongMax) + ' AND SongPostLong >= ' + str(qLongMin)]).order_by('-SongPostID')[:25]
 
 	lstHeyDj = []
 
