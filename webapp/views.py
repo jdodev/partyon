@@ -331,7 +331,7 @@ def APIdataHome(request):
 			laFoto = str(FotoObtenida[0].PhotoPostPhoto)
 			laFecha = str(FotoObtenida[0].PhotoPostDateTime)
 		else:
-			laFoto = 'nofoto.jpg'
+			laFoto = 'PhotoPosts/nofoto.jpg'
 			laFecha = "No Data"
 
 		totPersonas = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).count()
