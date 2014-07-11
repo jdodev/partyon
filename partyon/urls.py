@@ -5,5 +5,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^', include('webapp.urls')),
+    url(r'^API/V1/', include('api1_0.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
