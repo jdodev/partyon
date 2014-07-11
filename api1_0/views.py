@@ -39,7 +39,7 @@ def APIdataHome(request):
     if hayFoto > 0:
       FotoObtenida = PhotoPost.objects.filter(PhotoPost_PlaceID=dPlace).order_by('-PhotoPostID')[:1]
       laFoto = str(FotoObtenida[0].PhotoPostPhoto)
-      laFecha = str(FotoObtenida[0].PhotoPostDateTime)
+      laFecha = naturaltime(FotoObtenida[0].PhotoPostDateTime)
     else:
       laFoto = 'PhotoPosts/nofoto.jpg'
       laFecha = "No Data"
