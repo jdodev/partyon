@@ -16,8 +16,8 @@ from django.core.mail import EmailMessage
 import json
 
 def APIdataHome(request):
-  qLat = request.GET.get('qLat', False)
-  qLong = request.GET.get('qLong', False)
+  qLat = request.GET.get('qLat')
+  qLong = request.GET.get('qLong')
 
   #Sumamos los valores del marge de error
   qLatMax = float(qLat) + 0.2000000
@@ -58,4 +58,36 @@ def APIdataHome(request):
     lstPlacePhotos.append(dctLugares)
 
   respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstPlacePhotos}
+  return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+
+def APIdataactivity(request):
+  resUserActivity = PhotoPost.objects.select_related('user__userprofile').order_by('-PhotoPostID')[:25]
+
+  lstActivity = []
+
+  for act in resUserActivity:
+    timesince_c = naturaltime(act.PhotoPostDateTime)
+    dctActivity = {
+    'PhotoPhostID':act.PhotoPostID,
+    'PhotoPostDateTime':act.PhotoPostDateTime.strftime('%Y-%m-%d %H:%M'),
+    'PhotoPostTimeSince':timesince_c,
+    'PhotoPost_PlaceID':act.PhotoPost_PlaceID.PlaceID,
+    'PhotoPost_PlaceName':act.PhotoPost_PlaceID.PlaceName,
+    'PhotoPost_PlaceLat':act.PhotoPost_PlaceID.PlaceLat,
+    'PhotoPost_PlaceLong':act.PhotoPost_PlaceID.PlaceLong,
+    'PhotoPostPhoto':str(act.PhotoPostPhoto),
+    'PhotoPost_UserProfileID':act.PhotoPost_User.UserProfileID,
+    'PhotoPost_UserID':act.PhotoPost_User.UserProfile_User.pk,
+    'PhotoPost_UserName':act.PhotoPost_User.UserProfile_User.username,
+    'PhotoPost_UserFirstName':act.PhotoPost_User.UserProfile_User.first_name,
+    'PhotoPost_UserLastName':act.PhotoPost_User.UserProfile_User.last_name,
+    'PhotoPost_UserAvatar':str(act.PhotoPost_User.UserProfilePhoto),
+    'PhotoPost_Lat':act.PhotoPost_Lat,
+    'PhotoPostLong':act.PhotoPostLong,
+    'PhotoPostDescription':act.PhotoPostDescription,
+    }
+    lstActivity.append(dctActivity)
+
+  respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstActivity}
   return HttpResponse(json.dumps(respuesta), content_type='application/json')

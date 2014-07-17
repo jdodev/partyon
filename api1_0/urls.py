@@ -7,8 +7,8 @@ from django.contrib.auth.views import login, logout, password_reset, password_re
 urlpatterns = patterns('',
     #API
     url(r'^datahome/$', views.APIdataHome, name='APIdataHome'),
+    url(r'^dataactivity/$', views.APIdataactivity, name='APIdataactivity'),
     # url(r'^getplaces/$', views.getplaces, name='getplaces'),
-    # url(r'^dataactivity/$', views.APIdataactivity, name='APIdataactivity'),
     # url(r'^savephotopost/$', views.APIsavephotopost, name='APIsavephotopost'),
     # url(r'^APIsaveplace/$', views.APIsaveplace, name='APIsaveplace'),
     # url(r'^login/$', views.APIloginpartyon, name='APIloginpartyon'),
