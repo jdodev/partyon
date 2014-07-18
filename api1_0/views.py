@@ -91,3 +91,41 @@ def APIdataactivity(request):
 
   respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstActivity}
   return HttpResponse(json.dumps(respuesta), content_type='application/json')
+
+
+def APIheydj(request):
+  qLat = request.GET.get('qLat', False)
+  qLong = request.GET.get('qLong', False)
+
+  #Sumamos los valores del marge de error
+  qLatMax = float(qLat) + 0.0020000
+  qLatMin = float(qLat) - 0.0020000
+
+  qLongMax = float(qLong) + 0.0020000
+  qLongMin = float(qLong) - 0.0020000
+
+  resHeyDj = SongPost.objects.extra(where=['SongPostLat <= ' + str(qLatMax) + ' AND SongPostLat >= '  + str(qLatMin) + ' AND SongPostLong <= ' + str(qLongMax) + ' AND SongPostLong >= ' + str(qLongMin)]).order_by('-SongPostID')[:25]
+
+  lstHeyDj = []
+
+  for song in resHeyDj:
+    timesince_c = naturaltime(song.SongPostDateTime)
+    dctHeyDj = {
+    "SongPostID":song.SongPostID,
+    "SongPostDateTime":song.SongPostDateTime.strftime('%Y-%m-%d %H:%M'),
+    "SongPostTimeSince":timesince_c,
+    "SongPost_PlaceID":song.SongPost_PlaceID.PlaceID,
+    "PlaceName":song.SongPost_PlaceID.PlaceName,
+    "SongPostName":song.SongPostName,
+    "SongPost_User":song.SongPost_User.UserProfile_User.id,
+    "Username":song.SongPost_User.UserProfile_User.username,
+    "UserFirstName":song.SongPost_User.UserProfile_User.first_name,
+    "UserLastName":song.SongPost_User.UserProfile_User.last_name,
+    "SongPostLat":song.SongPostLat,
+    "SongPostLong":song.SongPostLong,
+    "SongPostQuote":song.SongPostQuote,
+    }
+    lstHeyDj.append(dctHeyDj)
+
+  respuesta = {'success':True, 'message':'Success.', 'version':'v1', 'data':lstHeyDj}
+  return HttpResponse(json.dumps(respuesta), content_type='application/json')
